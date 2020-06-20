@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public class TruckController : MonoBehaviour
 {
-    public int cash;
-    public float power, temperature;
+    public float cash, power, temperature;
+    public float truckGeneratorPower;
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
     public TextMeshProUGUI TEMP;
@@ -41,11 +41,15 @@ public class TruckController : MonoBehaviour
 
         List<Equipment> equipment = grid.GetAllEquipment();
 
+        power = truckGeneratorPower;
+
         foreach(Equipment e in equipment)
         {
             if (e)
             {
                 temperature += e.ThermalRating * Time.deltaTime;
+                cash += e.upkeepCost * Time.deltaTime;
+                power += e.power;
             }
         }
 

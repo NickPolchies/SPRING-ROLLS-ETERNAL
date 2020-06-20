@@ -5,8 +5,8 @@ using UnityEngine;
 public class Equipment : MonoBehaviour
 {
     public float ThermalRating;
-    public int cost;
-    public int upkeep;
+    public int purchaseCost;
+    public float upkeepCost;
     public float power;
     public float slots;
 }

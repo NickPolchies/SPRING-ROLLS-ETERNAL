@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainGame.unity
     guid: 55eda0c325e4c74438cbd9cb0d26a057
+  - enabled: 1
+    path: Assets/Scenes/CoordsTest.unity
+    guid: 8fd803c1d144367479e4636db9fbf267
   m_configObjects: {}

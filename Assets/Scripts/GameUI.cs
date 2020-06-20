@@ -15,6 +15,7 @@ public class GameUI : MonoBehaviour
     [Header("Menu Text")]
     public TextMeshProUGUI dayText;
     public TextMeshProUGUI cashText;
+    public TextMeshProUGUI tempText;
 
     private Equipment buying;
 
@@ -39,7 +40,8 @@ public class GameUI : MonoBehaviour
             truck.buyEquipment(truck.getMouseGridPosition(), buying);
         }
         dayText.text = "Day " + environmentInfo.day;
-        cashText.text = "Cash " + truck.cash.ToString();
+        cashText.text = "Cash " + truck.cash.ToString("F2");
+        tempText.text = "Temp " + truck.temperature.ToString("F1");
     }
 
     public void BuyItem(Equipment e)

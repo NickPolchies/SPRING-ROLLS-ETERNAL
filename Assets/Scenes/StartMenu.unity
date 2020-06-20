@@ -1155,6 +1155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startGame: {fileID: 1365164970}
   quitGame: {fileID: 29189150}
+  mainSceneName: CoordsTest
 --- !u!1 &1801849937
 GameObject:
   m_ObjectHideFlags: 0

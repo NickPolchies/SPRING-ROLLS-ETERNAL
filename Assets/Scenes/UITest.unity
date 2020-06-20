@@ -498,8 +498,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cash: 0
-  watts: 0
+  power: 0
   temperature: 0
+  truckGeneratorPower: 0
   startingEquipment:
   - {fileID: 0}
   - {fileID: 0}

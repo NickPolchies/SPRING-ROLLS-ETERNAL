@@ -69,7 +69,7 @@ public class Grid : MonoBehaviour
         equipmentInstance.transform.position = gridAnchor.TransformPoint(new Vector3(col * gridPixelWidth / width, row * gridPixelHeight / height));
     }
 
-    public Equipment GetSquare(int col, int row)
+    public Equipment GetEquipmentAt(int col, int row)
     {
         return equipment[col,row];
     }

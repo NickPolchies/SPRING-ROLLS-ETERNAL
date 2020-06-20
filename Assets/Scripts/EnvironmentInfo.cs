@@ -8,7 +8,6 @@ public class EnvironmentInfo : MonoBehaviour
     public float dayLength;
     private float timeOfDay;
     public AnimationCurve weeklyTemperatureFlow;
-    public TextMeshProUGUI dayText;
 
     public void AddTime(float time)
     {
@@ -21,8 +20,6 @@ public class EnvironmentInfo : MonoBehaviour
 
             temperature += weeklyTemperatureFlow.Evaluate(day / 7);
             temperature += Random.Range(-3f, 3f);
-
-            dayText.text = "Day " + day;
         }
     }
 }

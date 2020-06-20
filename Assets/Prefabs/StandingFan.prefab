@@ -90,7 +90,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2220004923399812391}
-  - component: {fileID: 3127317757198623593}
+  - component: {fileID: 798238450421175510}
   m_Layer: 0
   m_Name: StandingFan
   m_TagString: Untagged
@@ -113,7 +113,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3127317757198623593
+--- !u!114 &798238450421175510
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,9 +122,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5105590622343420432}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31ecd18bffe2d4044bc198e706a3c517, type: 3}
+  m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThermalRating: -0.5
-  price: 200
-  upkeep: 5
+  ThermalRating: 0
+  price: 0
+  upkeep: 0
+  watts: 0
+  slots: 0

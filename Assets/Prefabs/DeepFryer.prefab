@@ -125,8 +125,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ThermalRating: 0
-  price: 0
-  upkeep: 0
-  watts: 0
-  slots: 0
+  ThermalRating: 0.25
+  cost: 100
+  upkeep: -1
+  power: 1
+  slots: 1

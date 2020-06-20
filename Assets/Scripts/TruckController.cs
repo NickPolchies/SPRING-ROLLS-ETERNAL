@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class TruckController : MonoBehaviour
 {
     public int cash;
-    public float watts, temperature;
+    public float power, temperature;
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
     public TextMeshProUGUI TEMP;

@@ -13,8 +13,8 @@ public class GameUI : MonoBehaviour
     {
         for(int i = 1; i < equipmentButtons.Length; i++)
         {
-            TextMeshProUGUI buttonText = equipmentButtons[i].GetComponent<TextMeshProUGUI>();
-            buttonText.text = "COST\n" + equipmentList[i].price;
+            TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
+            buttonText.text = "COST\n" + equipmentList[i].cost;
         }
     }
 

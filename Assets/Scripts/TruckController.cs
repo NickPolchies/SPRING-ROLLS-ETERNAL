@@ -1,13 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TruckController : MonoBehaviour
 {
     public int cash;
     public float watts, temperature;
     private Grid grid;
-    public GameObject[] startingEquipment = new GameObject[5];
+    public Equipment[] startingEquipment = new Equipment[5];
+    public TextMeshProUGUI TEMP;
+    public float outsideTemperature;
 
     private void OnValidate()
     {
@@ -24,13 +28,23 @@ public class TruckController : MonoBehaviour
         {
             grid.AddEquipment(i, 0, startingEquipment[i]);
         }
-
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        TEMP.text = temperature.ToString();
+
+        List<Equipment> equipment = grid.GetAllEquipment();
+
+        foreach(Equipment e in equipment)
+        {
+            if (e)
+            {
+                temperature += e.ThermalRating * Time.deltaTime;
+            }
+        }
+
+        temperature += (outsideTemperature - temperature) /10 * Time.deltaTime;
     }
 }

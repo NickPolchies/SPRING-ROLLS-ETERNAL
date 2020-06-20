@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestFryer : PlaceableObject
+public abstract class Cooler : Equipment
 {
     // Start is called before the first frame update
     void Start()

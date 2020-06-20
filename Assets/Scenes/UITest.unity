@@ -356,7 +356,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  dayText: {fileID: 585849906}
 --- !u!4 &671569502
 Transform:
   m_ObjectHideFlags: 0
@@ -504,7 +503,6 @@ MonoBehaviour:
   startingEquipment:
   - {fileID: 0}
   - {fileID: 0}
-  TEMP: {fileID: 1908844772}
   outsideTemperature: 25
   insulationRating: 10
   environment: {fileID: 671569501}
@@ -707,18 +705,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1908844772 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2800657823367519744, guid: 3ab538316c5e0e4469b2097e8081f800,
-    type: 3}
-  m_PrefabInstance: {fileID: 2800657824168539876}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2800657824168539876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -836,5 +822,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Purchase Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 2800657822862978156, guid: 3ab538316c5e0e4469b2097e8081f800,
+        type: 3}
+      propertyPath: dayText
+      value: 
+      objectReference: {fileID: 585849906}
+    - target: {fileID: 2800657822862978156, guid: 3ab538316c5e0e4469b2097e8081f800,
+        type: 3}
+      propertyPath: environmentInfo
+      value: 
+      objectReference: {fileID: 671569501}
+    - target: {fileID: 2800657822862978156, guid: 3ab538316c5e0e4469b2097e8081f800,
+        type: 3}
+      propertyPath: truck
+      value: 
+      objectReference: {fileID: 1127800786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ab538316c5e0e4469b2097e8081f800, type: 3}

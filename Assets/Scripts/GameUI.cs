@@ -19,7 +19,7 @@ public class GameUI : MonoBehaviour
         for(int i = 1; i < equipmentButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = "COST\n" + equipmentList[i].upkeepCost;
+            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
             equipmentButtons[i].onClick.AddListener(() => BuyItem(equipmentList[i]));
         }
     }

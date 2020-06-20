@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thermalRating: -0.1
-  purchaseCost: 100
+  purchaseCost: 500
   upkeepCost: 0
   power: -1
   slots: 1
+  roof: 0

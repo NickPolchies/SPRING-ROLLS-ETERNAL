@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 88725c925037189478f51444814179b7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e58bf56f6668963479921795ac1c410c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 4023288403848475286}
   - component: {fileID: 461195652238203960}
   m_Layer: 0
-  m_Name: DeepFryer
+  m_Name: Double Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,8 +125,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thermalRating: 0.05
-  purchaseCost: 200
-  upkeepCost: -0.6
-  power: -1
-  slots: 1
+  thermalRating: 0.18
+  purchaseCost: 650
+  upkeepCost: -1
+  power: -1.8
+  slots: 2
+  roof: 0

@@ -30,6 +30,9 @@ public class GameUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
             equipmentButtons[i].onClick.AddListener(() => { Debug.Log("FFFFF"); BuyItem(e); });
 //            equipmentButtons[i]
+
+//            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
+//            equipmentButtons[i].onClick.AddListener(() => BuyItem(equipmentList[i]));
         }
     }
 

@@ -44,7 +44,7 @@ public class TruckController : MonoBehaviour
         {
             if (e)
             {
-                temperature += e.ThermalRating * Time.deltaTime;
+                temperature += e.thermalRating * Time.deltaTime;
                 cash += e.upkeepCost * Time.deltaTime;
                 power += e.power;
             }

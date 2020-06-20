@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GameUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+public class GameUI : MonoBehaviour
 {
     public Equipment[] equipmentList;
     public Button[] equipmentButtons;
@@ -14,54 +14,37 @@ public class GameUI : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     
     [Header("Menu Text")]
     public TextMeshProUGUI dayText;
+    public TextMeshProUGUI cashText;
 
     private Equipment buying;
-    private bool mouseDown;
 
     void Start()
     {
         buying = null;
-        for (int i = 1; i < equipmentButtons.Length; i++)
+        for (int i = 0; i < equipmentButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = "COST\n" + equipmentList[i].upkeepCost;
+            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
 
             Equipment e = equipmentList[i];
 
-            equipmentButtons[i].onClick.AddListener(() => { Debug.Log("FFFFF"); BuyItem(e); });
-//            equipmentButtons[i]
-
-//            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
-//            equipmentButtons[i].onClick.AddListener(() => BuyItem(equipmentList[i]));
+            equipmentButtons[i].onClick.AddListener(() => { Debug.Log("FFF"); BuyItem(e); });
         }
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && buying != null)
         {
-        }
-        if (Input.GetMouseButtonUp(0) && buying != null)
-        {
-            Debug.Log("TEST");
             truck.buyEquipment(truck.getMouseGridPosition(), buying);
         }
-        //dayText.text = "Day " + environmentInfo.day;
+        dayText.text = "Day " + environmentInfo.day;
+        cashText.text = "Cash " + truck.cash.ToString();
     }
 
     public void BuyItem(Equipment e)
     {
         buying = e;
-        truck.buyEquipment(truck.getMouseGridPosition(), buying);
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        mouseDown = true;
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-
+        //truck.buyEquipment(truck.getMouseGridPosition(), buying);
     }
 }

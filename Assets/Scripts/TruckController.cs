@@ -64,6 +64,8 @@ public class TruckController : MonoBehaviour
     {
         if(e.purchaseCost < cash)
         {
+            cash -= e.purchaseCost;
+
             if(grid.GetEquipmentAt(col, row) != null)
             {
                 cash += grid.GetEquipmentAt(col, row).purchaseCost/2;

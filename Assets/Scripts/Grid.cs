@@ -17,6 +17,7 @@ public class Grid : MonoBehaviour
 
     private void Update()
     {
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log(ScreenToGridCoords((Vector2)Input.mousePosition));
@@ -27,6 +28,7 @@ public class Grid : MonoBehaviour
             Debug.Log(ScreenToGridCoords((Vector2)Input.mousePosition));
             AddEquipment(ScreenToGridCoords((Vector2)Input.mousePosition), TEST2);
         }
+        */
     }
 
     public int gridPixelWidth

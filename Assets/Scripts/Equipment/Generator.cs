@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StandingFan : Cooler
+public class Generator : Equipment
 {
 
 }

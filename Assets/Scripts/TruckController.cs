@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -12,6 +13,8 @@ public class TruckController : MonoBehaviour
     public Equipment[] startingEquipment = new Equipment[5];
     public TextMeshProUGUI TEMP;
     public float outsideTemperature;
+    public float insulationRating = 10;
+    public EnvironmentInfo environment;
 
     private void OnValidate()
     {
@@ -23,6 +26,8 @@ public class TruckController : MonoBehaviour
 
     void Start()
     {
+        temperature = environment.temperature;
+
         grid = GetComponent<Grid>();
         for(int i = 0; i < startingEquipment.Length; i++)
         {
@@ -30,7 +35,6 @@ public class TruckController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
         TEMP.text = temperature.ToString();
@@ -45,6 +49,8 @@ public class TruckController : MonoBehaviour
             }
         }
 
-        temperature += (outsideTemperature - temperature) /10 * Time.deltaTime;
+        temperature += (environment.temperature - temperature) / insulationRating * Time.deltaTime;
+
+        environment.AddTime(Time.deltaTime);
     }
 }

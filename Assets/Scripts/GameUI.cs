@@ -19,10 +19,15 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI powerText;
 
     private Equipment buying;
+    private float cashUpdateTimer;
 
     void Start()
     {
         buying = null;
+
+        cashUpdateTimer = 0f;
+        cashText.text = "Cash " + truck.cash.ToString("F2");
+
         for (int i = 0; i < equipmentButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
@@ -36,14 +41,48 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
+        UpdateUI();
+        
         if (Input.GetMouseButtonDown(0) && buying != null)
         {
             truck.buyEquipment(truck.getMouseGridPosition(), buying);
+            cashText.text = "Cash " + truck.cash.ToString("F2");
         }
+    }
+
+    private void UpdateUI()
+    {
         dayText.text = "Day " + environmentInfo.day;
-        cashText.text = "Cash " + truck.cash.ToString("F2");
         tempText.text = "Temp " + truck.temperature.ToString("F1");
         powerText.text = "Power " + truck.power.ToString("F0");
+
+        cashUpdateTimer += Time.deltaTime;
+        if (cashUpdateTimer >= 1f)
+        {
+            cashUpdateTimer -= 1f;
+            cashText.text = "Cash " + truck.cash.ToString("F2");
+        }
+
+        if (truck.power < 0)
+        {
+            powerText.color = Color.red;
+        }
+        else
+        {
+            powerText.color = Color.white;
+        }
+        if (truck.temperature < 0)
+        {
+            tempText.color = Color.blue;
+        }
+        else if (truck.temperature > 40)
+        {
+            tempText.color = Color.red;
+        }
+        else
+        {
+            tempText.color = Color.white;
+        }
     }
 
     public void BuyItem(Equipment e)

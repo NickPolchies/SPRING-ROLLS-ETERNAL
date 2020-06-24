@@ -8,6 +8,6 @@ public class Equipment : MonoBehaviour
     public int purchaseCost;
     public float upkeepCost;
     public float power;
-    public float slots;
+    public int size;
     public bool roof;
 }

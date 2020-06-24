@@ -30,7 +30,8 @@ public class TruckController : MonoBehaviour
         grid = GetComponent<Grid>();
         for(int i = 0; i < startingEquipment.Length; i++)
         {
-            grid.AddEquipment(i, 0, startingEquipment[i]);
+            Equipment equipment = Instantiate(startingEquipment[i], new Vector3(0, 0, 0), Quaternion.identity);
+            grid.AddEquipment(i, 0, equipment);
         }
     }
 
@@ -60,23 +61,32 @@ public class TruckController : MonoBehaviour
         buyEquipment(point.x, point.y, e);
     }
 
-    public void buyEquipment(int col, int row, Equipment e)
+    public void buyEquipment(int col, int row, Equipment equipPrefab)
     {
-        if (col < 0)
+        if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2 || equipPrefab.size + col > grid.width)
         {
             return;
         }
 
-        if(e.purchaseCost < cash)
+        if(equipPrefab.purchaseCost < cash)
         {
-            cash -= e.purchaseCost;
-            if (grid.GetEquipmentAt(col, row) != null)
+            Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+
+            for (int i = equipPrefab.size - 1; i >= 0; i--)
             {
-                cash += grid.GetEquipmentAt(col, row).purchaseCost/2;
+                Debug.Log(col + i + ", " + row);
+
+                //Refund previous equipment in slot/s
+                if (grid.GetEquipmentAt(col + i, row))
+                {
+                    cash += grid.GetEquipmentAt(col + i, row).purchaseCost / 2;
+                }
+                grid.AddEquipment(col + i, row, equipment);
             }
 
-            grid.AddEquipment(col, row, e);
+            cash -= equipPrefab.purchaseCost;
         }
+        return;
     }
 
     public Vector2Int getMouseGridPosition()

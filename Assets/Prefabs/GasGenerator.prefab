@@ -106,7 +106,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2312543066817815675}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.0893974, y: 1.9832454, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1413837462184002949}
@@ -129,5 +129,5 @@ MonoBehaviour:
   purchaseCost: 160
   upkeepCost: 1
   power: 2
-  slots: 1
+  size: 1
   roof: 1

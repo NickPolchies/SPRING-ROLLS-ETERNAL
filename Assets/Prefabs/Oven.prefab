@@ -129,5 +129,5 @@ MonoBehaviour:
   purchaseCost: 350
   upkeepCost: -0.75
   power: -0.8
-  slots: 1
+  size: 1
   roof: 0

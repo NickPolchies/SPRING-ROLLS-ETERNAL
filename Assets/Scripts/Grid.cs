@@ -7,12 +7,12 @@ public class Grid : MonoBehaviour
 {
     public Transform gridAnchor, gridFarCorner;
     public int width, height, cellWidth, cellHeight;
-    private Equipment[,] equipment;
+    private Equipment[,] slots;
     public Equipment TEST, TEST2;
 
     private void Awake()
     {
-        equipment = new Equipment[width, height];
+        slots = new Equipment[width, height];
     }
 
     private void Update()
@@ -46,34 +46,33 @@ public class Grid : MonoBehaviour
             return cellHeight * height;
         }
     }
-    public void AddEquipment(Vector2Int point, Equipment equipmentPrefab)
+    public void AddEquipment(Vector2Int point, Equipment equipment)
     {
-        AddEquipment(point.x, point.y, equipmentPrefab);
+        AddEquipment(point.x, point.y, equipment);
     }
 
-    public void AddEquipment(int col, int row, Equipment equipmentPrefab)
+    public void AddEquipment(int col, int row, Equipment equipment)
     {
-        if (col < 0)
+        Debug.Log("Adding: " + equipment.name + ", " + equipment.ToString());
+        if(slots[col, row] != null)
         {
-            return;
+            Destroy(slots[col, row].gameObject);
         }
 
-        if(equipment[col,row] != null)
-        {
-            Destroy(equipment[col, row].gameObject);
+        slots[col, row] = equipment;
 
-        }
+        equipment.transform.parent = gridAnchor;
+        equipment.transform.position = gridAnchor.TransformPoint(new Vector3(col * gridPixelWidth / width, row * gridPixelHeight / height));
+    }
 
-        Equipment equipmentInstance = Instantiate(equipmentPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        equipment[col,row] = equipmentInstance;
-
-        equipmentInstance.transform.parent = gridAnchor;
-        equipmentInstance.transform.position = gridAnchor.TransformPoint(new Vector3(col * gridPixelWidth / width, row * gridPixelHeight / height));
+    public Equipment GetEquipmentAt(Vector2Int point)
+    {
+        return slots[point.x, point.y];
     }
 
     public Equipment GetEquipmentAt(int col, int row)
     {
-        return equipment[col,row];
+        return slots[col,row];
     }
 
     public Vector2Int ScreenToGridCoords(Vector2 point)
@@ -104,7 +103,7 @@ public class Grid : MonoBehaviour
         //If x/y are inside the grid
         if (col > 0 && col < width && row > 0 && row < height)
         {
-            return equipment[col, row];
+            return slots[col, row];
         }
         return null;
     }
@@ -113,11 +112,11 @@ public class Grid : MonoBehaviour
     {
         List<Equipment> allEquipment = new List<Equipment>();
 
-        for(int i = 0; i < equipment.GetLength(0); i++)
+        for(int i = 0; i < slots.GetLength(0); i++)
         {
-            for(int j = 0; j < equipment.GetLength(1); j++)
+            for(int j = 0; j < slots.GetLength(1); j++)
             {
-                allEquipment.Add(equipment[i, j]);
+                allEquipment.Add(slots[i, j]);
             }
         }
         return allEquipment;

@@ -45,7 +45,7 @@ public class GameUI : MonoBehaviour
         
         if (Input.GetMouseButtonDown(0) && buying != null)
         {
-            truck.buyEquipment(truck.getMouseGridPosition(), buying);
+            truck.buyEquipment(truck.GetMouseGridPosition(), buying);
             cashText.text = "Cash " + truck.cash.ToString("F2");
         }
     }
@@ -71,11 +71,11 @@ public class GameUI : MonoBehaviour
         {
             powerText.color = Color.white;
         }
-        if (truck.temperature < 0)
+        if (truck.temperature < truck.warningLowTemp)
         {
             tempText.color = Color.blue;
         }
-        else if (truck.temperature > 40)
+        else if (truck.temperature > truck.warningHighTemp)
         {
             tempText.color = Color.red;
         }

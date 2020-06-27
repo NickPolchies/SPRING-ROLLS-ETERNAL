@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class TruckController : MonoBehaviour
 {
     public float cash, power, temperature;
+    public float warningHighTemp, maxTemp, warningLowTemp, minTemp;
     public float truckGeneratorPower;
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
@@ -32,6 +33,7 @@ public class TruckController : MonoBehaviour
         {
             Equipment equipment = Instantiate(startingEquipment[i], new Vector3(0, 0, 0), Quaternion.identity);
             grid.AddEquipment(i, 0, equipment);
+            equipment.powered = true;
         }
     }
 
@@ -47,13 +49,24 @@ public class TruckController : MonoBehaviour
             {
                 temperature += e.thermalRating * 10 * Time.deltaTime;
                 cash -= e.upkeepCost * 10 * Time.deltaTime;
-                power += e.power;
+                if (e.powered)
+                {
+                    power += e.power;
+                }
             }
         }
 
         temperature += (environment.temperature - temperature) / insulationRating * Time.deltaTime;
 
         environment.AddTime(Time.deltaTime);
+        if(temperature > maxTemp)
+        {
+            GameOverHighTemp();
+        }
+        else if(temperature < minTemp)
+        {
+            GameOverLowTemp();
+        }
     }
 
     public void buyEquipment(Vector2Int point, Equipment e)
@@ -89,8 +102,18 @@ public class TruckController : MonoBehaviour
         return;
     }
 
-    public Vector2Int getMouseGridPosition()
+    public Vector2Int GetMouseGridPosition()
     {
         return grid.ScreenToGridCoords((Vector2)Input.mousePosition);
+    }
+
+    private void GameOverHighTemp()
+    {
+
+    }
+
+    private void GameOverLowTemp()
+    {
+
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Equipment : MonoBehaviour
 {
@@ -10,4 +11,5 @@ public class Equipment : MonoBehaviour
     public float power;
     public int size;
     public bool roof;
+    public bool powered;
 }

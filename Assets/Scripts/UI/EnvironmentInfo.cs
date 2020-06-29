@@ -1,5 +1,4 @@
-﻿using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class EnvironmentInfo : MonoBehaviour
 {
@@ -9,9 +8,9 @@ public class EnvironmentInfo : MonoBehaviour
     private float timeOfDay;
     public AnimationCurve weeklyTemperatureFlow;
 
-    public void AddTime(float time)
+    void Update()
     {
-        timeOfDay += time;
+        timeOfDay += Time.deltaTime;
 
         if(timeOfDay > dayLength)
         {

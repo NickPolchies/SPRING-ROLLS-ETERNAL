@@ -10,6 +10,13 @@ public class Equipment : MonoBehaviour
     public float upkeepCost;
     public float power;
     public int size;
+    
     public bool roof;
+
     public bool powered;
+
+    public void cyclePower()
+    {
+        powered = !powered;
+    }
 }

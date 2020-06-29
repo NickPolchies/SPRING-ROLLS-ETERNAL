@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class CreditsMenu : MonoBehaviour
+public class CreditsController : MonoBehaviour
 {
     void Update()
     {

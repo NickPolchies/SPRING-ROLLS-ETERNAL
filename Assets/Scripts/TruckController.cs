@@ -14,7 +14,6 @@ public class TruckController : MonoBehaviour
     public Equipment[] startingEquipment = new Equipment[5];
     public float outsideTemperature;
     public float insulationRating = 10;
-    public EnvironmentInfo environment;
 
     private void OnValidate()
     {
@@ -26,8 +25,6 @@ public class TruckController : MonoBehaviour
 
     void Start()
     {
-        temperature = environment.temperature;
-
         grid = GetComponent<Grid>();
         for(int i = 0; i < startingEquipment.Length; i++)
         {
@@ -56,9 +53,6 @@ public class TruckController : MonoBehaviour
             }
         }
 
-        temperature += (environment.temperature - temperature) / insulationRating * Time.deltaTime;
-
-        environment.AddTime(Time.deltaTime);
         if(temperature > maxTemp)
         {
             GameOverHighTemp();
@@ -115,5 +109,10 @@ public class TruckController : MonoBehaviour
     private void GameOverLowTemp()
     {
 
+    }
+
+    public void HeatTransfer(float outsideTemp)
+    {
+        temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
     }
 }

@@ -26,18 +26,19 @@ public class StatusUI : MonoBehaviour
 
         if (timeOfDay > dayLength)
         {
+            outdoorTemp += weeklyTemperatureFlow.Evaluate(day % 7);
+            outdoorTemp += Random.Range(-3f, 3f);
+
+            //Increment afterwards because day starts at 1 rather than 0
             day++;
             timeOfDay -= dayLength;
-
-            outdoorTemp += weeklyTemperatureFlow.Evaluate(day / 7);
-            outdoorTemp += Random.Range(-3f, 3f);
         }
 
         dayText.text = "Day " + day;
         tempText.text = "Temp " + truck.temperature.ToString("F1");
         powerText.text = "Power " + truck.power.ToString("F0");
 
-        /*
+        /*//TODO
         cashUpdateTimer += Time.deltaTime;
         if (cashUpdateTimer >= 1f)
         {
@@ -76,11 +77,17 @@ public class StatusUI : MonoBehaviour
 
         sun.setProgress(timeOfDay/dayLength);
 
-        if(outdoorTemp < 25 && !rain.gameObject.activeInHierarchy)
+        UpdateRain();
+    }
+
+    private void UpdateRain()
+    {
+        return; //TODO rain
+        if (outdoorTemp < 25 && !rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(true);
         }
-        else if(outdoorTemp >25 && rain.gameObject.activeInHierarchy)
+        else if (outdoorTemp > 25 && rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(false);
         }

@@ -885,7 +885,6 @@ GameObject:
   - component: {fileID: 2800657822862978146}
   - component: {fileID: 2800657822862978145}
   - component: {fileID: 2800657822862978144}
-  - component: {fileID: 2800657822862978156}
   - component: {fileID: 3423776841533390435}
   m_Layer: 5
   m_Name: Purchase Menu
@@ -975,7 +974,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &2800657822862978156
+--- !u!114 &3423776841533390435
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -984,7 +983,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2800657822862978151}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e02a9cd4671b1cc48ba967325c1e9fe2, type: 3}
+  m_Script: {fileID: 11500000, guid: c9c6ef86b6225a24fa2cfe9ef1dbc758, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   truck: {fileID: 0}
@@ -995,8 +994,8 @@ MonoBehaviour:
   - {fileID: 798238450421175510, guid: 8b7476c3ce4bfb2479e05abfa46ac440, type: 3}
   - {fileID: 461195652238203960, guid: 93578d7d470b6824ea426a3e4869935b, type: 3}
   - {fileID: 7714075090560385855, guid: d5db78a77d12d8f42b27be80a786e624, type: 3}
-  - {fileID: 7714075090560385855, guid: 29cb0b66faa35904b95f8ad49213c578, type: 3}
   - {fileID: 7714075090560385855, guid: 4b08aa7d49e886e46b42e4b8a61a2646, type: 3}
+  - {fileID: 7714075090560385855, guid: 29cb0b66faa35904b95f8ad49213c578, type: 3}
   - {fileID: 7859688712456395275, guid: aa8631a57fd89604ab8f0e0fbd77e416, type: 3}
   - {fileID: 7859688712456395275, guid: 1284c9bdd2285ba46b87d4e8690ed3dc, type: 3}
   equipmentButtons:
@@ -1010,18 +1009,6 @@ MonoBehaviour:
   - {fileID: 16732517}
   - {fileID: 992039367}
   - {fileID: 136520468833028937}
---- !u!114 &3423776841533390435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2800657822862978151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c6ef86b6225a24fa2cfe9ef1dbc758, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2800657823306958710
 GameObject:
   m_ObjectHideFlags: 0

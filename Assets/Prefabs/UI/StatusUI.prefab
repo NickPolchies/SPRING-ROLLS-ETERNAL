@@ -1004,7 +1004,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561c6edc5791b1e419f129b7a507296a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outdoorTemp: 25
+  outdoorTemp: 15
   day: 1
   dayLength: 30
   weeklyTemperatureFlow:
@@ -1092,6 +1092,8 @@ MonoBehaviour:
   insideThermometer: {fileID: 3853396200191010709}
   outsideThermometer: {fileID: 4294866199178531884}
   truck: {fileID: 0}
+  sun: {fileID: 0}
+  rain: {fileID: 0}
 --- !u!1 &7060553415705961166
 GameObject:
   m_ObjectHideFlags: 0

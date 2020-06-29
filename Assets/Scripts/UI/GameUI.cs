@@ -8,38 +8,25 @@ using UnityEngine.UI;
 public class GameUI : MonoBehaviour
 {
     public TruckController truck;
-    public Equipment[] equipmentList;
-    public Button[] equipmentButtons;
 
-    private Equipment buying;
+    public Canvas statusUI;
+    public Canvas purchaseUI;
+    public Canvas gameOverUI;
 
     void Start()
     {
-        buying = null;
-
-        for (int i = 0; i < equipmentButtons.Length; i++)
-        {
-            TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
-
-            Equipment e = equipmentList[i];
-
-            equipmentButtons[i].onClick.AddListener(() => { Debug.Log("FFF"); BuyItem(e); });
-        }
+        statusUI.gameObject.SetActive(true);
+        purchaseUI.gameObject.SetActive(true);
+        gameOverUI.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        
-        if (Input.GetMouseButtonDown(0) && buying != null)
+        if (truck.temperature > truck.maxTemp || truck.temperature < truck.minTemp)
         {
-            truck.buyEquipment(truck.GetMouseGridPosition(), buying);
+            statusUI.gameObject.SetActive(false);
+            purchaseUI.gameObject.SetActive(false);
+            gameOverUI.gameObject.SetActive(true);
         }
-    }
-
-    public void BuyItem(Equipment e)
-    {
-        buying = e;
-        //truck.buyEquipment(truck.getMouseGridPosition(), buying);
     }
 }

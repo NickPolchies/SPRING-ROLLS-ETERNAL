@@ -35,8 +35,8 @@ public class StatusUI : MonoBehaviour
         }
 
         dayText.text = "Day " + day;
-        tempText.text = "Temp " + truck.temperature.ToString("F1");
-        powerText.text = "Power " + truck.power.ToString("F0");
+        tempText.text = "Temp: " + truck.temperature.ToString("F1");
+        powerText.text = "Power: " + truck.power.ToString("F0");
 
         /*//TODO
         cashUpdateTimer += Time.deltaTime;
@@ -47,7 +47,7 @@ public class StatusUI : MonoBehaviour
         }
         */
 
-        cashText.text = "Cash " + truck.cash.ToString("F2");
+        cashText.text = "Cash: $" + truck.cash.ToString("F2");
 
         if (truck.power < 0)
         {

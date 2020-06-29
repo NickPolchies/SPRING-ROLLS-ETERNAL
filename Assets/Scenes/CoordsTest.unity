@@ -460,11 +460,55 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3060631179913149886, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a,
+        type: 2}
+    - target: {fileID: 3060631179913149886, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3732425134745029980, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a,
+        type: 2}
+    - target: {fileID: 3732425134745029980, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3883172121953715913, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
+    - target: {fileID: 4527255788159980204, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a,
+        type: 2}
+    - target: {fileID: 4527255788159980204, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754263977421819597, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a,
+        type: 2}
+    - target: {fileID: 4754263977421819597, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: truck
@@ -545,11 +589,40 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
+    - target: {fileID: 8081218257080046810, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 257
+      objectReference: {fileID: 0}
     - target: {fileID: 8609847413418530133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
-    m_RemovedComponents:
-    - {fileID: 6855785829968569460, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}
+    - target: {fileID: 8789139230239855133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8789139230239855134, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 257
+      objectReference: {fileID: 0}
+    - target: {fileID: 8789139230239855134, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_margin.x
+      value: 166.21777
+      objectReference: {fileID: 0}
+    - target: {fileID: 8789139230239855134, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_margin.z
+      value: -287.0149
+      objectReference: {fileID: 0}
+    - target: {fileID: 8789139230239855134, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: m_margin.w
+      value: -1.8668823
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}

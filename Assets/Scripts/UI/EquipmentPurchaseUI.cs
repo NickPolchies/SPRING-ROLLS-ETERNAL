@@ -17,7 +17,7 @@ public class EquipmentPurchaseUI : MonoBehaviour
         for (int i = 0; i < equipmentButtons.Length; i++)
         {
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = "COST\n" + equipmentList[i].purchaseCost;
+            buttonText.text = "$" + equipmentList[i].purchaseCost;
 
             Equipment e = equipmentList[i];
 

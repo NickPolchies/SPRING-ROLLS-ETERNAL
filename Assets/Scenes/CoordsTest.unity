@@ -545,11 +545,5 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
-    - target: {fileID: 8609847413418530133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    m_RemovedComponents:
-    - {fileID: 6855785829968569460, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}

@@ -130,4 +130,5 @@ MonoBehaviour:
   upkeepCost: -0.5
   power: 0
   size: 1
-  roof: 0
+  roof: 1
+  powered: 0

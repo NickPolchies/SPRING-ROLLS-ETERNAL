@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6855785831724200310}
   - component: {fileID: 6855785831724200311}
+  - component: {fileID: 4582359176156277107}
   m_Layer: 0
   m_Name: UISystem
   m_TagString: Untagged
@@ -50,6 +51,18 @@ MonoBehaviour:
   statusUI: {fileID: 6855785831396960994}
   purchaseUI: {fileID: 4376814866982540488}
   gameOverUI: {fileID: 8421465371494107923}
+--- !u!114 &4582359176156277107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6855785831724200265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf42534c8152eb4db61893a1f858930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1900658256314775722
 PrefabInstance:
   m_ObjectHideFlags: 0

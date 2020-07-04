@@ -16,10 +16,12 @@ public class TruckController : MonoBehaviour
     public float insulationRating = 10;
     public float lifetimeCash = 0;
 
+    /*
     public struct TruckStats
     {
         float cash, power, temperature;
     }
+    */
 
     private void OnValidate()
     {
@@ -48,16 +50,9 @@ public class TruckController : MonoBehaviour
 
         foreach(Equipment e in equipment)
         {
-            if (e)
+            if (e && e.powered)
             {
-                temperature += e.thermalRating * 10 * Time.deltaTime;
-                cash -= e.upkeepCost * 10 * Time.deltaTime;
-                lifetimeCash += e.upkeepCost < 0 ? e.upkeepCost : 0;
-
-                if (e.powered)
-                {
-                    power += e.power;
-                }
+                RunEquipment(e);
             }
         }
 
@@ -123,5 +118,13 @@ public class TruckController : MonoBehaviour
     public void HeatTransfer(float outsideTemp)
     {
         temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
+    }
+
+    private void RunEquipment(Equipment e)
+    {
+        power += e.power;
+        temperature += e.thermalRating * 10 * Time.deltaTime;
+        cash -= e.upkeepCost * 10 * Time.deltaTime;
+        lifetimeCash -= e.upkeepCost < 0 ? e.upkeepCost : 0;
     }
 }

@@ -56,7 +56,7 @@ public class Equipment : MonoBehaviour, Clickable
         }
         else
         {
-            sprite.color = Color.red;
+            sprite.color = Color.grey;
         }
     }
 

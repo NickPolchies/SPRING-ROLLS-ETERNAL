@@ -12,6 +12,7 @@ public class StatusUI : MonoBehaviour
     public float dayLength;
     private float timeOfDay;
     public AnimationCurve weeklyTemperatureFlow;
+    public float minRandomTemp, maxRandomTemp;
 
     public TextMeshProUGUI dayText, tempText, powerText, cashText;
     public Image insideThermometer;
@@ -27,7 +28,7 @@ public class StatusUI : MonoBehaviour
         if (timeOfDay > dayLength)
         {
             outdoorTemp += weeklyTemperatureFlow.Evaluate(day % 7);
-            outdoorTemp += Random.Range(-3f, 3f);
+            outdoorTemp += Random.Range(minRandomTemp, maxRandomTemp);
 
             //Increment afterwards because day starts at 1 rather than 0
             day++;

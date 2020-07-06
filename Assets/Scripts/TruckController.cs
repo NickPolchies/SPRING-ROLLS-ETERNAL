@@ -86,11 +86,14 @@ public class TruckController : MonoBehaviour
 
             for (int i = equipPrefab.size - 1; i >= 0; i--)
             {
+                Equipment previousEquipment = grid.GetEquipmentAt(col + i, row);
                 //Refund previous equipment in slot/s
-                if (grid.GetEquipmentAt(col + i, row))
+                if (previousEquipment)
                 {
-                    cash += grid.GetEquipmentAt(col + i, row).purchaseCost / 2;
+                    cash += previousEquipment.purchaseCost / 2;
+                    power -= previousEquipment.powered ? previousEquipment.power : 0;
                 }
+
                 grid.AddEquipment(col + i, row, equipment);
             }
 

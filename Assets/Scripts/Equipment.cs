@@ -76,7 +76,7 @@ public class Equipment : MonoBehaviour, Clickable
 
         if (powered)
         {
-            tickTimer += Time.deltaTime;
+            tickTimer += Time.deltaTime / size;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;

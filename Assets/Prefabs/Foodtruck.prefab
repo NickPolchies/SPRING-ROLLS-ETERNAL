@@ -188,19 +188,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ace71b645369c41918521bee62377a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cash: 400
-  power: 0
-  temperature: 15
-  warningHighTemp: 35
-  maxTemp: 40
-  warningLowTemp: 5
-  minTemp: 0
+  startingCash: 400
   truckGeneratorPower: 6
+  startingTemperature: 15
+  cash: 0
+  power: 0
+  temperature: 0
+  highTemperature: 35
+  maxTemperature: 40
+  lowTemperature: 5
+  minTemperature: 0
+  lifetimeCash: 0
+  insulationRating: 10
   startingEquipment:
   - {fileID: 461195652238203960, guid: 074aa084c575e7749a3cad6a57c6e41d, type: 3}
   - {fileID: 798238450421175510, guid: 8b7476c3ce4bfb2479e05abfa46ac440, type: 3}
-  outsideTemperature: 25
-  insulationRating: 10
 --- !u!114 &4614558941159718868
 MonoBehaviour:
   m_ObjectHideFlags: 0

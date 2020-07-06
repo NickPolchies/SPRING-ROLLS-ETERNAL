@@ -22,7 +22,7 @@ public class GameUI : MonoBehaviour
 
     void Update()
     {
-        if (truck.temperature > truck.maxTemp || truck.temperature < truck.minTemp)
+        if (truck.temperature > truck.maxTemperature || truck.temperature < truck.minTemperature)
         {
             statusUI.gameObject.SetActive(false);
             purchaseUI.gameObject.SetActive(false);

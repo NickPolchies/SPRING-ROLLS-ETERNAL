@@ -15,22 +15,6 @@ public class Grid : MonoBehaviour
         slots = new Equipment[width, height];
     }
 
-    private void Update()
-    {
-        /*
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log(ScreenToGridCoords((Vector2)Input.mousePosition));
-            AddEquipment(ScreenToGridCoords((Vector2)Input.mousePosition), TEST);
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Debug.Log(ScreenToGridCoords((Vector2)Input.mousePosition));
-            AddEquipment(ScreenToGridCoords((Vector2)Input.mousePosition), TEST2);
-        }
-        */
-    }
-
     public int gridPixelWidth
     {
         get
@@ -53,7 +37,6 @@ public class Grid : MonoBehaviour
 
     public void AddEquipment(int col, int row, Equipment equipment)
     {
-        Debug.Log("Adding: " + equipment.name + ", " + equipment.ToString());
         if(slots[col, row] != null)
         {
             Destroy(slots[col, row].gameObject);

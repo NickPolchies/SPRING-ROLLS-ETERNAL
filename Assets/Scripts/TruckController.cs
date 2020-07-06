@@ -1,27 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class TruckController : MonoBehaviour
 {
+    public float startingCash, truckGeneratorPower, startingTemperature;
     public float cash, power, temperature;
-    public float warningHighTemp, maxTemp, warningLowTemp, minTemp;
-    public float truckGeneratorPower;
+    public float highTemperature, maxTemperature, lowTemperature, minTemperature;
+    public float lifetimeCash;
+
+    public float insulationRating = 10;
+    //public float outsideTemperature;
+
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
-    public float outsideTemperature;
-    public float insulationRating = 10;
-    public float lifetimeCash = 0;
-
-    /*
-    public struct TruckStats
-    {
-        float cash, power, temperature;
-    }
-    */
 
     private void OnValidate()
     {
@@ -34,58 +30,62 @@ public class TruckController : MonoBehaviour
     void Start()
     {
         grid = GetComponent<Grid>();
-        for(int i = 0; i < startingEquipment.Length; i++)
+
+        power = 0;
+        cash = 999999;
+
+        power += truckGeneratorPower;
+
+        for (int i = 0; i < startingEquipment.Length; i++)
         {
+            BuyEquipment(i, 0, startingEquipment[i]);
+
+            /*
             Equipment equipment = Instantiate(startingEquipment[i], new Vector3(0, 0, 0), Quaternion.identity);
             grid.AddEquipment(i, 0, equipment);
             equipment.powered = true;
+            */
         }
+
+        cash = startingCash;
+        temperature = startingTemperature;
+
+        lifetimeCash = 0;
     }
 
     void Update()
     {
         List<Equipment> equipment = grid.GetAllEquipment();
 
-        power = truckGeneratorPower;
+        //power = truckGeneratorPower;
 
         foreach(Equipment e in equipment)
         {
-            if (e && e.powered)
+            if (e)
             {
                 RunEquipment(e);
             }
         }
-
-        if(temperature > maxTemp)
-        {
-            GameOverHighTemp();
-        }
-        else if(temperature < minTemp)
-        {
-            GameOverLowTemp();
-        }
     }
 
-    public void buyEquipment(Vector2Int point, Equipment e)
+    public void BuyEquipment(Vector2Int point, Equipment e)
     {
-        buyEquipment(point.x, point.y, e);
+        BuyEquipment(point.x, point.y, e);
     }
 
-    public void buyEquipment(int col, int row, Equipment equipPrefab)
+    public void BuyEquipment(int col, int row, Equipment equipPrefab)
     {
         if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2 || equipPrefab.size + col > grid.width)
         {
             return;
         }
 
-        if(equipPrefab.purchaseCost < cash)
+        if(equipPrefab.purchaseCost <= cash)
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
             for (int i = equipPrefab.size - 1; i >= 0; i--)
             {
-                Debug.Log(col + i + ", " + row);
-
                 //Refund previous equipment in slot/s
                 if (grid.GetEquipmentAt(col + i, row))
                 {
@@ -94,7 +94,15 @@ public class TruckController : MonoBehaviour
                 grid.AddEquipment(col + i, row, equipment);
             }
 
-            equipment.powered = true;
+            if (power + equipment.power < 0)
+            {
+                equipment.CyclePower();
+            }
+            else
+            {
+                power += equipment.power;
+            }
+
             cash -= equipPrefab.purchaseCost;
         }
         return;
@@ -105,16 +113,6 @@ public class TruckController : MonoBehaviour
         return grid.ScreenToGridCoords((Vector2)Input.mousePosition);
     }
 
-    private void GameOverHighTemp()
-    {
-
-    }
-
-    private void GameOverLowTemp()
-    {
-
-    }
-
     public void HeatTransfer(float outsideTemp)
     {
         temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
@@ -122,9 +120,12 @@ public class TruckController : MonoBehaviour
 
     private void RunEquipment(Equipment e)
     {
-        power += e.power;
-        temperature += e.thermalRating * 10 * Time.deltaTime;
-        cash -= e.upkeepCost * 10 * Time.deltaTime;
-        lifetimeCash -= e.upkeepCost < 0 ? e.upkeepCost : 0;
+        Equipment.Stats stats = e.UpdateStats(power);
+
+        power += stats.power;
+        //temperature += e.thermalRating * 10 * e.tickLength;
+        temperature += stats.heat * Equipment.tickLength;
+        cash += stats.cash * Equipment.tickLength;
+        lifetimeCash += stats.cash > 0 ? stats.cash : 0;
     }
 }

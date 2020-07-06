@@ -21,7 +21,7 @@ public class EquipmentPurchaseUI : MonoBehaviour
 
             Equipment e = equipmentList[i];
 
-            equipmentButtons[i].onClick.AddListener(() => { Debug.Log("FFF"); BuyItem(e); });
+            equipmentButtons[i].onClick.AddListener(() => { BuyItem(e); });
         }
 
     }
@@ -30,7 +30,8 @@ public class EquipmentPurchaseUI : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && buying != null)
         {
-            truck.buyEquipment(truck.GetMouseGridPosition(), buying);
+            truck.BuyEquipment(truck.GetMouseGridPosition(), buying);
+            buying = null;
         }
     }
 

@@ -38,15 +38,6 @@ public class StatusUI : MonoBehaviour
         tempText.text = "Temp: " + truck.temperature.ToString("F1");
         powerText.text = "Power: " + truck.power.ToString("F0");
 
-        /*//TODO
-        cashUpdateTimer += Time.deltaTime;
-        if (cashUpdateTimer >= 1f)
-        {
-            cashUpdateTimer -= 1f;
-            cashText.text = "Cash " + truck.cash.ToString("F2");
-        }
-        */
-
         cashText.text = "Cash: $" + truck.cash.ToString("F2");
 
         if (truck.power < 0)
@@ -57,11 +48,11 @@ public class StatusUI : MonoBehaviour
         {
             powerText.color = Color.white;
         }
-        if (truck.temperature < truck.warningLowTemp)
+        if (truck.temperature < truck.lowTemperature)
         {
             tempText.color = Color.blue;
         }
-        else if (truck.temperature > truck.warningHighTemp)
+        else if (truck.temperature > truck.highTemperature)
         {
             tempText.color = Color.red;
         }
@@ -72,8 +63,8 @@ public class StatusUI : MonoBehaviour
 
         truck.HeatTransfer(outdoorTemp);
 
-        insideThermometer.fillAmount = (truck.temperature - truck.minTemp) / (truck.maxTemp - truck.minTemp);
-        outsideThermometer.fillAmount = (outdoorTemp - truck.minTemp) / (truck.maxTemp - truck.minTemp);
+        insideThermometer.fillAmount = (truck.temperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
+        outsideThermometer.fillAmount = (outdoorTemp - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
 
         sun.setProgress(timeOfDay/dayLength);
 

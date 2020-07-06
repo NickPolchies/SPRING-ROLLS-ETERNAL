@@ -57,6 +57,7 @@ public class Equipment : MonoBehaviour, Clickable
         else
         {
             sprite.color = Color.grey;
+            tickTimer = 0;
         }
     }
 

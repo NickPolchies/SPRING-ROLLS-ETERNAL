@@ -76,13 +76,14 @@ public class Equipment : MonoBehaviour, Clickable
 
         if (powered)
         {
+            stats.heat = thermalRating * Time.deltaTime;
+
             tickTimer += Time.deltaTime / size;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;
 
                 stats.cash = cashFlow * tickLength;
-                stats.heat = thermalRating * tickLength;
             }
 
             UpdateProgressBar();

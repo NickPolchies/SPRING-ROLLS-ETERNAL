@@ -343,6 +343,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeatParticles
       objectReference: {fileID: 0}
+    - target: {fileID: 3074180291245547773, guid: 3f5982947f5547e4388cb80c4f0d1bec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3f5982947f5547e4388cb80c4f0d1bec, type: 3}
 --- !u!4 &63367801645469878 stripped

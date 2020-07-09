@@ -26,11 +26,13 @@ public class Equipment : MonoBehaviour, Clickable
     private float tickTimer;
     private Stats stats;
 
+    private Animator animator;
     private SpriteRenderer sprite;
     public UnityEngine.UI.Image progressBar;
 
     private void Awake()
     {
+        animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         powered = true;
 
@@ -53,10 +55,12 @@ public class Equipment : MonoBehaviour, Clickable
         if (powered)
         {
             sprite.color = Color.white;
+            animator.SetBool("Powered", true);
         }
         else
         {
             sprite.color = Color.grey;
+            animator.SetBool("Powered", false);
             tickTimer = 0;
         }
     }

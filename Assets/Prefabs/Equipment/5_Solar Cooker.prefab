@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1126770509510555562}
   - component: {fileID: 1126770509510555561}
+  - component: {fileID: 4111462855630479281}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126770509510555560}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.05, y: 0.94999963, z: 0}
+  m_LocalPosition: {x: 1.0499996, y: 0.94999963, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 4023288403848475286}
@@ -70,17 +71,37 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: e58bf56f6668963479921795ac1c410c, type: 3}
+  m_Sprite: {fileID: -7823686413940143621, guid: 8d19a9d4592ae4240a84a6143d43739a,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.21, y: 0.19}
+  m_Size: {x: 0.19, y: 0.17}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &4111462855630479281
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126770509510555560}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d73d33a9405a2854bb776f6ba104f4cd, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4335330136265774676
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,9 +112,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4023288403848475286}
   - component: {fileID: 461195652238203960}
-  - component: {fileID: 5313572802065995271}
+  - component: {fileID: 2495989955030099165}
   m_Layer: 0
-  m_Name: Double Oven
+  m_Name: 5_Solar Cooker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -111,7 +132,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1126770509510555562}
-  - {fileID: 2994666150423145461}
+  - {fileID: 341332692597761131}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -127,16 +148,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thermalRating: 1.8
-  purchaseCost: 650
-  cashFlow: 10
-  power: -1.8
+  thermalRating: 0
+  purchaseCost: 360
+  cashFlow: 12
+  power: 0
   powered: 0
   powerCycling: 0
-  size: 2
-  roof: 0
-  progressBar: {fileID: 5325048183640830583}
---- !u!61 &5313572802065995271
+  size: 1
+  roof: 1
+  progressBar: {fileID: 7265933088631291369}
+--- !u!61 &2495989955030099165
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,7 +170,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 2.05, y: 0.95}
+  m_Offset: {x: 1.05, y: 0.95}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -160,9 +181,9 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.1, y: 1.9}
+  m_Size: {x: 2.1, y: 1.9}
   m_EdgeRadius: 0
---- !u!1001 &5209146640726682046
+--- !u!1001 &7311879854892328480
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -227,7 +248,7 @@ PrefabInstance:
     - target: {fileID: 7045226009250316875, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.95
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: 8793227132217582673, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
         type: 3}
@@ -236,17 +257,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d51d8564ca65db24f9b91b5d9dd4e28d, type: 3}
---- !u!224 &2994666150423145461 stripped
+--- !u!224 &341332692597761131 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7045226009250316875, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
     type: 3}
-  m_PrefabInstance: {fileID: 5209146640726682046}
+  m_PrefabInstance: {fileID: 7311879854892328480}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5325048183640830583 stripped
+--- !u!114 &7265933088631291369 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 120687177279396809, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
     type: 3}
-  m_PrefabInstance: {fileID: 5209146640726682046}
+  m_PrefabInstance: {fileID: 7311879854892328480}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1

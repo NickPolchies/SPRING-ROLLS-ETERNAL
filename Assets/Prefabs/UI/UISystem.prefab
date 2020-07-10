@@ -306,6 +306,16 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3423776841533390435, guid: 3ab538316c5e0e4469b2097e8081f800,
+        type: 3}
+      propertyPath: equipmentButtons.Array.data[3]
+      value: 
+      objectReference: {fileID: 8428076857253685159}
+    - target: {fileID: 3423776841533390435, guid: 3ab538316c5e0e4469b2097e8081f800,
+        type: 3}
+      propertyPath: equipmentButtons.Array.data[4]
+      value: 
+      objectReference: {fileID: 4376814866555437018}
     - target: {fileID: 4991354524322165746, guid: 3ab538316c5e0e4469b2097e8081f800,
         type: 3}
       propertyPath: m_fontAsset
@@ -338,7 +348,7 @@ PrefabInstance:
     - target: {fileID: 4991354524386598290, guid: 3ab538316c5e0e4469b2097e8081f800,
         type: 3}
       propertyPath: m_fontSize
-      value: 46.3
+      value: 72
       objectReference: {fileID: 0}
     - target: {fileID: 4991354524551539869, guid: 3ab538316c5e0e4469b2097e8081f800,
         type: 3}
@@ -473,6 +483,30 @@ Canvas:
     type: 3}
   m_PrefabInstance: {fileID: 1900658256314775722}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8428076857253685159 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7968826668410593037, guid: 3ab538316c5e0e4469b2097e8081f800,
+    type: 3}
+  m_PrefabInstance: {fileID: 1900658256314775722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4376814866555437018 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2800657823306958704, guid: 3ab538316c5e0e4469b2097e8081f800,
+    type: 3}
+  m_PrefabInstance: {fileID: 1900658256314775722}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4570910490499858792
 PrefabInstance:
   m_ObjectHideFlags: 0

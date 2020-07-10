@@ -715,16 +715,6 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 52
       objectReference: {fileID: 0}
-    - target: {fileID: 1416360222295931892, guid: 47b3a00460fb8964a8c6e26a2cf35cb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -579
-      objectReference: {fileID: 0}
-    - target: {fileID: 1416360222295931892, guid: 47b3a00460fb8964a8c6e26a2cf35cb6,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 320
-      objectReference: {fileID: 0}
     - target: {fileID: 1416360222295931895, guid: 47b3a00460fb8964a8c6e26a2cf35cb6,
         type: 3}
       propertyPath: m_margin.x

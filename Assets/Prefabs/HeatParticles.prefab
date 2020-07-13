@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3074180291245547715}
   - component: {fileID: 3074180291245547714}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: HeatParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4762,4 +4762,4 @@ ParticleSystemRenderer:
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2

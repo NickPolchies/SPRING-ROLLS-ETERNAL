@@ -1,43 +1,40 @@
 fileFormatVersion: 2
-guid: b1e4a5e69bcc5c04080d8cfdfd99e402
+guid: 7486bd335bf632b489508a0320d059ab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2046994084718723528
-    second: DeluxeOven-Sheet_0
+      213: 7259095540216588483
+    second: Rotisserie-Sheet_0
   - first:
-      213: 2601975112433872671
-    second: DeluxeOven-Sheet_1
+      213: 4514864290640777884
+    second: Rotisserie-Sheet_1
   - first:
-      213: -4408739587821203279
-    second: DeluxeOven-Sheet_2
+      213: -4711776976268647213
+    second: Rotisserie-Sheet_2
   - first:
-      213: -1402482838169241391
-    second: DeluxeOven-Sheet_3
+      213: 253726284654439717
+    second: Rotisserie-Sheet_3
   - first:
-      213: 679252529868337686
-    second: DeluxeOven-Sheet_4
+      213: -4372803120229874632
+    second: Rotisserie-Sheet_4
   - first:
-      213: -478455205241990960
-    second: DeluxeOven-Sheet_5
+      213: -7617349174598981611
+    second: Rotisserie-Sheet_5
   - first:
-      213: -7000834644008591693
-    second: DeluxeOven-Sheet_0
+      213: 7895448248352107872
+    second: Rotisserie-Sheet_6
   - first:
-      213: -1555912200999989756
-    second: DeluxeOven-Sheet_1
+      213: -4965852417030225779
+    second: Rotisserie-Sheet_7
   - first:
-      213: -7160839753591735931
-    second: DeluxeOven-Sheet_2
+      213: -8783121331263269915
+    second: Rotisserie-Sheet_8
   - first:
-      213: 7269504849110917419
-    second: DeluxeOven-Sheet_3
+      213: 8769067012823495806
+    second: Rotisserie-Sheet_9
   - first:
-      213: -9122853720813611653
-    second: DeluxeOven-Sheet_4
-  - first:
-      213: -9107863210466922833
-    second: DeluxeOven-Sheet_5
+      213: 7937092842045694066
+    second: Rotisserie-Sheet_10
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -135,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_0
+      name: Rotisserie-Sheet_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -149,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3be9e98bbf908de90800000000000000
-      internalID: -7000834644008591693
+      spriteID: 3c86b39feec7db460800000000000000
+      internalID: 7259095540216588483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_1
+      name: Rotisserie-Sheet_1
       rect:
         serializedVersion: 2
-        x: 39
+        x: 19
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,20 +167,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40e03b5c81a486ae0800000000000000
-      internalID: -1555912200999989756
+      spriteID: c925dbcc62508ae30800000000000000
+      internalID: 4514864290640777884
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_2
+      name: Rotisserie-Sheet_2
       rect:
         serializedVersion: 2
-        x: 78
+        x: 38
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,20 +188,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5893ba11f269f9c90800000000000000
-      internalID: -7160839753591735931
+      spriteID: 3d4a4acddc76c9eb0800000000000000
+      internalID: -4711776976268647213
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_3
+      name: Rotisserie-Sheet_3
       rect:
         serializedVersion: 2
-        x: 117
+        x: 57
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +209,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b216c30152872e460800000000000000
-      internalID: 7269504849110917419
+      spriteID: 52de10b26ba658300800000000000000
+      internalID: 253726284654439717
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_4
+      name: Rotisserie-Sheet_4
       rect:
         serializedVersion: 2
-        x: 156
+        x: 76
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,20 +230,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b75dd0930ec156180800000000000000
-      internalID: -9122853720813611653
+      spriteID: 8348af1fabea053c0800000000000000
+      internalID: -4372803120229874632
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: DeluxeOven-Sheet_5
+      name: Rotisserie-Sheet_5
       rect:
         serializedVersion: 2
-        x: 195
+        x: 95
         y: 0
-        width: 39
-        height: 17
+        width: 19
+        height: 41
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,8 +251,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fae25456aae5a9180800000000000000
-      internalID: -9107863210466922833
+      spriteID: 518a9edb84db94690800000000000000
+      internalID: -7617349174598981611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotisserie-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 0
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06de1899954429d60800000000000000
+      internalID: 7895448248352107872
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotisserie-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 0
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8006e3798fb51bb0800000000000000
+      internalID: -4965852417030225779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotisserie-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 0
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e395e62fa51c1680800000000000000
+      internalID: -8783121331263269915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotisserie-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 0
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e74b0f6dcfbf1b970800000000000000
+      internalID: 8769067012823495806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rotisserie-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 0
+        width: 19
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 270ed6723e7362e60800000000000000
+      internalID: 7937092842045694066
       vertices: []
       indices: 
       edges: []

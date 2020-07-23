@@ -109,6 +109,11 @@ public class Equipment : MonoBehaviour, Clickable
         return stats;
     }
 
+    public Stats GetStats()
+    {
+        return stats;
+    }
+
     //TODO add a progressbar and have this update it
     private void UpdateProgressBar()
     {

@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class StatusUI : MonoBehaviour
 {
-    public float outdoorTemp;
+    public float outsideTemperature, warmingFactor;
     public int day;
     public float dayLength;
     private float timeOfDay;
@@ -27,8 +27,8 @@ public class StatusUI : MonoBehaviour
 
         if (timeOfDay > dayLength)
         {
-            outdoorTemp += weeklyTemperatureFlow.Evaluate(day % 7);
-            outdoorTemp += Random.Range(minRandomTemp, maxRandomTemp);
+            outsideTemperature += weeklyTemperatureFlow.Evaluate(day % 7);
+            outsideTemperature += Random.Range(minRandomTemp, maxRandomTemp);
 
             //Increment afterwards because day starts at 1 rather than 0
             day++;
@@ -62,24 +62,32 @@ public class StatusUI : MonoBehaviour
             tempText.color = Color.white;
         }
 
-        truck.HeatTransfer(outdoorTemp);
+        truck.HeatTransfer(outsideTemperature);
 
         insideThermometer.fillAmount = (truck.temperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
-        outsideThermometer.fillAmount = (outdoorTemp - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
+        outsideThermometer.fillAmount = (outsideTemperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
 
         sun.setProgress(timeOfDay/dayLength);
 
+        UpdateGlobalWarming();
+
         UpdateRain();
+    }
+
+    private void UpdateGlobalWarming()
+    {
+        float warming = truck.GetExternalHeatGeneration();
+        outsideTemperature += warming * warmingFactor;
     }
 
     private void UpdateRain()
     {
         return; //TODO rain
-        if (outdoorTemp < 25 && !rain.gameObject.activeInHierarchy)
+        if (outsideTemperature < 25 && !rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(true);
         }
-        else if (outdoorTemp > 25 && rain.gameObject.activeInHierarchy)
+        else if (outsideTemperature > 25 && rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(false);
         }

@@ -18,10 +18,11 @@ public class TruckController : MonoBehaviour
 
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
+    private float externalHeat;
 
     private void OnValidate()
     {
-        if(startingEquipment.Length > 5)
+        if(startingEquipment.Length > 4)
         {
             Debug.LogError("ERR: Setting starting equipment to more than 5 will cause runtime errors");
         }
@@ -33,6 +34,7 @@ public class TruckController : MonoBehaviour
 
         power = 0;
         cash = 999999;
+        externalHeat = 0;
 
         power += truckGeneratorPower;
 
@@ -73,6 +75,13 @@ public class TruckController : MonoBehaviour
         BuyEquipment(point.x, point.y, e);
     }
 
+    //validate equipment placement
+    //get existing equipment
+    //get cost/power changes
+    //validate power/cost
+    //remove existing equipment
+    //place new equipment
+    //change power/cost
     public void BuyEquipment(int col, int row, Equipment equipPrefab)
     {
         if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2 || equipPrefab.size + col > grid.width)
@@ -80,18 +89,26 @@ public class TruckController : MonoBehaviour
             return;
         }
 
-        if(equipPrefab.purchaseCost <= cash)
+        List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.size);
+
+        float cashBack = 0, powerBack = 0;
+        foreach (Equipment e in previousEquipment)
+        {
+            cashBack += e.purchaseCost;
+            powerBack -= e.power;
+        }
+
+        if (equipPrefab.purchaseCost <= cash + cashBack && power + powerBack + equipPrefab.power >= 0)
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
             for (int i = equipPrefab.size - 1; i >= 0; i--)
             {
-                Equipment previousEquipment = grid.GetEquipmentAt(col + i, row);
                 //Refund previous equipment in slot/s
-                if (previousEquipment)
+                if (grid.GetEquipmentAt(col + i, row))
                 {
-                    cash += previousEquipment.purchaseCost / 2;
-                    power -= previousEquipment.powered ? previousEquipment.power : 0;
+                    //TODO will have to change because selling would need to check for power
+                    SellEquipment(col + i, row);
                 }
 
                 grid.AddEquipment(col + i, row, equipment);
@@ -111,6 +128,37 @@ public class TruckController : MonoBehaviour
         return;
     }
 
+    private List<Equipment> GetPreviousEquipment(int col, int row, int sizeX)
+    {
+        List<Equipment> previousEquipment = new List<Equipment>();
+        for (int i = sizeX - 1; i >= 0; i--)
+        {
+            Equipment e = grid.GetEquipmentAt(col + i, row);
+
+            if (e != null && !previousEquipment.Contains(e))
+            {
+                previousEquipment.Add(grid.GetEquipmentAt(col + i, row));
+            }
+        }
+
+        return previousEquipment;
+    }
+
+    public void SellEquipment(Vector2Int point)
+    {
+        SellEquipment(point.x, point.y);
+    }
+
+    public void SellEquipment(int col, int row)
+    {
+        Equipment equipment = grid.GetEquipmentAt(col, row);
+
+        cash += equipment.purchaseCost / 2;
+        power -= equipment.powered ? equipment.power : 0;
+
+        Destroy(equipment);
+    }
+
     public Vector2Int GetMouseGridPosition()
     {
         return grid.ScreenToGridCoords((Vector2)Input.mousePosition);
@@ -125,10 +173,37 @@ public class TruckController : MonoBehaviour
     {
         Equipment.Stats stats = e.UpdateStats(power);
 
+        if (!e.roof)
+        {
+            temperature += stats.heat * Equipment.tickLength;
+        }
+
         power += stats.power;
-        //temperature += e.thermalRating * 10 * e.tickLength;
-        temperature += stats.heat * Equipment.tickLength;
         cash += stats.cash * Equipment.tickLength;
         lifetimeCash += stats.cash > 0 ? stats.cash : 0;
+    }
+
+    public float GetExternalHeatGeneration()
+    {
+        float t = 0;
+        List<Equipment> equipmentList = GetPreviousEquipment(0, 2, grid.width);
+
+        foreach(Equipment e in equipmentList)
+        {
+            t += e.thermalRating;
+        }
+
+        return t;
+    }
+
+    public Equipment GetEquipmentStatsAtMouse()
+    {
+        Vector2Int mouseGridCoords = GetMouseGridPosition();
+
+        if(mouseGridCoords.x > -1)
+        {
+            return grid.GetEquipmentAt(GetMouseGridPosition());
+        }
+        return null;
     }
 }

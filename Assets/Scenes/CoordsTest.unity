@@ -381,6 +381,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Foodtruck
       objectReference: {fileID: 0}
+    - target: {fileID: 4614558941159718869, guid: dac1f3fc1ccf5a943be4ae9fb7677385,
+        type: 3}
+      propertyPath: startingCash
+      value: 30000
+      objectReference: {fileID: 0}
     - target: {fileID: 4614558941159718870, guid: dac1f3fc1ccf5a943be4ae9fb7677385,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -8,6 +8,7 @@ public class UIMouseFollower : MonoBehaviour
     public RectTransform rectTransform;
     public TruckController truck;
     public TextMeshProUGUI text;
+    public GameObject UIElement;
 
     void Update()
     {
@@ -36,13 +37,20 @@ public class UIMouseFollower : MonoBehaviour
         //rectTransform.pivot = pivot;
 
 
-//        DisplayMouseoverInfo();
+        DisplayMouseoverInfo();
+    }
 
-        if(truck.GetMouseGridPosition().x >= 0)
+    private void DisplayMouseoverInfo()
+    {
+        UIElement.SetActive(false);
+
+        if (truck.GetMouseGridPosition().x >= 0)
         {
             Equipment equipment = truck.GetEquipmentStatsAtMouse();
-            if(equipment != null)
+            Debug.Log(equipment);
+            if (equipment != null)
             {
+                UIElement.SetActive(true);
                 text.text = "Cash: " + equipment.cashFlow + "\nHeat: " + equipment.thermalRating + "\nPower: " + equipment.power;
             }
         }

@@ -384,7 +384,7 @@ PrefabInstance:
     - target: {fileID: 4614558941159718869, guid: dac1f3fc1ccf5a943be4ae9fb7677385,
         type: 3}
       propertyPath: startingCash
-      value: 30000
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 4614558941159718870, guid: dac1f3fc1ccf5a943be4ae9fb7677385,
         type: 3}
@@ -457,6 +457,11 @@ PrefabInstance:
       objectReference: {fileID: 1127800786}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
@@ -470,6 +475,76 @@ PrefabInstance:
       propertyPath: rain
       value: 
       objectReference: {fileID: 2118657775}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: outsideTemperature
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: dayLength
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].time
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].value
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].time
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].value
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].inWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].outWeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].inWeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6855785831724200265, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_Name

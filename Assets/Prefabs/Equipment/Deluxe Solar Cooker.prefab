@@ -154,8 +154,9 @@ MonoBehaviour:
   power: 0
   powered: 0
   powerCycling: 0
-  size: 2
-  roof: 0
+  width: 2
+  height: 1
+  roof: 1
   progressBar: {fileID: 6780144480809438623}
 --- !u!61 &8583821669345967375
 BoxCollider2D:

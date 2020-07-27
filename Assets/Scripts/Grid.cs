@@ -9,6 +9,7 @@ public class Grid : MonoBehaviour
     public int width, height, cellWidth, cellHeight, horizontalGap, verticalGap;
     private Equipment[,] slots;
     public Equipment TEST, TEST2;
+    private float spriteScale = 10;
 
     private void Awake()
     {
@@ -47,6 +48,7 @@ public class Grid : MonoBehaviour
 
         equipment.transform.parent = gridAnchor;
         equipment.transform.position = gridAnchor.TransformPoint(new Vector3(col * gridPixelWidth / width, row * gridPixelHeight / height));
+        equipment.transform.localScale = new Vector3(spriteScale, spriteScale, spriteScale);
     }
 
     public Equipment GetEquipmentAt(Vector2Int point)
@@ -83,7 +85,6 @@ public class Grid : MonoBehaviour
         Vector3 point = new Vector3(x, y);
         point = Camera.main.ScreenToWorldPoint(point);
         point = gridAnchor.InverseTransformPoint(point);
-
 
         //Remove space before grid and gaps between squares
         if (point.x < 0 || point.y < 0

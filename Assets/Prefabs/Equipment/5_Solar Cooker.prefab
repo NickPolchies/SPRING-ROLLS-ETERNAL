@@ -154,7 +154,8 @@ MonoBehaviour:
   power: 0
   powered: 0
   powerCycling: 0
-  size: 1
+  width: 1
+  height: 1
   roof: 1
   progressBar: {fileID: 7265933088631291369}
 --- !u!61 &2495989955030099165

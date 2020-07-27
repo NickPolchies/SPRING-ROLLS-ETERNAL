@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 using UnityEngine.UIElements;
 
 public class Equipment : MonoBehaviour, Clickable
@@ -19,11 +20,12 @@ public class Equipment : MonoBehaviour, Clickable
     public bool powered;
     public bool powerCycling;
 
-    public int size;
+    public int width, height;
     public bool roof;
 
     public static readonly float tickLength = 1;
     private float tickTimer;
+    private float lastUpdateTime;
     private Stats stats;
 
     private Animator animator;
@@ -37,6 +39,7 @@ public class Equipment : MonoBehaviour, Clickable
         powered = true;
 
         tickTimer = 0;
+        lastUpdateTime = 0;
 
         stats.cash = 0;
         stats.heat = 0;
@@ -73,17 +76,22 @@ public class Equipment : MonoBehaviour, Clickable
         }
     }
 
-    public Stats UpdateStats(float powerIn)
+    public Stats UpdateStats(float powerIn, float updateTime)
     {
         stats.heat = 0;
         stats.cash = 0;
         stats.power = 0;
 
+        if (updateTime == lastUpdateTime)
+        {
+            return stats;
+        }
+
         if (powered)
         {
             stats.heat = thermalRating * Time.deltaTime;
 
-            tickTimer += Time.deltaTime / size;
+            tickTimer += Time.deltaTime;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;
@@ -105,6 +113,8 @@ public class Equipment : MonoBehaviour, Clickable
 
             powerCycling = false;
         }
+
+        lastUpdateTime = updateTime;
 
         return stats;
     }

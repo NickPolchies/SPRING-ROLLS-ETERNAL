@@ -59,13 +59,13 @@ public class TruckController : MonoBehaviour
     {
         List<Equipment> equipment = grid.GetAllEquipment();
 
-        //power = truckGeneratorPower;
+        float time = Time.time;
 
         foreach(Equipment e in equipment)
         {
             if (e)
             {
-                RunEquipment(e);
+                RunEquipment(e, time);
             }
         }
     }
@@ -84,12 +84,21 @@ public class TruckController : MonoBehaviour
     //change power/cost
     public void BuyEquipment(int col, int row, Equipment equipPrefab)
     {
-        if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2 || equipPrefab.size + col > grid.width)
+        if (equipPrefab.height == 2 && row == 1)
+        {
+            row = 0;
+        }
+        if (equipPrefab.width + col > grid.width)
+        {
+            col = grid.width - equipPrefab.width;
+        }
+
+        if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2)
         {
             return;
         }
 
-        List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.size);
+        List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.width, equipPrefab.height);
 
         float cashBack = 0, powerBack = 0;
         foreach (Equipment e in previousEquipment)
@@ -102,16 +111,18 @@ public class TruckController : MonoBehaviour
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
-            for (int i = equipPrefab.size - 1; i >= 0; i--)
+            for (int i = equipPrefab.width - 1; i >= 0; i--)
             {
-                //Refund previous equipment in slot/s
-                if (grid.GetEquipmentAt(col + i, row))
+                for(int j = equipPrefab.height - 1; j >= 0; j--)
                 {
-                    //TODO will have to change because selling would need to check for power
-                    SellEquipment(col + i, row);
-                }
+                    if (grid.GetEquipmentAt(col + i, row + j))
+                    {
+                        //TODO will have to change because selling would need to check for power
+                        SellEquipment(col + i, row + j);
+                    }
 
-                grid.AddEquipment(col + i, row, equipment);
+                    grid.AddEquipment(col + i, row + j, equipment);
+                }
             }
 
             if (power + equipment.power < 0)
@@ -128,16 +139,19 @@ public class TruckController : MonoBehaviour
         return;
     }
 
-    private List<Equipment> GetPreviousEquipment(int col, int row, int sizeX)
+    private List<Equipment> GetPreviousEquipment(int col, int row, int width, int height)
     {
         List<Equipment> previousEquipment = new List<Equipment>();
-        for (int i = sizeX - 1; i >= 0; i--)
+        for (int i = 0; i < width; i++)
         {
-            Equipment e = grid.GetEquipmentAt(col + i, row);
-
-            if (e != null && !previousEquipment.Contains(e))
+            for (int j = 0; j < height; j++)
             {
-                previousEquipment.Add(grid.GetEquipmentAt(col + i, row));
+                Equipment e = grid.GetEquipmentAt(col + i, row + j);
+
+                if (e != null && !previousEquipment.Contains(e))
+                {
+                    previousEquipment.Add(grid.GetEquipmentAt(col + i, row + j));
+                }
             }
         }
 
@@ -169,9 +183,9 @@ public class TruckController : MonoBehaviour
         temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
     }
 
-    private void RunEquipment(Equipment e)
+    private void RunEquipment(Equipment e, float time)
     {
-        Equipment.Stats stats = e.UpdateStats(power);
+        Equipment.Stats stats = e.UpdateStats(power, time);
 
         if (!e.roof)
         {
@@ -186,7 +200,7 @@ public class TruckController : MonoBehaviour
     public float GetExternalHeatGeneration()
     {
         float t = 0;
-        List<Equipment> equipmentList = GetPreviousEquipment(0, 2, grid.width);
+        List<Equipment> equipmentList = GetPreviousEquipment(0, 2, grid.width, 1);
 
         foreach(Equipment e in equipmentList)
         {

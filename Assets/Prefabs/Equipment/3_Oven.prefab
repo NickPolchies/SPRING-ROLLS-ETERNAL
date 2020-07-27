@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 461195652238203960}
   - component: {fileID: -2842056492448558405}
   m_Layer: 0
-  m_Name: Oven
+  m_Name: 3_Oven
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -154,7 +154,8 @@ MonoBehaviour:
   power: -1
   powered: 0
   powerCycling: 0
-  size: 1
+  width: 1
+  height: 1
   roof: 0
   progressBar: {fileID: 2880115155482739400}
 --- !u!61 &-2842056492448558405

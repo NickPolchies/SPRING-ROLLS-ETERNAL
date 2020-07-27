@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2814995560298043144}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0499996, y: 0.94999963, z: 0}
+  m_LocalPosition: {x: 1.0499996, y: 2.15, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children: []
   m_Father: {fileID: 7531180083529596531}
@@ -148,13 +148,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thermalRating: 0
-  purchaseCost: 0
-  cashFlow: 0
-  power: 0
+  thermalRating: 1
+  purchaseCost: 350
+  cashFlow: 20
+  power: -2
   powered: 1
   powerCycling: 0
-  size: 2
+  width: 1
+  height: 2
   roof: 0
   progressBar: {fileID: 4768278673931663794}
 --- !u!61 &2594649273100213649
@@ -170,7 +171,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.05, y: 0.95}
+  m_Offset: {x: 1.05, y: 2.15}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -181,7 +182,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.1, y: 1.9}
+  m_Size: {x: 2.1, y: 4.3}
   m_EdgeRadius: 0
 --- !u!1001 &4864046382222844539
 PrefabInstance:
@@ -258,7 +259,7 @@ PrefabInstance:
     - target: {fileID: 7045226009250316875, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.231
+      value: -0.025
       objectReference: {fileID: 0}
     - target: {fileID: 7045226009250316875, guid: d51d8564ca65db24f9b91b5d9dd4e28d,
         type: 3}

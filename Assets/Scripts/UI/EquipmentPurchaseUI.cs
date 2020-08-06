@@ -5,23 +5,23 @@ using UnityEngine.UI;
 public class EquipmentPurchaseUI : MonoBehaviour
 {
     public TruckController truck;
-    public Equipment[] equipmentList;
-    public Button[] equipmentButtons;
 
+    private Button[] equipmentButtons;
     private Equipment buying;
 
     void Start()
     {
+        equipmentButtons = GetComponentsInChildren<Button>();
         buying = null;
 
         for (int i = 0; i < equipmentButtons.Length; i++)
         {
+            Equipment equipment = equipmentButtons[i].GetComponent<EquipmentButton>().equipment;
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
-            buttonText.text = "$" + equipmentList[i].purchaseCost;
 
-            Equipment e = equipmentList[i];
+            buttonText.text = "$" + equipment.purchaseCost;
 
-            equipmentButtons[i].onClick.AddListener(() => { BuyItem(e); });
+            equipmentButtons[i].onClick.AddListener(() => { BuyItem(equipment); });
         }
 
     }

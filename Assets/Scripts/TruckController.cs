@@ -75,13 +75,6 @@ public class TruckController : MonoBehaviour
         BuyEquipment(point.x, point.y, e);
     }
 
-    //validate equipment placement
-    //get existing equipment
-    //get cost/power changes
-    //validate power/cost
-    //remove existing equipment
-    //place new equipment
-    //change power/cost
     public void BuyEquipment(int col, int row, Equipment equipPrefab)
     {
         if (equipPrefab.height == 2 && row == 1)
@@ -210,7 +203,7 @@ public class TruckController : MonoBehaviour
         return t;
     }
 
-    public Equipment GetEquipmentStatsAtMouse()
+    public Equipment GetEquipmentAtMouse()
     {
         Vector2Int mouseGridCoords = GetMouseGridPosition();
 

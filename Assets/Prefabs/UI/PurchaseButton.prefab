@@ -212,7 +212,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipment: {fileID: 461195652238203960, guid: 074aa084c575e7749a3cad6a57c6e41d,
     type: 3}
-  mouseoverUI: {fileID: 0}
 --- !u!114 &8169954371101821850
 MonoBehaviour:
   m_ObjectHideFlags: 0

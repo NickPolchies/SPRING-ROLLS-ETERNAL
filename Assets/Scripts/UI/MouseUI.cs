@@ -46,9 +46,6 @@ public class MouseUI : MonoBehaviour
             rectTransform.pivot += new Vector2(0, 1);
         }
 
-//        //Stops element from leaving the screen
-//        mousePos = new Vector2(Mathf.Clamp(mousePos.x, 0, Screen.width - width), Mathf.Clamp(mousePos.y, 0, Screen.height - height));
-
         rectTransform.anchoredPosition = mousePos;
     }
 
@@ -61,30 +58,10 @@ public class MouseUI : MonoBehaviour
             equipmentImage.transform.position = Input.mousePosition;
         }
 
-//        DisplayTruckEquipment();
-
         if (displayInfoPane)
         {
             mouseoverInfoPane.SetActive(true);
             text.text = "Cash: " + currentItem.cashFlow + "\nHeat: " + currentItem.thermalRating + "\nPower: " + currentItem.power;
-        }
-    }
-
-    public void DisplayTruckEquipment()
-    {
-        Equipment equipment = truck.GetEquipmentAtMouse();
-
-        if (dragging || currentItem != null) { }
-
-        if (equipment != null)
-        {
-            currentItem = equipment;
-            displayInfoPane = true;
-        }
-        else
-        {
-            displayInfoPane = false;
-            currentItem = null;
         }
     }
 

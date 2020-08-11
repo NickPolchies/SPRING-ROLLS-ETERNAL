@@ -14,11 +14,11 @@ public class TruckController : MonoBehaviour
     public float lifetimeCash;
 
     public float insulationRating = 10;
-    //public float outsideTemperature;
 
     private Grid grid;
     public Equipment[] startingEquipment = new Equipment[5];
     private float externalHeat;
+    private MouseUI mouseUI; //TODO really hate how this works, maybe redo this
 
     private void OnValidate()
     {
@@ -31,6 +31,7 @@ public class TruckController : MonoBehaviour
     void Start()
     {
         grid = GetComponent<Grid>();
+        mouseUI = FindObjectOfType<MouseUI>();
 
         power = 0;
         cash = 999999;
@@ -118,18 +119,25 @@ public class TruckController : MonoBehaviour
                 }
             }
 
-            if (power + equipment.power < 0)
-            {
-                equipment.CyclePower();
-            }
-            else
-            {
-                power += equipment.power;
-            }
+            InitializeEquipment(equipment);
 
             cash -= equipPrefab.purchaseCost;
         }
         return;
+    }
+
+    private void InitializeEquipment(Equipment e)
+    {
+        if (power + e.power < 0)
+        {
+            e.CyclePower();
+        }
+        else
+        {
+            power += e.power;
+        }
+
+        e.SetMouseUI(mouseUI);
     }
 
     private List<Equipment> GetPreviousEquipment(int col, int row, int width, int height)

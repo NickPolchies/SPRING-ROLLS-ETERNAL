@@ -60,14 +60,11 @@ public class MouseUI : MonoBehaviour
         {
             equipmentImage.transform.position = Input.mousePosition;
         }
-        else
-        {
-            DisplayTruckEquipment();
-        }
+
+//        DisplayTruckEquipment();
 
         if (displayInfoPane)
         {
-            Debug.Log("DISPLAY");
             mouseoverInfoPane.SetActive(true);
             text.text = "Cash: " + currentItem.cashFlow + "\nHeat: " + currentItem.thermalRating + "\nPower: " + currentItem.power;
         }
@@ -76,6 +73,9 @@ public class MouseUI : MonoBehaviour
     public void DisplayTruckEquipment()
     {
         Equipment equipment = truck.GetEquipmentAtMouse();
+
+        if (dragging || currentItem != null) { }
+
         if (equipment != null)
         {
             currentItem = equipment;
@@ -84,6 +84,7 @@ public class MouseUI : MonoBehaviour
         else
         {
             displayInfoPane = false;
+            currentItem = null;
         }
     }
 
@@ -91,7 +92,6 @@ public class MouseUI : MonoBehaviour
     {
         if (!dragging)
         {
-            Debug.Log("ENTER");
             displayInfoPane = true;
             currentItem = e;
         }
@@ -101,7 +101,6 @@ public class MouseUI : MonoBehaviour
     {
         if (!dragging)
         {
-            Debug.Log("EXIT");
             displayInfoPane = false;
             currentItem = null;
         }
@@ -113,14 +112,9 @@ public class MouseUI : MonoBehaviour
         equipmentImage.SetNativeSize();
         equipmentImage.rectTransform.sizeDelta *= imageScale;
         equipmentImage.enabled = true;
-        //        Debug.Log("drag start" + temp.ToString());
 
         dragging = true;
         displayInfoPane = true;
-
-        //Debug.Log(temp.sprite);
-
-//        dragImage.sprite = temp.sprite; //TODO swap the sprite rather than instantiate/destroy
     }
 
     public void DragStop()
@@ -128,8 +122,6 @@ public class MouseUI : MonoBehaviour
         dragging = false;
         displayInfoPane = false;
         equipmentImage.enabled = false;
-
-        Debug.Log("Drag End: " + currentItem.name);
 
         truck.BuyEquipment(truck.GetMouseGridPosition(), currentItem);
     }

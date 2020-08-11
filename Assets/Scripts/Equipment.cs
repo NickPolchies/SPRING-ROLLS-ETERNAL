@@ -31,6 +31,7 @@ public class Equipment : MonoBehaviour, Clickable
     private Animator animator;
     private SpriteRenderer sprite;
     public UnityEngine.UI.Image progressBar;
+    private MouseUI mouseUI;
 
     private void Awake()
     {
@@ -128,5 +129,20 @@ public class Equipment : MonoBehaviour, Clickable
     private void UpdateProgressBar()
     {
         progressBar.fillAmount = tickTimer / tickLength;
+    }
+
+    public void SetMouseUI(MouseUI mouseUIIn)
+    {
+        mouseUI = mouseUIIn;
+    }
+
+    public void OnMouseEnter()
+    {
+        mouseUI.MouseEnter(this);
+    }
+
+    public void OnMouseExit()
+    {
+        mouseUI.MouseExit();
     }
 }

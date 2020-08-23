@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 461195652238203960}
   - component: {fileID: 2495989955030099165}
   m_Layer: 0
-  m_Name: 5_Solar Cooker
+  m_Name: 5_SolarCooker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thermalRating: 0
-  purchaseCost: 360
-  cashFlow: 12
+  purchaseCost: 680
+  cashFlow: 8
   power: 0
   powered: 0
   powerCycling: 0

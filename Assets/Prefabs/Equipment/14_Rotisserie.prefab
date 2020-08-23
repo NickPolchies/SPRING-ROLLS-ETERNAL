@@ -114,7 +114,7 @@ GameObject:
   - component: {fileID: 4996090715001626943}
   - component: {fileID: 2594649273100213649}
   m_Layer: 0
-  m_Name: Rotisserie
+  m_Name: 14_Rotisserie
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -148,10 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b6b0a8b21e299b488f913b2c3d2f138, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thermalRating: 1
-  purchaseCost: 350
-  cashFlow: 20
-  power: -2
+  thermalRating: 1.2
+  purchaseCost: 900
+  cashFlow: 16
+  power: -3
   powered: 1
   powerCycling: 0
   width: 1

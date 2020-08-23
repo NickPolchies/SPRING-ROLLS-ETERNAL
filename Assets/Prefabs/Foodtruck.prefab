@@ -221,5 +221,7 @@ MonoBehaviour:
   height: 3
   cellWidth: 20
   cellHeight: 24
+  horizontalGap: 0
+  verticalGap: 0
   TEST: {fileID: 461195652238203960, guid: 074aa084c575e7749a3cad6a57c6e41d, type: 3}
   TEST2: {fileID: 798238450421175510, guid: 8b7476c3ce4bfb2479e05abfa46ac440, type: 3}

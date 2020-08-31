@@ -42,12 +42,6 @@ public class TruckController : MonoBehaviour
         for (int i = 0; i < startingEquipment.Length; i++)
         {
             BuyEquipment(i, 0, startingEquipment[i]);
-
-            /*
-            Equipment equipment = Instantiate(startingEquipment[i], new Vector3(0, 0, 0), Quaternion.identity);
-            grid.AddEquipment(i, 0, equipment);
-            equipment.powered = true;
-            */
         }
 
         cash = startingCash;
@@ -94,16 +88,13 @@ public class TruckController : MonoBehaviour
 
         List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.width, equipPrefab.height);
 
-        //float cashBack = 0;
         float powerBack = 0;
 
         foreach (Equipment e in previousEquipment)
         {
-            //cashBack += e.purchaseCost/2;
             powerBack -= e.power;
         }
 
-        //if (equipPrefab.purchaseCost <= cash + cashBack && power + powerBack + equipPrefab.power >= 0)
         if (cash - equipPrefab.purchaseCost >= 0 && power + powerBack + equipPrefab.power >= 0)
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
@@ -114,7 +105,6 @@ public class TruckController : MonoBehaviour
                 {
                     if (grid.GetEquipmentAt(col + i, row + j))
                     {
-                        //TODO will have to change because selling would need to check for power
                         Destroy(equipment);
                     }
 
@@ -161,23 +151,6 @@ public class TruckController : MonoBehaviour
 
         return previousEquipment;
     }
-
-    /*
-    public void SellEquipment(Vector2Int point)
-    {
-        SellEquipment(point.x, point.y);
-    }
-
-    public void SellEquipment(int col, int row)
-    {
-        Equipment equipment = grid.GetEquipmentAt(col, row);
-
-        cash += equipment.purchaseCost / 2;
-        power -= equipment.powered ? equipment.power : 0;
-
-        Destroy(equipment);
-    }
-    */
 
     public Vector2Int GetMouseGridPosition()
     {

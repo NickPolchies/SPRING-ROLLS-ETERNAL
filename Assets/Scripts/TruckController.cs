@@ -94,25 +94,28 @@ public class TruckController : MonoBehaviour
 
         List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.width, equipPrefab.height);
 
-        float cashBack = 0, powerBack = 0;
+        //float cashBack = 0;
+        float powerBack = 0;
+
         foreach (Equipment e in previousEquipment)
         {
-            cashBack += e.purchaseCost;
+            //cashBack += e.purchaseCost/2;
             powerBack -= e.power;
         }
 
-        if (equipPrefab.purchaseCost <= cash + cashBack && power + powerBack + equipPrefab.power >= 0)
+        //if (equipPrefab.purchaseCost <= cash + cashBack && power + powerBack + equipPrefab.power >= 0)
+        if (cash - equipPrefab.purchaseCost >= 0 && power + powerBack + equipPrefab.power >= 0)
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
             for (int i = equipPrefab.width - 1; i >= 0; i--)
             {
-                for(int j = equipPrefab.height - 1; j >= 0; j--)
+                for (int j = equipPrefab.height - 1; j >= 0; j--)
                 {
                     if (grid.GetEquipmentAt(col + i, row + j))
                     {
                         //TODO will have to change because selling would need to check for power
-                        SellEquipment(col + i, row + j);
+                        Destroy(equipment);
                     }
 
                     grid.AddEquipment(col + i, row + j, equipment);
@@ -159,6 +162,7 @@ public class TruckController : MonoBehaviour
         return previousEquipment;
     }
 
+    /*
     public void SellEquipment(Vector2Int point)
     {
         SellEquipment(point.x, point.y);
@@ -173,6 +177,7 @@ public class TruckController : MonoBehaviour
 
         Destroy(equipment);
     }
+    */
 
     public Vector2Int GetMouseGridPosition()
     {

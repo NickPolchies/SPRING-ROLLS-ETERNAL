@@ -7,12 +7,15 @@ using UnityEngine.UI;
 public class MainMenu : MonoBehaviour
 {
     public Button startGame;
+    public Button credits;
     public Button quitGame;
     public string mainSceneName;
+    public string creditsSceneName;
 
     void Start()
     {
         startGame.onClick.AddListener(StartGame);
+        credits.onClick.AddListener(Credits);
         quitGame.onClick.AddListener(QuitGame);
     }
 
@@ -30,5 +33,10 @@ public class MainMenu : MonoBehaviour
 #else
         Application.Quit();
 #endif
+    }
+
+    void Credits()
+    {
+        SceneManager.LoadScene(creditsSceneName);
     }
 }

@@ -1266,8 +1266,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startGame: {fileID: 1365164970}
+  credits: {fileID: 657613971}
   quitGame: {fileID: 29189150}
   mainSceneName: CoordsTest
+  creditsSceneName: Credits
 --- !u!1 &1770406566
 GameObject:
   m_ObjectHideFlags: 0

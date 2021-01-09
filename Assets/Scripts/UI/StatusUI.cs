@@ -13,6 +13,7 @@ public class StatusUI : MonoBehaviour
     private float timeOfDay;
     public AnimationCurve weeklyTemperatureFlow;
     public float minRandomTemp, maxRandomTemp;
+    public float powerWarning;
 
     public TextMeshProUGUI dayText, tempText, powerText, cashText;
     public Image insideThermometer;
@@ -41,15 +42,15 @@ public class StatusUI : MonoBehaviour
 
         cashText.text = "Cash: $" + truck.cash.ToString("F2");
 
-        if (truck.power <= 1)
+        if (truck.power <= 0)
         {
             powerText.color = Color.red;
         }
-        else if (truck.power == 2)
+        else if (truck.power <= powerWarning)
         {
             powerText.color = Color.yellow;
         }
-        else if (truck.power >= 3)
+        else
         {
             powerText.color = Color.green;
         }

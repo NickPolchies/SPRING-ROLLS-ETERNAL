@@ -1206,6 +1206,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   minRandomTemp: -3
   maxRandomTemp: 3
+  powerWarning: 2
   dayText: {fileID: 1416360222295931895}
   tempText: {fileID: 1416360223049568033}
   powerText: {fileID: 1907528147591123711}

@@ -121,18 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &278643774 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3806385317394044044, guid: a3c3c071214ac534081fb4109c15a781,
-    type: 3}
-  m_PrefabInstance: {fileID: 3806385317117890738}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a6a78bbbb1dc98b4d99dd2d0aab0d224, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,18 +204,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1127800786 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4614558941159718869, guid: dac1f3fc1ccf5a943be4ae9fb7677385,
-    type: 3}
-  m_PrefabInstance: {fileID: 4614558940067635207}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a3ace71b645369c41918521bee62377a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1548322935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -432,12 +408,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bafeefdbab91bfe459fdaf4de66b2971, type: 3}
---- !u!198 &2118657775 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3806385316015322717, guid: a3c3c071214ac534081fb4109c15a781,
-    type: 3}
-  m_PrefabInstance: {fileID: 3806385317117890738}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3806385317117890738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -558,31 +528,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3883172121953715913, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+    - target: {fileID: 5497239724546496356, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    - target: {fileID: 5536223995177987110, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: sun
-      value: 
-      objectReference: {fileID: 278643774}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: rain
-      value: 
-      objectReference: {fileID: 2118657775}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6855785831724200265, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_Name
@@ -643,15 +593,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6855785831724200311, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    - target: {fileID: 8609847413418530133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}

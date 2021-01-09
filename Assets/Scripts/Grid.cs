@@ -39,13 +39,16 @@ public class Grid : MonoBehaviour
 
     public void AddEquipment(int col, int row, Equipment equipment)
     {
-        Debug.Log(col + ", " + equipment.width + ", " + row + ", " + equipment.height);
         for(int c = col; c < col + equipment.width; c++)
         {
             for(int r = row; r < row + equipment.height; r++)
             {
                 if(slots[c, r] != null)
                 {
+                    slots[c, r].power = 0;
+                    slots[c, r].cashFlow = 0;
+                    slots[c, r].thermalRating = 0;
+
                     Destroy(slots[c, r].gameObject);
                 }
 

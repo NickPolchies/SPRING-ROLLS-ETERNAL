@@ -58,10 +58,7 @@ public class TruckController : MonoBehaviour
 
         foreach(Equipment e in equipment)
         {
-            if (e)
-            {
-                RunEquipment(e, time);
-            }
+            RunEquipment(e, time);
         }
     }
 
@@ -197,10 +194,7 @@ public class TruckController : MonoBehaviour
 
         foreach (Equipment e in equipment)
         {
-            if (e)
-            {
-                power += e.power;
-            }
+            power += e.power;
         }
 
         power += truckGeneratorPower;

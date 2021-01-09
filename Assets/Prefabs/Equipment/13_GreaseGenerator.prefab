@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thermalRating: 0.5
-  purchaseCost: 900
+  purchaseCost: 760
   cashFlow: 4
   power: 4
   powered: 0

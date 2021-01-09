@@ -41,13 +41,17 @@ public class StatusUI : MonoBehaviour
 
         cashText.text = "Cash: $" + truck.cash.ToString("F2");
 
-        if (truck.power < 0)
+        if (truck.power <= 1)
         {
             powerText.color = Color.red;
         }
-        else
+        else if (truck.power == 2)
         {
-            powerText.color = Color.white;
+            powerText.color = Color.yellow;
+        }
+        else if (truck.power >= 3)
+        {
+            powerText.color = Color.green;
         }
         if (truck.temperature < truck.lowTemperature)
         {

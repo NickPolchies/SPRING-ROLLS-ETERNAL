@@ -61,6 +61,7 @@ public class MouseUI : MonoBehaviour
         if (displayInfoPane)
         {
             mouseoverInfoPane.SetActive(true);
+            //Debug.Log(currentItem.name);
             text.text = "Cash: " + currentItem.cashFlow + "\nHeat: " + currentItem.thermalRating + "\nPower: " + currentItem.power;
         }
     }
@@ -79,7 +80,7 @@ public class MouseUI : MonoBehaviour
         if (!dragging)
         {
             displayInfoPane = false;
-            currentItem = null;
+            //currentItem = null;
         }
     }
 

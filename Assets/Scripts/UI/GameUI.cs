@@ -12,12 +12,14 @@ public class GameUI : MonoBehaviour
     public Canvas statusUI;
     public Canvas purchaseUI;
     public Canvas gameOverUI;
+    public Canvas mouseUI;
 
     void Start()
     {
         statusUI.gameObject.SetActive(true);
         purchaseUI.gameObject.SetActive(true);
         gameOverUI.gameObject.SetActive(false);
+        mouseUI.gameObject.SetActive(true);
     }
 
     void Update()
@@ -27,6 +29,7 @@ public class GameUI : MonoBehaviour
             statusUI.gameObject.SetActive(false);
             purchaseUI.gameObject.SetActive(false);
             gameOverUI.gameObject.SetActive(true);
+            mouseUI.gameObject.SetActive(false);
         }
     }
 }

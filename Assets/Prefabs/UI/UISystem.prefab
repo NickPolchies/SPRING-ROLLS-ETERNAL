@@ -52,6 +52,7 @@ MonoBehaviour:
   statusUI: {fileID: 6855785831396960994}
   purchaseUI: {fileID: 4376814866982540488}
   gameOverUI: {fileID: 8421465371494107923}
+  mouseUI: {fileID: 5337367583161603428}
 --- !u!114 &4582359176156277107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1262,6 +1263,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf4304a6771caa9498a914c280da4e60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &5337367583161603428 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 1209337331564637261, guid: 07d10b8cea7f210478021f0b55f5c9ed,
+    type: 3}
+  m_PrefabInstance: {fileID: 6546631236307073321}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7664747844855793189
 PrefabInstance:
   m_ObjectHideFlags: 0

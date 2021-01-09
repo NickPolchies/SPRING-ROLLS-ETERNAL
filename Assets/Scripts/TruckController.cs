@@ -99,6 +99,9 @@ public class TruckController : MonoBehaviour
         {
             Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
 
+            grid.AddEquipment(col, row, equipment);
+
+            /*
             for (int i = equipPrefab.width - 1; i >= 0; i--)
             {
                 for (int j = equipPrefab.height - 1; j >= 0; j--)
@@ -111,26 +114,14 @@ public class TruckController : MonoBehaviour
                     grid.AddEquipment(col + i, row + j, equipment);
                 }
             }
+            */
 
-            InitializeEquipment(equipment);
+            UpdatePower();
+            equipment.SetMouseUI(mouseUI);
 
             cash -= equipPrefab.purchaseCost;
         }
         return;
-    }
-
-    private void InitializeEquipment(Equipment e)
-    {
-        if (power + e.power < 0)
-        {
-            e.CyclePower();
-        }
-        else
-        {
-            power += e.power;
-        }
-
-        e.SetMouseUI(mouseUI);
     }
 
     private List<Equipment> GetPreviousEquipment(int col, int row, int width, int height)
@@ -171,7 +162,6 @@ public class TruckController : MonoBehaviour
             temperature += stats.heat * Equipment.tickLength;
         }
 
-        power += stats.power;
         cash += stats.cash * Equipment.tickLength;
         lifetimeCash += stats.cash > 0 ? stats.cash : 0;
     }
@@ -198,5 +188,21 @@ public class TruckController : MonoBehaviour
             return grid.GetEquipmentAt(GetMouseGridPosition());
         }
         return null;
+    }
+
+    private void UpdatePower()
+    {
+        power = 0;
+        List<Equipment> equipment = grid.GetAllEquipment();
+
+        foreach (Equipment e in equipment)
+        {
+            if (e)
+            {
+                power += e.power;
+            }
+        }
+
+        power += truckGeneratorPower;
     }
 }

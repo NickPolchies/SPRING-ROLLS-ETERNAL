@@ -40,7 +40,7 @@ public class Equipment : MonoBehaviour, Clickable
         powered = true;
 
         tickTimer = 0;
-        lastUpdateTime = 0;
+        lastUpdateTime = Time.time;
 
         stats.cash = 0;
         stats.heat = 0;
@@ -82,17 +82,31 @@ public class Equipment : MonoBehaviour, Clickable
         stats.heat = 0;
         stats.cash = 0;
         stats.power = 0;
+        float deltaTime = updateTime - lastUpdateTime;
 
-        if (updateTime == lastUpdateTime)
+        if (deltaTime == 0)
         {
             return stats;
         }
 
+        if (powerCycling)
+        {
+            float requestedPower = powered ? -power : power;
+            if (requestedPower + powerIn >= 0)
+            {
+                CyclePower();
+                //stats.power = requestedPower;
+            }
+
+            powerCycling = false;
+        }
+
         if (powered)
         {
-            stats.heat = thermalRating * Time.deltaTime;
+            stats.power = power;
+            stats.heat = thermalRating * deltaTime;
 
-            tickTimer += Time.deltaTime;
+            tickTimer += deltaTime;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;
@@ -101,18 +115,6 @@ public class Equipment : MonoBehaviour, Clickable
             }
 
             UpdateProgressBar();
-        }
-
-        if (powerCycling)
-        {
-            float requestedPower = powered ? -power : power;
-            if(requestedPower + powerIn >= 0)
-            {
-                CyclePower();
-                stats.power = requestedPower;
-            }
-
-            powerCycling = false;
         }
 
         lastUpdateTime = updateTime;

@@ -30,6 +30,7 @@ public class Equipment : MonoBehaviour, Clickable
 
     private Animator animator;
     private SpriteRenderer sprite;
+    private ParticleSystem particles;
     public UnityEngine.UI.Image progressBar;
     private MouseUI mouseUI;
 
@@ -37,6 +38,7 @@ public class Equipment : MonoBehaviour, Clickable
     {
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
+        particles = GetComponentInChildren<ParticleSystem>();
         powered = true;
 
         tickTimer = 0;
@@ -60,12 +62,14 @@ public class Equipment : MonoBehaviour, Clickable
         {
             sprite.color = Color.white;
             animator.SetBool("Powered", true);
+            particles.Play();
         }
         else
         {
             sprite.color = Color.grey;
             animator.SetBool("Powered", false);
             tickTimer = 0;
+            particles.Stop();
         }
     }
 

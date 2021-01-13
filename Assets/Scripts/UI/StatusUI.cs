@@ -22,16 +22,19 @@ public class StatusUI : MonoBehaviour
     public Sun sun;
     public ParticleSystem rain;
 
+    private void Awake()
+    {
+        day = 1;
+    }
+
     void Update()
     {
         timeOfDay += Time.deltaTime;
 
         if (timeOfDay > dayLength)
         {
-            outsideTemperature += weeklyTemperatureFlow.Evaluate(day % 20);
-            outsideTemperature += Random.Range(minRandomTemp, maxRandomTemp);
+            outsideTemperature += weeklyTemperatureFlow.Evaluate(day % 7) + Random.Range(minRandomTemp, maxRandomTemp);
 
-            //Increment afterwards because day starts at 1 rather than 0
             day++;
             timeOfDay -= dayLength;
         }

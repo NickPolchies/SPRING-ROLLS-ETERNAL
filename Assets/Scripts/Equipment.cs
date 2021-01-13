@@ -62,14 +62,22 @@ public class Equipment : MonoBehaviour, Clickable
         {
             sprite.color = Color.white;
             animator.SetBool("Powered", true);
-            particles.Play();
+
+            if (particles)
+            {
+                particles.Play();
+            }
         }
         else
         {
             sprite.color = Color.grey;
             animator.SetBool("Powered", false);
             tickTimer = 0;
-            particles.Stop();
+
+            if (particles)
+            {
+                particles.Stop();
+            }
         }
     }
 

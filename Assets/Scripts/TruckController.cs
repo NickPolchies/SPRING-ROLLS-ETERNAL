@@ -83,7 +83,7 @@ public class TruckController : MonoBehaviour
             return;
         }
 
-        List<Equipment> previousEquipment = GetPreviousEquipment(col, row, equipPrefab.width, equipPrefab.height);
+        List<Equipment> previousEquipment = GetEquipmentAtGrid(col, row, equipPrefab.width, equipPrefab.height);
 
         float powerBack = 0;
 
@@ -121,7 +121,7 @@ public class TruckController : MonoBehaviour
         return;
     }
 
-    private List<Equipment> GetPreviousEquipment(int col, int row, int width, int height)
+    private List<Equipment> GetEquipmentAtGrid(int col, int row, int width, int height)
     {
         List<Equipment> previousEquipment = new List<Equipment>();
         for (int i = 0; i < width; i++)
@@ -166,7 +166,7 @@ public class TruckController : MonoBehaviour
     public float GetExternalHeatGeneration()
     {
         float t = 0;
-        List<Equipment> equipmentList = GetPreviousEquipment(0, 2, grid.width, 1);
+        List<Equipment> equipmentList = GetEquipmentAtGrid(0, 2, grid.width, 1);
 
         foreach(Equipment e in equipmentList)
         {

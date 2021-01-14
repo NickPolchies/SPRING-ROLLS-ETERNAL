@@ -17,7 +17,8 @@ public class StatusUI : MonoBehaviour
 
     public TextMeshProUGUI dayText, tempText, powerText, cashText;
     public Image insideThermometer;
-    public Image outsideThermometer;
+    public OutsideThermometer outsideThermometer;
+    //public Image outsideThermometer, outsideThermometerCold, outsideThermometerHot;
     public TruckController truck;
     public Sun sun;
     public ParticleSystem rain;
@@ -33,7 +34,7 @@ public class StatusUI : MonoBehaviour
 
         if (timeOfDay > dayLength)
         {
-            outsideTemperature += weeklyTemperatureFlow.Evaluate(day % 7) + Random.Range(minRandomTemp, maxRandomTemp);
+            outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 7) + Random.Range(minRandomTemp, maxRandomTemp);
 
             day++;
             timeOfDay -= dayLength;
@@ -70,10 +71,11 @@ public class StatusUI : MonoBehaviour
             tempText.color = Color.white;
         }
 
-        truck.HeatTransfer(outsideTemperature);
+        truck.HeatTransfer(outsideThermometer.temperature);
 
         insideThermometer.fillAmount = (truck.temperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
-        outsideThermometer.fillAmount = (outsideTemperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
+        //outsideThermometer.fillAmount = (outsideTemperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
+        //outsideThermometer.temperature = outsideTemperature;
 
         sun.setProgress(timeOfDay/dayLength);
 
@@ -85,17 +87,17 @@ public class StatusUI : MonoBehaviour
     private void UpdateGlobalWarming()
     {
         float warming = truck.GetExternalHeatGeneration();
-        outsideTemperature += warming * warmingFactor;
+        outsideThermometer.temperature += warming * warmingFactor;
     }
 
     private void UpdateRain()
     {
         return; //TODO rain
-        if (outsideTemperature < 25 && !rain.gameObject.activeInHierarchy)
+        if (outsideThermometer.temperature < 25 && !rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(true);
         }
-        else if (outsideTemperature > 25 && rain.gameObject.activeInHierarchy)
+        else if (outsideThermometer.temperature > 25 && rain.gameObject.activeInHierarchy)
         {
             rain.gameObject.SetActive(false);
         }

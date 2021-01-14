@@ -1238,11 +1238,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
-      propertyPath: dayLength
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
       propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].time
       value: 7
       objectReference: {fileID: 0}

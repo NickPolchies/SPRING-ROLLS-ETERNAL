@@ -883,6 +883,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7859688712456395275, guid: 1284c9bdd2285ba46b87d4e8690ed3dc,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 17d2972ca5136fe44ad2e668f21650b1,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1045,6 +1051,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798238450421175510, guid: 89cc5bd734cd7d24c8a8f5f1c3f6cbfa,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 6579510374293e34894f218fbc6ae02a,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1202,6 +1214,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4996090715001626943, guid: 68b976defaf3d92439f446d263639601,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 56741858449789f42a36842f1b8c1ac3,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1364,6 +1382,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7714075090560385855, guid: 4b08aa7d49e886e46b42e4b8a61a2646,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 1a569e78467961d458996bbc24785b37,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1521,6 +1545,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 461195652238203960, guid: 0e003e70a6cb5f14ea7c2071e0ba7824,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 573745c104b600c41814f9cb36d7f680,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1698,6 +1728,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7714075090560385855, guid: d5db78a77d12d8f42b27be80a786e624,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: f517b31ac49f3cb4a8209570bb37575f,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -1855,6 +1891,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 461195652238203960, guid: 5884b917664429549becf781938b687d,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 601b0de95c5407d459c41919e8a0eddd,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2017,6 +2059,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798238450421175510, guid: ad1a77863d89c344ebcb582cc19f2cb0,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 121b325a56918314aa4b7d8bcb0a9909,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2179,6 +2227,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7714075090560385855, guid: 29cb0b66faa35904b95f8ad49213c578,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: d60f7495fb6492443bf2b039017c5273,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2341,6 +2395,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 798238450421175510, guid: 8b7476c3ce4bfb2479e05abfa46ac440,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: ba866b75163ab3542a5f2c8079ce3f52,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2623,6 +2683,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7859688712456395275, guid: aa8631a57fd89604ab8f0e0fbd77e416,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 0a84b33a8a6de1e43a0ff6a240c31e3c,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2785,6 +2851,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 461195652238203960, guid: 0a50abebd3938d24fa4e7f95198faefa,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: adf6660dd9361f145a030c6638468a80,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -2942,6 +3014,12 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 461195652238203960, guid: 93578d7d470b6824ea426a3e4869935b,
         type: 3}
+    - target: {fileID: 4398877832721992411, guid: da36270499dd2354498f788021656df7,
+        type: 3}
+      propertyPath: equipmentType
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ad9278c95c60904fbbcca78ca5fbcdb,
+        type: 2}
     - target: {fileID: 5695759734416493698, guid: da36270499dd2354498f788021656df7,
         type: 3}
       propertyPath: m_textInfo.characterCount

@@ -39,15 +39,13 @@ public class Grid : MonoBehaviour
 
     public void AddEquipment(int col, int row, Equipment equipment)
     {
-        for(int c = col; c < col + equipment.width; c++)
+        for(int c = col; c < col + equipment.type.Size.GridSize.x; c++)
         {
-            for(int r = row; r < row + equipment.height; r++)
+            for(int r = row; r < row + equipment.type.Size.GridSize.y; r++)
             {
                 if(slots[c, r] != null)
                 {
-                    slots[c, r].power = 0;
-                    slots[c, r].cashFlow = 0;
-                    slots[c, r].thermalRating = 0;
+                    slots[c, r].type = null;
 
                     Destroy(slots[c, r].gameObject);
                 }
@@ -55,15 +53,6 @@ public class Grid : MonoBehaviour
                 slots[c, r] = equipment;
             }
         }
-
-        /*
-        if(slots[col, row] != null)
-        {
-            Destroy(slots[col, row].gameObject);
-        }
-
-        slots[col, row] = equipment;
-        */
 
         equipment.transform.parent = gridAnchor;
         equipment.transform.position = gridAnchor.TransformPoint(new Vector3(col * gridPixelWidth / width, row * gridPixelHeight / height));

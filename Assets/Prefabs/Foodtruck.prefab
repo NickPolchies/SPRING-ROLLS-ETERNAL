@@ -201,8 +201,10 @@ MonoBehaviour:
   lifetimeCash: 0
   insulationRating: 10
   startingEquipment:
-  - {fileID: 461195652238203960, guid: 074aa084c575e7749a3cad6a57c6e41d, type: 3}
-  - {fileID: 798238450421175510, guid: 8b7476c3ce4bfb2479e05abfa46ac440, type: 3}
+  - {fileID: 11400000, guid: dd03476152f66ad4ca44aba51cd04242, type: 2}
+  - {fileID: 11400000, guid: ba866b75163ab3542a5f2c8079ce3f52, type: 2}
+  equipmentTemplate: {fileID: 203776009895562057, guid: 8caea6516eba33749a657aa812c11b0e,
+    type: 3}
 --- !u!114 &4614558941159718868
 MonoBehaviour:
   m_ObjectHideFlags: 0

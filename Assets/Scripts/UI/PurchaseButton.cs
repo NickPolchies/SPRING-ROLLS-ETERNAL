@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class PurchaseButton : MonoBehaviour
 {
-    public Equipment equipment;
+    public EquipmentType equipmentType;
     private EquipmentPurchaseUI equipmentPurchaseUI;
 
     public void SetPurchaseUI(EquipmentPurchaseUI newEquipmentPurchaseUI)
@@ -15,7 +13,7 @@ public class PurchaseButton : MonoBehaviour
 
     public void MouseEnter()
     {
-        equipmentPurchaseUI.mouseUI.MouseEnter(equipment);
+        equipmentPurchaseUI.mouseUI.MouseEnter(equipmentType);
     }
 
     public void MouseExit()

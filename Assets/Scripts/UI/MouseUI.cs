@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +8,7 @@ public class MouseUI : MonoBehaviour
     public TruckController truck;
     public TextMeshProUGUI text;
     public GameObject mouseoverInfoPane;
-    private Equipment currentItem;
+    private EquipmentType currentEquipType;
     private bool dragging;
     public Image equipmentImage;
     public float imageScale;
@@ -18,7 +16,7 @@ public class MouseUI : MonoBehaviour
 
     private void Start()
     {
-        currentItem = null;
+        currentEquipType = null;
         dragging = false;
     }
 
@@ -53,7 +51,7 @@ public class MouseUI : MonoBehaviour
     {
         mouseoverInfoPane.SetActive(false);
 
-        if (currentItem != null)
+        if(currentEquipType != null)
         {
             equipmentImage.transform.position = Input.mousePosition;
         }
@@ -61,17 +59,16 @@ public class MouseUI : MonoBehaviour
         if (displayInfoPane)
         {
             mouseoverInfoPane.SetActive(true);
-            //Debug.Log(currentItem.name);
-            text.text = "Cash: " + currentItem.cashFlow + "\nHeat: " + currentItem.thermalRating + "\nPower: " + currentItem.power;
+            text.text = "Cash: " + currentEquipType.CashFlow + "\nHeat: " + currentEquipType.Heat + "\nPower: " + currentEquipType.Power;
         }
     }
 
-    public void MouseEnter(Equipment e)
+    public void MouseEnter(EquipmentType e)
     {
         if (!dragging)
         {
             displayInfoPane = true;
-            currentItem = e;
+            currentEquipType = e;
         }
     }
 
@@ -101,6 +98,6 @@ public class MouseUI : MonoBehaviour
         displayInfoPane = false;
         equipmentImage.enabled = false;
 
-        truck.BuyEquipment(truck.GetMouseGridPosition(), currentItem);
+        truck.BuyEquipment(truck.GetMouseGridPosition(), currentEquipType);
     }
 }

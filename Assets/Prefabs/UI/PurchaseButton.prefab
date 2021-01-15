@@ -212,6 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equipment: {fileID: 461195652238203960, guid: 074aa084c575e7749a3cad6a57c6e41d,
     type: 3}
+  equipmentType: {fileID: 11400000, guid: dd03476152f66ad4ca44aba51cd04242, type: 2}
 --- !u!114 &8169954371101821850
 MonoBehaviour:
   m_ObjectHideFlags: 0

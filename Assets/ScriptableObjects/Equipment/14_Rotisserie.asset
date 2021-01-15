@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ec8c62c1c405048a9d5ec84b753cea, type: 3}
+  m_Name: 14_Rotisserie
+  m_EditorClassIdentifier: 
+  cost: 540
+  cashFlow: 16
+  heat: 1.2
+  power: -3
+  roof: 0
+  size: {fileID: 11400000, guid: c0892b6641c3ca94e8a378bdc7d4db17, type: 2}
+  graphics: {fileID: 7342276403813392347, guid: 78f8dcb6a4e3ec74e963120f2d9aa604,
+    type: 3}

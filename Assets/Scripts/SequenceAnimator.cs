@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class SequenceAnimator : MonoBehaviour
 {
-    // Start is called before the first frame update
-
     List<Animator> _animators;
     public float Interval = 0.07f;
     public float WaitEnd = 2f;
@@ -14,8 +12,6 @@ public class SequenceAnimator : MonoBehaviour
     {
         _animators = new List<Animator>(GetComponentsInChildren<Animator>());
 
-
-        // Update is called once per frame
         StartCoroutine(DoAnimation());
     }
 

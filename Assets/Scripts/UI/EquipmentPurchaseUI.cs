@@ -8,7 +8,7 @@ public class EquipmentPurchaseUI : MonoBehaviour
     public MouseUI mouseUI;
 
     private PurchaseButton[] equipmentButtons;
-    private Equipment buying;
+    private EquipmentType buying;
 
     void Start()
     {
@@ -18,10 +18,10 @@ public class EquipmentPurchaseUI : MonoBehaviour
         for (int i = 0; i < equipmentButtons.Length; i++)
         {
             equipmentButtons[i].SetPurchaseUI(this);
-            Equipment equipment = equipmentButtons[i].equipment;
+            EquipmentType equipment = equipmentButtons[i].equipmentType;
             TextMeshProUGUI buttonText = equipmentButtons[i].GetComponentInChildren<TextMeshProUGUI>();
 
-            buttonText.text = "$" + equipment.purchaseCost;
+            buttonText.text = "$" + equipment.Cost;
 
 //            equipmentButtons[i].onClick.AddListener(() => { BuyItem(equipment); });
         }
@@ -37,7 +37,7 @@ public class EquipmentPurchaseUI : MonoBehaviour
         }
     }
 
-    public void BuyItem(Equipment e)
+    public void BuyItem(EquipmentType e)
     {
         buying = e;
     }

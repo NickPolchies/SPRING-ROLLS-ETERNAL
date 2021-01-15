@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.PlayerLoop;
+﻿using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
 
 public class Equipment : MonoBehaviour, Clickable
 {
@@ -13,19 +11,14 @@ public class Equipment : MonoBehaviour, Clickable
         public float power;
     }
 
-    public float thermalRating;
-    public int purchaseCost;
-    public float cashFlow;
-    public float power;
+    public EquipmentType type;
+    
     public bool powered;
     public bool powerCycling;
 
-    public int width, height;
-    public bool roof;
-
     public static readonly float tickLength = 1;
     private float tickTimer;
-    private float lastUpdateTime;
+    private float lastUpdateTime = Mathf.Infinity;
     private Stats stats;
 
     private Animator animator;
@@ -34,8 +27,20 @@ public class Equipment : MonoBehaviour, Clickable
     public UnityEngine.UI.Image progressBar;
     private MouseUI mouseUI;
 
-    private void Awake()
+    private FloatingText floatingText;
+    public TMP_FontAsset floatingTextFont;
+
+    //TODO clean this up. Fewer complex calls. Caching?
+    private void Start()
     {
+        GameObject graphics = Instantiate(type.Graphics, transform.position, Quaternion.identity);
+        graphics.transform.SetParent(transform);
+        graphics.transform.localScale = Vector3.one;
+
+        BoxCollider2D collider = GetComponentInChildren<BoxCollider2D>();
+        collider.offset = type.Size.ColliderOffset;
+        collider.size = type.Size.ColliderSize;
+
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
@@ -47,11 +52,18 @@ public class Equipment : MonoBehaviour, Clickable
         stats.cash = 0;
         stats.heat = 0;
         stats.power = 0;
+
+        BoxCollider2D rect = gameObject.GetComponent<BoxCollider2D>();
+        floatingText = new FloatingText(new Vector3(rect.offset.x, rect.offset.y, transform.position.z), transform, floatingTextFont);
+
+        Transform progressBarContainer = progressBar.transform.parent;
+        progressBarContainer.gameObject.SetActive(type.CashFlow != 0);
+        progressBarContainer.GetComponent<RectTransform>().localPosition += new Vector3(type.Size.ColliderOffset.x, 0, 0);
     }
 
     public void CyclePower()
     {
-        if (power >= 0 && cashFlow > 0)
+        if (type.Power >= 0 && type.CashFlow > 0)
         {
             return;
         }
@@ -96,14 +108,16 @@ public class Equipment : MonoBehaviour, Clickable
         stats.power = 0;
         float deltaTime = updateTime - lastUpdateTime;
 
-        if (deltaTime == 0)
+        if (deltaTime <= 0)
         {
             return stats;
         }
 
+        floatingText.UpdateText(deltaTime);
+
         if (powerCycling)
         {
-            float requestedPower = powered ? -power : power;
+            float requestedPower = powered ? -type.Power : type.Power;
             if (requestedPower + powerIn >= 0)
             {
                 CyclePower();
@@ -115,15 +129,20 @@ public class Equipment : MonoBehaviour, Clickable
 
         if (powered)
         {
-            stats.power = power;
-            stats.heat = thermalRating * deltaTime;
+            stats.power = type.Power;
+            stats.heat = type.Heat * deltaTime;
 
             tickTimer += deltaTime;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;
 
-                stats.cash = cashFlow * tickLength;
+                stats.cash = type.CashFlow * tickLength;
+
+                if (type.CashFlow != 0)
+                {
+                    floatingText.SpawnText("$" + type.CashFlow, tickLength / 2);
+                }
             }
 
             UpdateProgressBar();
@@ -139,7 +158,6 @@ public class Equipment : MonoBehaviour, Clickable
         return stats;
     }
 
-    //TODO add a progressbar and have this update it
     private void UpdateProgressBar()
     {
         progressBar.fillAmount = tickTimer / tickLength;
@@ -152,7 +170,7 @@ public class Equipment : MonoBehaviour, Clickable
 
     public void OnMouseEnter()
     {
-        mouseUI.MouseEnter(this);
+        mouseUI.MouseEnter(type);
     }
 
     public void OnMouseExit()

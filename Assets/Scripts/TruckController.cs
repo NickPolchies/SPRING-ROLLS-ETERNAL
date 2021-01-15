@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.ComTypes;
-using TMPro;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
+//TODO break some of this out maybe?
 public class TruckController : MonoBehaviour
 {
     public float startingCash, truckGeneratorPower, startingTemperature;
@@ -16,7 +12,8 @@ public class TruckController : MonoBehaviour
     public float insulationRating = 10;
 
     private Grid grid;
-    public Equipment[] startingEquipment = new Equipment[5];
+    public EquipmentType[] startingEquipment = new EquipmentType[5];
+    public Equipment equipmentTemplate;
     private float externalHeat;
     private MouseUI mouseUI; //TODO really hate how this works, maybe redo this
 
@@ -62,61 +59,50 @@ public class TruckController : MonoBehaviour
         }
     }
 
-    public void BuyEquipment(Vector2Int point, Equipment e)
+    public void BuyEquipment(Vector2Int point, EquipmentType equipType)
     {
-        BuyEquipment(point.x, point.y, e);
+        BuyEquipment(point.x, point.y, equipType);
     }
 
-    public void BuyEquipment(int col, int row, Equipment equipPrefab)
+    public void BuyEquipment(int col, int row, EquipmentType equipType)
     {
-        if (equipPrefab.height == 2 && row == 1)
+        int width = equipType.Size.GridSize.x;
+        int height = equipType.Size.GridSize.y;
+        if (height == 2 && row == 1)
         {
             row = 0;
         }
-        if (equipPrefab.width + col > grid.width)
+        if (width + col > grid.width)
         {
-            col = grid.width - equipPrefab.width;
+            col = grid.width - width;
         }
 
-        if (col < 0 || equipPrefab.roof && row < 2 || !equipPrefab.roof && row >= 2)
+        if (col < 0 || equipType.Roof && row < 2 || !equipType.Roof && row >= 2)
         {
             return;
         }
 
-        List<Equipment> previousEquipment = GetEquipmentAtGrid(col, row, equipPrefab.width, equipPrefab.height);
+        List<Equipment> previousEquipment = GetEquipmentAtGrid(col, row, width, height);
 
         float powerBack = 0;
 
         foreach (Equipment e in previousEquipment)
         {
-            powerBack -= e.power;
+            powerBack -= e.type.Power;
         }
 
-        if (cash - equipPrefab.purchaseCost >= 0 && power + powerBack + equipPrefab.power >= 0)
+        if (cash - equipType.Cost >= 0 && power + powerBack + equipType.Power >= 0)
         {
-            Equipment equipment = Instantiate(equipPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+            Equipment equipment = Instantiate(equipmentTemplate, new Vector3(0, 0, 0), Quaternion.identity);
+            equipment.type = equipType;
+            equipment.enabled = true;
 
             grid.AddEquipment(col, row, equipment);
-
-            /*
-            for (int i = equipPrefab.width - 1; i >= 0; i--)
-            {
-                for (int j = equipPrefab.height - 1; j >= 0; j--)
-                {
-                    if (grid.GetEquipmentAt(col + i, row + j))
-                    {
-                        Destroy(equipment);
-                    }
-
-                    grid.AddEquipment(col + i, row + j, equipment);
-                }
-            }
-            */
 
             UpdatePower();
             equipment.SetMouseUI(mouseUI);
 
-            cash -= equipPrefab.purchaseCost;
+            cash -= equipType.Cost;
         }
         return;
     }
@@ -154,7 +140,7 @@ public class TruckController : MonoBehaviour
     {
         Equipment.Stats stats = e.UpdateStats(power, time);
 
-        if (!e.roof)
+        if (!e.type.Roof)
         {
             temperature += stats.heat * Equipment.tickLength;
         }
@@ -170,7 +156,7 @@ public class TruckController : MonoBehaviour
 
         foreach(Equipment e in equipmentList)
         {
-            t += e.thermalRating;
+            t += e.type.Heat;
         }
 
         return t;
@@ -194,7 +180,7 @@ public class TruckController : MonoBehaviour
 
         foreach (Equipment e in equipment)
         {
-            power += e.power;
+            power += e.type.Power;
         }
 
         power += truckGeneratorPower;

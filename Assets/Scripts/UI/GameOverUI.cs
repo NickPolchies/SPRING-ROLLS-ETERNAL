@@ -10,6 +10,7 @@ public class GameOverUI : MonoBehaviour
     public Button mainMenuButton;
     public TextMeshProUGUI stats;
 
+    //TODO update this UI in general, not specifically this script
     void Start()
     {
         mainMenuButton.onClick.AddListener(ReturnToMenu);

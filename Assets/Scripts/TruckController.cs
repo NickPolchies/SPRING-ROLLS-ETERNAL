@@ -45,7 +45,7 @@ public class TruckController : MonoBehaviour
         cash = startingCash;
         temperature = startingTemperature;
 
-        lifetimeCash = 0;
+        lifetimeCash = startingCash;
     }
 
     void Update()

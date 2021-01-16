@@ -1,6 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class StatusUI : MonoBehaviour
 {
@@ -20,9 +21,18 @@ public class StatusUI : MonoBehaviour
     public Image insideThermometer;
     public ParticleSystem rain;
 
+    private List<float> dailyOutsideTemperature;
+    private List<float> dailyTotalCash;
+
     private void Awake()
     {
         day = 1;
+
+        dailyOutsideTemperature = new List<float>();
+        dailyTotalCash = new List<float>();
+
+        dailyOutsideTemperature.Add(outsideThermometer.temperature);
+        dailyTotalCash.Add(truck.startingCash);
     }
 
     void Update()
@@ -44,6 +54,9 @@ public class StatusUI : MonoBehaviour
                 rain.gameObject.SetActive(false);
             }
 
+            dailyOutsideTemperature.Add(outsideThermometer.temperature);
+            dailyTotalCash.Add(truck.lifetimeCash);
+
             timeOfDay -= dayLength;
         }
 
@@ -51,7 +64,7 @@ public class StatusUI : MonoBehaviour
 
         insideThermometer.fillAmount = (truck.temperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
 
-        sun.setProgress(timeOfDay/dayLength);
+        sun.setProgress(timeOfDay / dayLength);
 
         UpdateGlobalWarming();
         //UpdateRain();
@@ -109,5 +122,15 @@ public class StatusUI : MonoBehaviour
         {
             tempText.color = Color.white;
         }
+    }
+
+    public List<float> DailyOutsideTemperature
+    {
+        get { return dailyOutsideTemperature; }
+    }
+
+    public List<float> DailyTotalCash
+    {
+        get { return dailyTotalCash; }
     }
 }

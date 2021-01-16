@@ -12,6 +12,8 @@ public class StatusUI : MonoBehaviour
     public AnimationCurve weeklyTemperatureFlow;
     public float minRandomTemp, maxRandomTemp;
     public float powerWarning;
+    public GameObject RainAudio;
+    public float tempDayFactor;
 
     public OutsideThermometer outsideThermometer;
     public TruckController truck;
@@ -43,15 +45,18 @@ public class StatusUI : MonoBehaviour
         {
             day++;
 
-            outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp);
+            outsideThermometer.temperature += (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
 
             if (day % 5 == 0)
             {
                 rain.gameObject.SetActive(true);
+                RainAudio.SetActive(true);
             }
             else
             {
                 rain.gameObject.SetActive(false);
+                RainAudio.SetActive(false);
+
             }
 
             dailyOutsideTemperature.Add(outsideThermometer.temperature);
@@ -69,7 +74,8 @@ public class StatusUI : MonoBehaviour
         UpdateGlobalWarming();
         //UpdateRain();
         UpdateText();
-    }
+        }
+
 
     private void UpdateGlobalWarming()
     {

@@ -366,6 +366,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664ad67022f032843a110b7571506e04, type: 3}
+--- !u!1 &1551818380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596448393719551906, guid: b8fe6d3ae4c155943a6c34b379f33893,
+    type: 3}
+  m_PrefabInstance: {fileID: 970345743721097907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686385425
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,6 +697,66 @@ PrefabInstance:
         type: 3}
       propertyPath: outsideTemperature
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: dayLength
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: RainAudio
+      value: 
+      objectReference: {fileID: 1551818380}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: tempDayFactor
+      value: 0.003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: maxRandomTemp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: minRandomTemp
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].value
+      value: 4.205915
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].value
+      value: 2.4891698
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[3].value
+      value: 4.1534214
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[4].value
+      value: 6.844713
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].time
+      value: 2.0033145
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].time
+      value: 1.0065918
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[4].time
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6855785831724200265, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}

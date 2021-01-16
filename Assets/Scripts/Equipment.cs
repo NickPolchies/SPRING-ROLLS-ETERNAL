@@ -57,7 +57,7 @@ public class Equipment : MonoBehaviour, Clickable
         floatingText = new FloatingText(new Vector3(rect.offset.x, rect.offset.y, transform.position.z), transform, floatingTextFont);
 
         Transform progressBarContainer = progressBar.transform.parent;
-        progressBarContainer.gameObject.SetActive(type.CashFlow != 0);
+        //progressBarContainer.gameObject.SetActive(type.CashFlow != 0);
         progressBarContainer.GetComponent<RectTransform>().localPosition += new Vector3(type.Size.ColliderOffset.x, 0, 0);
     }
 

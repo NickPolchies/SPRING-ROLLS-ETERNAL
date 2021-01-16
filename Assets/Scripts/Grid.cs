@@ -77,7 +77,7 @@ public class Grid : MonoBehaviour
         {
             for (int j = 0; j < slots.GetLength(1); j++)
             {
-                if (slots[i, j] != null && !allEquipment.Contains(slots[i, j]))
+                if (slots[i, j] && slots[i,j].type && !allEquipment.Contains(slots[i, j]))
                 {
                     allEquipment.Add(slots[i, j]);
                 }

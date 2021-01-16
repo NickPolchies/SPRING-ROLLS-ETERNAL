@@ -117,8 +117,8 @@ public class Equipment : MonoBehaviour, Clickable
 
         if (powerCycling)
         {
-            float requestedPower = powered ? -type.Power : type.Power;
-            if (requestedPower + powerIn >= 0)
+            float cycledPower = powered ? -type.Power : type.Power;
+            if (cycledPower + powerIn >= 0)
             {
                 CyclePower();
                 //stats.power = requestedPower;

@@ -16,6 +16,7 @@ public class TruckController : MonoBehaviour
     public Equipment equipmentTemplate;
     private float externalHeat;
     private MouseUI mouseUI; //TODO really hate how this works, maybe redo this
+    private bool powerCheck;
 
     private void OnValidate()
     {
@@ -56,6 +57,10 @@ public class TruckController : MonoBehaviour
         foreach(Equipment e in equipment)
         {
             RunEquipment(e, time);
+        }
+        if(powerCheck)
+        {
+            UpdatePower();
         }
     }
 
@@ -138,6 +143,11 @@ public class TruckController : MonoBehaviour
 
     private void RunEquipment(Equipment e, float time)
     {
+        if (e.powerCycling)
+        {
+            powerCheck = true;
+        }
+
         Equipment.Stats stats = e.UpdateStats(power, time);
 
         if (!e.type.Roof)
@@ -180,7 +190,10 @@ public class TruckController : MonoBehaviour
 
         foreach (Equipment e in equipment)
         {
-            power += e.type.Power;
+            if (e.powered)
+            {
+                power += e.type.Power;
+            }
         }
 
         power += truckGeneratorPower;

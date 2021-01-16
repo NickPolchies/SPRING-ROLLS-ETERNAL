@@ -31,9 +31,10 @@ public class StatusUI : MonoBehaviour
 
         if (timeOfDay > dayLength)
         {
-            outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 7) + Random.Range(minRandomTemp, maxRandomTemp);
-
             day++;
+
+            outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp);
+
             timeOfDay -= dayLength;
         }
 

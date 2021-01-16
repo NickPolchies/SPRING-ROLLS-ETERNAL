@@ -1153,7 +1153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 561c6edc5791b1e419f129b7a507296a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  outsideTemperature: 15
   warmingFactor: 1
   day: 1
   dayLength: 30
@@ -1162,7 +1161,7 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: -5
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1171,57 +1170,39 @@ MonoBehaviour:
       outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: -0.6788888
-      inSlope: -0.7784633
-      outSlope: -0.7784633
+      value: 3
+      inSlope: 0.0023654676
+      outSlope: 0.0023654676
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.10313918
+      outWeight: 0.4629345
     - serializedVersion: 3
       time: 2
-      value: 2.341936
-      inSlope: -0.59003973
-      outSlope: -0.59003973
+      value: 4
+      inSlope: -0.012763883
+      outSlope: -0.012763883
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.12913544
+      outWeight: 0.65040827
     - serializedVersion: 3
       time: 3
-      value: 3.047018
-      inSlope: 0.56862015
-      outSlope: 0.56862015
+      value: 6
+      inSlope: 0.044994127
+      outSlope: 0.044994127
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.33333334
+      outWeight: 0.7248447
     - serializedVersion: 3
       time: 4
-      value: 5.132044
-      inSlope: -0.3129104
-      outSlope: -0.3129104
+      value: 10
+      inSlope: 0.000611266
+      outSlope: 0.000611266
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.27951366
-    - serializedVersion: 3
-      time: 5
-      value: 5.255044
-      inSlope: -0.4979621
-      outSlope: -0.4979621
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.8465818
-    - serializedVersion: 3
-      time: 6
-      value: 7.081118
-      inSlope: 0.814494
-      outSlope: 0.814494
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0.9470186
       outWeight: 0.33333334
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -1229,14 +1210,14 @@ MonoBehaviour:
   minRandomTemp: -3
   maxRandomTemp: 3
   powerWarning: 2
+  outsideThermometer: {fileID: 8185886635756510238}
+  truck: {fileID: 0}
+  sun: {fileID: 0}
   dayText: {fileID: 1416360222295931895}
   tempText: {fileID: 1416360223049568033}
   powerText: {fileID: 1907528147591123711}
   cashText: {fileID: 1416360221600093243}
   insideThermometer: {fileID: 3853396200191010709}
-  outsideThermometer: {fileID: 8185886635756510238}
-  truck: {fileID: 0}
-  sun: {fileID: 0}
   rain: {fileID: 0}
 --- !u!1 &4164486981722809289
 GameObject:

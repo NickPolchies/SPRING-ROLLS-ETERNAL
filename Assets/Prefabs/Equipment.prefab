@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 203776009895562057}
   - component: {fileID: 2362752660240337273}
   m_Layer: 0
-  m_Name: EquipmentTemplate
+  m_Name: Equipment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: {fileID: 11400000, guid: dd03476152f66ad4ca44aba51cd04242, type: 2}
-  powered: 0
+  powered: 1
   powerCycling: 0
   progressBar: {fileID: 1407422832082421733}
   floatingTextFont: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a, type: 2}

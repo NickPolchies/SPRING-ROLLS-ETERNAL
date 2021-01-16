@@ -12,6 +12,7 @@ public class StatusUI : MonoBehaviour
     public float minRandomTemp, maxRandomTemp;
     public float powerWarning;
     public GameObject RainAudio;
+    public float tempDayFactor;
 
     public OutsideThermometer outsideThermometer;
     public TruckController truck;
@@ -34,7 +35,7 @@ public class StatusUI : MonoBehaviour
         {
             day++;
 
-            outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp);
+            outsideThermometer.temperature += (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
 
             if (day % 5 == 0)
             {

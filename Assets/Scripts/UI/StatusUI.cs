@@ -11,6 +11,7 @@ public class StatusUI : MonoBehaviour
     public AnimationCurve weeklyTemperatureFlow;
     public float minRandomTemp, maxRandomTemp;
     public float powerWarning;
+    public GameObject RainAudio;
 
     public OutsideThermometer outsideThermometer;
     public TruckController truck;
@@ -38,10 +39,13 @@ public class StatusUI : MonoBehaviour
             if (day % 5 == 0)
             {
                 rain.gameObject.SetActive(true);
+                RainAudio.SetActive(true);
             }
             else
             {
                 rain.gameObject.SetActive(false);
+                RainAudio.SetActive(false);
+
             }
 
             timeOfDay -= dayLength;
@@ -56,7 +60,8 @@ public class StatusUI : MonoBehaviour
         UpdateGlobalWarming();
         //UpdateRain();
         UpdateText();
-    }
+        }
+
 
     private void UpdateGlobalWarming()
     {

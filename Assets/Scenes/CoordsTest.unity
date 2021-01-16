@@ -366,6 +366,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 664ad67022f032843a110b7571506e04, type: 3}
+--- !u!1 &1551818380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2596448393719551906, guid: b8fe6d3ae4c155943a6c34b379f33893,
+    type: 3}
+  m_PrefabInstance: {fileID: 970345743721097907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1686385425
 GameObject:
   m_ObjectHideFlags: 0
@@ -692,6 +698,16 @@ PrefabInstance:
       propertyPath: outsideTemperature
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: dayLength
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: RainAudio
+      value: 
+      objectReference: {fileID: 1551818380}
     - target: {fileID: 6855785831724200265, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_Name

@@ -18,5 +18,5 @@ MonoBehaviour:
   power: 4
   roof: 0
   size: {fileID: 11400000, guid: 5734b750cd1ebb2489ec88cba1d669bf, type: 2}
-  graphics: {fileID: 2312543066817815675, guid: 29cb0b66faa35904b95f8ad49213c578,
+  graphics: {fileID: 1606442793684708032, guid: ab35bbb0f0092ec4292c58df1538a844,
     type: 3}

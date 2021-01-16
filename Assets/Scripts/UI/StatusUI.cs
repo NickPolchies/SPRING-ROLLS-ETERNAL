@@ -35,6 +35,15 @@ public class StatusUI : MonoBehaviour
 
             outsideThermometer.temperature += weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp);
 
+            if (day % 5 == 0)
+            {
+                rain.gameObject.SetActive(true);
+            }
+            else
+            {
+                rain.gameObject.SetActive(false);
+            }
+
             timeOfDay -= dayLength;
         }
 
@@ -45,7 +54,7 @@ public class StatusUI : MonoBehaviour
         sun.setProgress(timeOfDay/dayLength);
 
         UpdateGlobalWarming();
-        UpdateRain();
+        //UpdateRain();
         UpdateText();
     }
 

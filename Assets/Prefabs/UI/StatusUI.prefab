@@ -1098,9 +1098,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
+  m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3853396201227447488
 MonoBehaviour:
@@ -1210,6 +1210,8 @@ MonoBehaviour:
   minRandomTemp: -3
   maxRandomTemp: 3
   powerWarning: 2
+  RainAudio: {fileID: 0}
+  tempDayFactor: 0
   outsideThermometer: {fileID: 8185886635756510238}
   truck: {fileID: 0}
   sun: {fileID: 0}

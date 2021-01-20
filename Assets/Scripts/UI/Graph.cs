@@ -77,7 +77,6 @@ public class Graph : MonoBehaviour
             float xPos = xScale/2 + i * xScale;
             float yPos = valueList[i] / yMax * graphHeight;
 
-            Debug.Log(xPos + ", " + yPos);
             GameObject point = CreateCircle(new Vector2(xPos, yPos));
             points.Add(point);
             if(i > 0)

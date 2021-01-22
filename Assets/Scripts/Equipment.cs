@@ -64,7 +64,6 @@ public class Equipment : MonoBehaviour, Clickable
 
     public void CyclePower(int powerIn)
     {
-        Debug.Log("Power Cycle: " + powerCycling + ", " + powered);
         if (type.Power == 0 || (type.PowerScaling == 0 && powered + powerCycling >= 2))
         {
             return;

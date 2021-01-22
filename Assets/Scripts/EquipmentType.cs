@@ -10,9 +10,18 @@ public class EquipmentType : ScriptableObject
     [SerializeField] private int power;
     [SerializeField] private bool roof;
 
+    [Space(10)]
+
+    [SerializeField] private float cashFlowScaling;
+    [SerializeField] private float heatScaling;
+    [SerializeField] private int powerScaling;
+
+    [Space(10)]
+
     [SerializeField] private EquipmentSize size;
     [SerializeField] private GameObject graphics;
 
+    #region Properties
     public string TypeName
     {
         get { return typeName; }
@@ -37,7 +46,26 @@ public class EquipmentType : ScriptableObject
     {
         get { return roof; }
     }
+    #endregion
 
+    #region Scaling Properties
+    public float CashFlowScaling
+    {
+        get { return cashFlowScaling; }
+    }
+
+    public float HeatScaling
+    {
+        get { return heatScaling; }
+    }
+
+    public int PowerScaling
+    {
+        get { return powerScaling; }
+    }
+    #endregion
+
+    #region Objects
     public EquipmentSize Size
     {
         get { return size; }
@@ -47,4 +75,5 @@ public class EquipmentType : ScriptableObject
     {
         get { return graphics; }
     }
+    #endregion
 }

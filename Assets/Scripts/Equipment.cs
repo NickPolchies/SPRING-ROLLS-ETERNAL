@@ -8,13 +8,13 @@ public class Equipment : MonoBehaviour, Clickable
     {
         public float cash;
         public float heat;
-        public float power;
+        public int power;
     }
 
     public EquipmentType type;
     
-    public bool powered;
-    public bool powerCycling;
+    public int powered;
+    private int powerCycling;
 
     public static readonly float tickLength = 1;
     private float tickTimer;
@@ -44,7 +44,7 @@ public class Equipment : MonoBehaviour, Clickable
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
-        powered = true;
+        powered = 1;
 
         tickTimer = 0;
         lastUpdateTime = Time.time;
@@ -61,34 +61,66 @@ public class Equipment : MonoBehaviour, Clickable
         progressBarContainer.GetComponent<RectTransform>().localPosition += new Vector3(type.Size.ColliderOffset.x, 0, 0);
     }
 
-    public void CyclePower()
+    public void CyclePower(int powerIn)
     {
-        if (type.Power >= 0 && type.CashFlow > 0)
+        Debug.Log("Power Cycle: " + powerCycling + ", " + powered);
+        if (type.Power == 0 || (type.PowerScaling == 0 && powered + powerCycling >= 2))
         {
             return;
         }
 
-        powered = !powered;
+        int deltaPower;
 
-        if (powered)
+        if(powerCycling > 0)
         {
-            sprite.color = Color.white;
-            animator.SetBool("Powered", true);
-
-            if (particles)
+            switch (powered)
             {
-                particles.Play();
+                case 0:
+                    deltaPower = type.Power;
+                    break;
+                default:
+                    deltaPower = type.PowerScaling;
+                    break;
             }
         }
         else
         {
-            sprite.color = Color.grey;
-            animator.SetBool("Powered", false);
-            tickTimer = 0;
-
-            if (particles)
+            switch (powered)
             {
-                particles.Stop();
+                case 0:
+                    return;
+                case 1:
+                    deltaPower = -type.Power;
+                    break;
+                default:
+                    deltaPower = -type.PowerScaling;
+                    break;
+            }
+        }
+
+        if(powerIn + deltaPower >= 0)
+        {
+            powered += powerCycling;
+            if (powered > 0)
+            {
+                sprite.color = Color.white;
+                animator.SetBool("Powered", true);
+
+                if (particles)
+                {
+                    particles.Play();
+                }
+            }
+            else
+            {
+                sprite.color = Color.grey;
+                animator.SetBool("Powered", false);
+                tickTimer = 0;
+
+                if (particles)
+                {
+                    particles.Stop();
+                }
             }
         }
     }
@@ -97,11 +129,15 @@ public class Equipment : MonoBehaviour, Clickable
     {
         if(button == MouseButton.RightMouse)
         {
-            powerCycling = true;
+            powerCycling = -1;
+        }
+        if (button == MouseButton.LeftMouse)
+        {
+            powerCycling = 1;
         }
     }
 
-    public Stats UpdateStats(float powerIn, float updateTime)
+    public Stats UpdateStats(int powerIn, float updateTime)
     {
         stats.heat = 0;
         stats.cash = 0;
@@ -115,37 +151,32 @@ public class Equipment : MonoBehaviour, Clickable
 
         floatingText.UpdateText(deltaTime);
 
-        if (powerCycling)
+        if (powerCycling != 0)
         {
-            float cycledPower = powered ? -type.Power : type.Power;
-            if (cycledPower + powerIn >= 0)
-            {
-                CyclePower();
-                //stats.power = requestedPower;
-            }
-
-            powerCycling = false;
+            CyclePower(powerIn);
+            powerCycling = 0;
         }
 
-        if (powered)
+        if (powered > 0)
         {
-            stats.power = type.Power;
-            stats.heat = type.Heat * deltaTime;
+            int scaleFactor = Mathf.Max(powered - 1, 0);
+            stats.power = type.Power + scaleFactor * type.PowerScaling;
+            stats.heat = type.Heat * deltaTime + scaleFactor * type.HeatScaling * deltaTime;
 
             tickTimer += deltaTime;
             if (tickTimer > tickLength)
             {
                 tickTimer -= tickLength;
 
-                stats.cash = type.CashFlow * tickLength;
+                stats.cash = type.CashFlow * tickLength + scaleFactor * type.CashFlowScaling * tickLength;
 
                 if (type.CashFlow != 0)
                 {
-                    floatingText.SpawnText("$" + type.CashFlow, tickLength / 2);
+                    floatingText.SpawnText("$" + stats.cash, tickLength / 2);
                 }
             }
 
-            UpdateProgressBar();
+            //UpdateProgressBar();
         }
 
         lastUpdateTime = updateTime;

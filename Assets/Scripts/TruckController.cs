@@ -4,8 +4,12 @@ using UnityEngine;
 //TODO break some of this out maybe?
 public class TruckController : MonoBehaviour
 {
-    public float startingCash, truckGeneratorPower, startingTemperature;
-    public float cash, power, temperature;
+    public float startingCash;
+    public float startingTemperature;
+    public int truckGeneratorPower;
+    public float cash;
+    public float temperature;
+    public int power;
     public float highTemperature, maxTemperature, lowTemperature, minTemperature;
     public float lifetimeCash;
 
@@ -16,7 +20,7 @@ public class TruckController : MonoBehaviour
     public Equipment equipmentTemplate;
     private float externalHeat;
     private MouseUI mouseUI; //TODO really hate how this works, maybe redo this
-    private bool powerCheck;
+    //private bool powerCheck;
 
     private void OnValidate()
     {
@@ -53,14 +57,11 @@ public class TruckController : MonoBehaviour
         List<Equipment> equipment = grid.GetAllEquipment();
 
         float time = Time.time;
+        UpdatePower(equipment);
 
-        foreach(Equipment e in equipment)
+        foreach (Equipment e in equipment)
         {
             RunEquipment(e, time);
-        }
-        if(powerCheck)
-        {
-            UpdatePower();
         }
     }
 
@@ -104,7 +105,6 @@ public class TruckController : MonoBehaviour
 
             grid.AddEquipment(col, row, equipment);
 
-            UpdatePower();
             equipment.SetMouseUI(mouseUI);
 
             cash -= equipType.Cost;
@@ -143,11 +143,6 @@ public class TruckController : MonoBehaviour
 
     private void RunEquipment(Equipment e, float time)
     {
-        if (e.powerCycling)
-        {
-            powerCheck = true;
-        }
-
         Equipment.Stats stats = e.UpdateStats(power, time);
 
         if (!e.type.Roof)
@@ -183,16 +178,15 @@ public class TruckController : MonoBehaviour
         return null;
     }
 
-    private void UpdatePower()
+    private void UpdatePower(List<Equipment> equipment)
     {
         power = 0;
-        List<Equipment> equipment = grid.GetAllEquipment();
 
         foreach (Equipment e in equipment)
         {
-            if (e.powered)
+            if (e.powered > 0)
             {
-                power += e.type.Power;
+                power += e.GetStats().power;
             }
         }
 

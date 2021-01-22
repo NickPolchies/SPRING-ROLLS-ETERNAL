@@ -29,6 +29,7 @@ public class Equipment : MonoBehaviour, Clickable
 
     private FloatingText floatingText;
     public TMP_FontAsset floatingTextFont;
+    [SerializeField] BatteryIconManager batteryIconManager;
 
     //TODO clean this up. Fewer complex calls. Caching?
     private void Start()
@@ -100,7 +101,18 @@ public class Equipment : MonoBehaviour, Clickable
 
         if(powerIn + deltaPower >= 0)
         {
+
+            if (powerCycling > 0)
+            {
+                batteryIconManager.AddBattery();
+            }
+            else
+            {
+                batteryIconManager.RemoveBattery();
+            }
+
             powered += powerCycling;
+
             if (powered > 0)
             {
                 sprite.color = Color.white;

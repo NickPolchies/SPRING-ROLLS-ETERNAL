@@ -6,7 +6,8 @@ public class MouseUI : MonoBehaviour
 {
     public RectTransform rectTransform;
     public TruckController truck;
-    public TextMeshProUGUI text;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI statusText;
     public GameObject mouseoverInfoPane;
     private EquipmentType currentEquipType;
     private bool dragging;
@@ -59,7 +60,8 @@ public class MouseUI : MonoBehaviour
         if (displayInfoPane)
         {
             mouseoverInfoPane.SetActive(true);
-            text.text = "Cash: " + currentEquipType.CashFlow + "\nHeat: " + currentEquipType.Heat + "\nPower: " + currentEquipType.Power;
+            nameText.text = currentEquipType.TypeName;
+            statusText.text = "Cash: " + currentEquipType.CashFlow + "\nHeat: " + currentEquipType.Heat + "\nPower: " + currentEquipType.Power;
         }
     }
 

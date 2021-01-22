@@ -3,6 +3,7 @@
 [CreateAssetMenu(fileName = "EquipmentType", menuName = "ScriptableObjects/EquipmentType", order = 1)]
 public class EquipmentType : ScriptableObject
 {
+    [SerializeField] private string typeName;
     [SerializeField] private int cost;
     [SerializeField] private float cashFlow;
     [SerializeField] private float heat;
@@ -12,6 +13,10 @@ public class EquipmentType : ScriptableObject
     [SerializeField] private EquipmentSize size;
     [SerializeField] private GameObject graphics;
 
+    public string TypeName
+    {
+        get { return typeName; }
+    }
     public int Cost
     {
         get { return cost; }

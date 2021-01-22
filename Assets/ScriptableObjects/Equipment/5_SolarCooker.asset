@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec8c62c1c405048a9d5ec84b753cea, type: 3}
   m_Name: 5_SolarCooker
   m_EditorClassIdentifier: 
+  typeName: Solar Cooker
   cost: 600
   cashFlow: 8
   heat: 0

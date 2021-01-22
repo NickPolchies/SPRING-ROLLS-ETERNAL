@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec8c62c1c405048a9d5ec84b753cea, type: 3}
   m_Name: 4_IndustrialOven
   m_EditorClassIdentifier: 
+  typeName: Industrial Oven
   cost: 520
   cashFlow: 12
   heat: 2

@@ -14,13 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Supreme Generator
   cost: 280
-  cashFlow: 0
+  cashFlow: -0.5
   heat: 0
   power: 2
   roof: 1
-  cashFlowScaling: 0
+  solar: 0
+  cashFlowScaling: -2
   heatScaling: 0
-  powerScaling: 0
+  powerScaling: 1
   size: {fileID: 11400000, guid: cccca3874d1944740befbc1758e4c418, type: 2}
   graphics: {fileID: 4118137408286840011, guid: 7b04f4ccb98750e4eb9414313b3a504d,
     type: 3}

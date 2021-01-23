@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Generator
   cost: 120
-  cashFlow: 0
+  cashFlow: -0.5
   heat: 0
   power: 1
   roof: 1
+  solar: 0
+  cashFlowScaling: -2
+  heatScaling: 0
+  powerScaling: 1
   size: {fileID: 11400000, guid: cccca3874d1944740befbc1758e4c418, type: 2}
   graphics: {fileID: 5551715023660975496, guid: 60bbd460807b40e4a8ae730bfa4f0e69,
     type: 3}

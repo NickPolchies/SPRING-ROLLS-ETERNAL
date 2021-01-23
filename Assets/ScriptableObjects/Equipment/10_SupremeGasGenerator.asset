@@ -12,12 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec8c62c1c405048a9d5ec84b753cea, type: 3}
   m_Name: 10_SupremeGasGenerator
   m_EditorClassIdentifier: 
-  typeName: Delux Generator
+  typeName: Supreme Generator
   cost: 280
   cashFlow: 0
   heat: 0
   power: 2
   roof: 1
+  cashFlowScaling: 0
+  heatScaling: 0
+  powerScaling: 0
   size: {fileID: 11400000, guid: cccca3874d1944740befbc1758e4c418, type: 2}
   graphics: {fileID: 4118137408286840011, guid: 7b04f4ccb98750e4eb9414313b3a504d,
     type: 3}

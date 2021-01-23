@@ -26,6 +26,9 @@ public class Equipment : MonoBehaviour, Clickable
     private float lastUpdateTime = Mathf.Infinity;
     private Stats stats;
 
+    public AudioSource PowerUp;
+    public AudioSource PowerDown;
+
     private Animator animator;
     private SpriteRenderer sprite;
     private ParticleSystem particles;
@@ -109,10 +112,12 @@ public class Equipment : MonoBehaviour, Clickable
             if (powerCycling == PowerCycling.up)
             {
                 batteryIconManager.AddBattery();
+                PowerUp.Play();
             }
             else
             {
                 batteryIconManager.RemoveBattery();
+                PowerDown.Play();
             }
 
             if (powerStage > 0)

@@ -70,7 +70,12 @@ public class MouseUI : MonoBehaviour
             if (currentEquipment && currentEquipment.powerStage > 1)
             {
                 cashText += AppendScalingText(currentEquipType.CashFlowScaling, currentEquipment.powerStage);
-                heatText += AppendScalingText(currentEquipType.HeatScaling, currentEquipment.powerStage);
+
+                if (!currentEquipType.Solar)
+                {
+                    heatText += AppendScalingText(currentEquipType.HeatScaling, currentEquipment.powerStage);
+                }
+
                 powerText += AppendScalingText(currentEquipType.PowerScaling, currentEquipment.powerStage);
             }
 

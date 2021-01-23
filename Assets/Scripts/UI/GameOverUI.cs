@@ -13,6 +13,7 @@ public class GameOverUI : MonoBehaviour
     public TextMeshProUGUI stats;
     public Graph graph;
     public StatusUI statusUI;
+    public GameObject Song;
 
     //TODO update this UI in general, not specifically this script
     void Start()
@@ -21,6 +22,7 @@ public class GameOverUI : MonoBehaviour
         cashGraphButton.onClick.AddListener(DisplayCashGraph);
         heatGraphButton.onClick.AddListener(DisplayHeatGraph);
         stats.text = "YOU EARNED A TOTAL OF " + truck.lifetimeCash + " DOLLARS";
+        //Song.gameObject.SetActive(true);
     }
 
     void ReturnToMenu()

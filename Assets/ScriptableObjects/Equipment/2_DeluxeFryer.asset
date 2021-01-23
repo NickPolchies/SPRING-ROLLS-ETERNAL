@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2ec8c62c1c405048a9d5ec84b753cea, type: 3}
   m_Name: 2_DeluxeFryer
   m_EditorClassIdentifier: 
-  typeName: Delux Fryer
+  typeName: Deluxe Fryer
   cost: 440
   cashFlow: 7
   heat: 0.4
   power: -2
   roof: 0
+  solar: 0
   cashFlowScaling: 1.5
-  heatScaling: 0
+  heatScaling: 0.1
   powerScaling: -1
   size: {fileID: 11400000, guid: cccca3874d1944740befbc1758e4c418, type: 2}
   graphics: {fileID: 6392073091517033731, guid: 385c2b14a8e130247be751ee166d64cf,

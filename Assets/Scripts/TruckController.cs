@@ -12,6 +12,7 @@ public class TruckController : MonoBehaviour
     public int power;
     public float highTemperature, maxTemperature, lowTemperature, minTemperature;
     public float lifetimeCash;
+    private float soundSwitch = 0;
 
     public float insulationRating = 10;
 
@@ -104,6 +105,14 @@ public class TruckController : MonoBehaviour
             equipment.enabled = true;
 
             grid.AddEquipment(col, row, equipment);
+            if (soundSwitch == 2)
+            {
+                GetComponent<AudioSource>().Play();
+            }
+            else
+            {
+                soundSwitch += 1;
+            }
 
             equipment.SetMouseUI(mouseUI);
 

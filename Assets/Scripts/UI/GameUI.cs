@@ -26,6 +26,8 @@ public class GameUI : MonoBehaviour
         {
             gameEnded = true;
 
+            truck.EndGame();
+
             statusUI.gameObject.SetActive(false);
             purchaseUI.gameObject.SetActive(false);
             gameOverUI.gameObject.SetActive(true);

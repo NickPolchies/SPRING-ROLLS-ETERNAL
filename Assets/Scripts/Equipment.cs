@@ -166,6 +166,7 @@ public class Equipment : MonoBehaviour, Clickable
         stats.heat = 0;
         stats.cash = 0;
         stats.power = 0;
+
         float deltaTime = updateTime - lastUpdateTime;
 
         if (deltaTime <= 0)
@@ -236,5 +237,11 @@ public class Equipment : MonoBehaviour, Clickable
     public void OnMouseExit()
     {
         mouseUI.MouseExit();
+    }
+
+    public void EndGame()
+    {
+        floatingText.DespawnText();
+        this.enabled = false;
     }
 }

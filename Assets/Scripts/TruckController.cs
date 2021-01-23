@@ -210,4 +210,9 @@ public class TruckController : MonoBehaviour
 
         power += truckGeneratorPower;
     }
+
+    public void EndGame()
+    {
+        this.enabled = false;
+    }
 }

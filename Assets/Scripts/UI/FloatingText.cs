@@ -30,13 +30,16 @@ public class FloatingText
 
     public void SpawnText(string text, float duration)
     {
-        cashText.enabled = true;
-
         cashText.text = text;
         cashText.transform.localPosition = spawnPoint;
 
         totalTime = remainingTime = duration;
         cashText.alpha = 1;
+    }
+
+    public void DespawnText()
+    {
+        cashText.alpha = 0;
     }
 
     public void UpdateText(float deltaTime)

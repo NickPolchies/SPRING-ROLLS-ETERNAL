@@ -673,41 +673,11 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
-    - target: {fileID: 4376814866982540488, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4376814866982540493, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5030061312057020800, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: gameOverUI
-      value: 
-      objectReference: {fileID: 6855785830183073495}
     - target: {fileID: 5536223995177987110, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
-    - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -723,16 +693,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5536223995177987111, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6855785831396960994, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -740,29 +700,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
-      propertyPath: truck
-      value: 
-      objectReference: {fileID: 1127800786}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
       propertyPath: sun
       value: 
       objectReference: {fileID: 278643774}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
-      propertyPath: rain
+      propertyPath: truck
       value: 
-      objectReference: {fileID: 2118657775}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: outsideTemperature
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: dayLength
-      value: 20
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1127800786}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: RainAudio
@@ -770,54 +715,9 @@ PrefabInstance:
       objectReference: {fileID: 1551818380}
     - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
-      propertyPath: tempDayFactor
-      value: 0.003
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: maxRandomTemp
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: minRandomTemp
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].value
-      value: 4.205915
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].value
-      value: 2.4891698
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[3].value
-      value: 4.1534214
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[4].value
-      value: 6.844713
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[2].time
-      value: 2.0033145
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[1].time
-      value: 1.0065918
-      objectReference: {fileID: 0}
-    - target: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-        type: 3}
-      propertyPath: weeklyTemperatureFlow.m_Curve.Array.data[4].time
-      value: 4
-      objectReference: {fileID: 0}
+      propertyPath: rain
+      value: 
+      objectReference: {fileID: 2118657775}
     - target: {fileID: 6855785831724200265, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: m_Name
@@ -900,18 +800,6 @@ PrefabInstance:
       objectReference: {fileID: 6855785830183073496}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}
---- !u!114 &6855785830183073495 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8609847413418530133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
-    type: 3}
-  m_PrefabInstance: {fileID: 6855785830183073494}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a9b029d1599c874aa2496f1aecf15f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6855785830183073496 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6855785831396960999, guid: fdbb5eb5b18b1374c9dc591e60e601b3,

@@ -22,7 +22,7 @@ public class GameOverUI : MonoBehaviour
         cashGraphButton.onClick.AddListener(DisplayCashGraph);
         heatGraphButton.onClick.AddListener(DisplayHeatGraph);
         stats.text = "YOU EARNED A TOTAL OF " + truck.lifetimeCash + " DOLLARS";
-        Song.gameObject.SetActive(true);
+        //Song.gameObject.SetActive(true);
     }
 
     void ReturnToMenu()

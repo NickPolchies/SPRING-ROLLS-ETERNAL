@@ -139,6 +139,15 @@ public class TruckController : MonoBehaviour
     public void HeatTransfer(float outsideTemp)
     {
         temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
+        List<Equipment> equipment = grid.GetAllEquipment();
+
+        foreach(Equipment e in equipment)
+        {
+            if (e.type.Solar)
+            {
+                e.UpdateSolarPower(outsideTemp);
+            }
+        }
     }
 
     private void RunEquipment(Equipment e, float time)
@@ -184,7 +193,7 @@ public class TruckController : MonoBehaviour
 
         foreach (Equipment e in equipment)
         {
-            if (e.powered > 0)
+            if (e.powerStage > 0)
             {
                 power += e.GetStats().power;
             }

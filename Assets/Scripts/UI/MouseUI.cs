@@ -10,14 +10,17 @@ public class MouseUI : MonoBehaviour
     public TextMeshProUGUI statusText;
     public GameObject mouseoverInfoPane;
     private EquipmentType currentEquipType;
+    private Equipment currentEquipment;
     private bool dragging;
     public Image equipmentImage;
     public float imageScale;
     private bool displayInfoPane;
+    public string overpowerIncreaseTextColor, overpowerDecreaseTextColor;
 
     private void Start()
     {
         currentEquipType = null;
+        currentEquipment = null;
         dragging = false;
     }
 
@@ -52,17 +55,44 @@ public class MouseUI : MonoBehaviour
     {
         mouseoverInfoPane.SetActive(false);
 
-        if(currentEquipType != null)
+        if(currentEquipType != null || currentEquipment != null)
         {
             equipmentImage.transform.position = Input.mousePosition;
         }
 
         if (displayInfoPane)
         {
+            string cashText, heatText, powerText;
+            cashText = "Cash: " + currentEquipType.CashFlow;
+            heatText = "Heat: " + currentEquipType.Heat;
+            powerText = "Power: " + currentEquipType.Power;
+
+            if (currentEquipment && currentEquipment.powerStage > 1)
+            {
+                cashText += AppendScalingText(currentEquipType.CashFlowScaling, currentEquipment.powerStage);
+                heatText += AppendScalingText(currentEquipType.HeatScaling, currentEquipment.powerStage);
+                powerText += AppendScalingText(currentEquipType.PowerScaling, currentEquipment.powerStage);
+            }
+
             mouseoverInfoPane.SetActive(true);
             nameText.text = currentEquipType.TypeName;
-            statusText.text = "Cash: " + currentEquipType.CashFlow + "\nHeat: " + currentEquipType.Heat + "\nPower: " + currentEquipType.Power;
+            statusText.text = cashText + "\n" + heatText + "\n" + powerText;
         }
+    }
+
+    private string AppendScalingText(float scaling, int powerStage)
+    {
+        powerStage--; //Base power stage doesn't count
+
+        if (scaling > 0)
+        {
+            return "<color=" + overpowerIncreaseTextColor + "> +" + scaling * powerStage + "</color>";
+        }
+        else if (scaling < 0)
+        {
+            return "<color=" + overpowerDecreaseTextColor + "> " + scaling * powerStage + "</color>";
+        }
+        return "";
     }
 
     public void MouseEnter(EquipmentType e)
@@ -71,6 +101,20 @@ public class MouseUI : MonoBehaviour
         {
             displayInfoPane = true;
             currentEquipType = e;
+        }
+    }
+
+    public void MouseEnter(Equipment e)
+    {
+        if (dragging)
+        {
+            currentEquipment = null;
+            return;
+        }
+        else
+        {
+            displayInfoPane = true;
+            currentEquipment = e;
         }
     }
 
@@ -85,6 +129,8 @@ public class MouseUI : MonoBehaviour
 
     public void DragStart(Sprite newSprite)
     {
+        currentEquipment = null;
+
         equipmentImage.sprite = newSprite;
         equipmentImage.SetNativeSize();
         equipmentImage.rectTransform.sizeDelta *= imageScale;

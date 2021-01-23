@@ -133,6 +133,8 @@ MonoBehaviour:
   mouseoverInfoPane: {fileID: 1589436455214897856}
   equipmentImage: {fileID: 1589436453832890963}
   imageScale: 5
+  overpowerIncreaseTextColor: '#00FF00'
+  overpowerDecreaseTextColor: '#FF0000'
 --- !u!223 &1209337331564637261
 Canvas:
   m_ObjectHideFlags: 0
@@ -525,7 +527,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0

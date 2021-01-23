@@ -13,10 +13,15 @@ public class Equipment : MonoBehaviour, Clickable
 
     public EquipmentType type;
     
-    public int powered;
-    private int powerCycling;
+    public int powerStage;
+    private enum PowerCycling{
+        none =  0,
+        up   =  1,
+        down = -1
+    };
+    private PowerCycling powerCycling;
 
-    public static readonly float tickLength = 1;
+    public static readonly float tickLength = 1; //This is implemented poorly
     private float tickTimer;
     private float lastUpdateTime = Mathf.Infinity;
     private Stats stats;
@@ -45,7 +50,7 @@ public class Equipment : MonoBehaviour, Clickable
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
         particles = GetComponentInChildren<ParticleSystem>();
-        powered = 1;
+        powerStage = 1;
 
         tickTimer = 0;
         lastUpdateTime = Time.time;
@@ -58,22 +63,21 @@ public class Equipment : MonoBehaviour, Clickable
         floatingText = new FloatingText(new Vector3(rect.offset.x, rect.offset.y, transform.position.z), transform, floatingTextFont);
 
         Transform progressBarContainer = progressBar.transform.parent;
-        //progressBarContainer.gameObject.SetActive(type.CashFlow != 0);
         progressBarContainer.GetComponent<RectTransform>().localPosition += new Vector3(type.Size.ColliderOffset.x, 0, 0);
     }
 
     public void CyclePower(int powerIn)
     {
-        if (type.Power == 0 || (type.PowerScaling == 0 && powered + powerCycling >= 2))
+        if (type.Power == 0 || (type.PowerScaling == 0 && powerStage >= 1 && powerCycling == PowerCycling.up))
         {
             return;
         }
 
         int deltaPower;
 
-        if(powerCycling > 0)
+        if(powerCycling == PowerCycling.up)
         {
-            switch (powered)
+            switch (powerStage)
             {
                 case 0:
                     deltaPower = type.Power;
@@ -85,7 +89,7 @@ public class Equipment : MonoBehaviour, Clickable
         }
         else
         {
-            switch (powered)
+            switch (powerStage)
             {
                 case 0:
                     return;
@@ -100,8 +104,9 @@ public class Equipment : MonoBehaviour, Clickable
 
         if(powerIn + deltaPower >= 0)
         {
+            powerStage += (int)powerCycling;
 
-            if (powerCycling > 0)
+            if (powerCycling == PowerCycling.up)
             {
                 batteryIconManager.AddBattery();
             }
@@ -110,9 +115,7 @@ public class Equipment : MonoBehaviour, Clickable
                 batteryIconManager.RemoveBattery();
             }
 
-            powered += powerCycling;
-
-            if (powered > 0)
+            if (powerStage > 0)
             {
                 sprite.color = Color.white;
                 animator.SetBool("Powered", true);
@@ -138,13 +141,18 @@ public class Equipment : MonoBehaviour, Clickable
 
     public void Clicked(MouseButton button)
     {
+        if (type.Solar)
+        {
+            return;
+        }
+
         if(button == MouseButton.RightMouse)
         {
-            powerCycling = -1;
+            powerCycling = PowerCycling.down;
         }
         if (button == MouseButton.LeftMouse)
         {
-            powerCycling = 1;
+            powerCycling = PowerCycling.up;
         }
     }
 
@@ -160,34 +168,18 @@ public class Equipment : MonoBehaviour, Clickable
             return stats;
         }
 
+        //Move the floating text
         floatingText.UpdateText(deltaTime);
 
-        if (powerCycling != 0)
+        if (powerCycling != PowerCycling.none)
         {
             CyclePower(powerIn);
-            powerCycling = 0;
+            powerCycling = PowerCycling.none;
         }
 
-        if (powered > 0)
+        if (powerStage > 0)
         {
-            int scaleFactor = Mathf.Max(powered - 1, 0);
-            stats.power = type.Power + scaleFactor * type.PowerScaling;
-            stats.heat = type.Heat * deltaTime + scaleFactor * type.HeatScaling * deltaTime;
-
-            tickTimer += deltaTime;
-            if (tickTimer > tickLength)
-            {
-                tickTimer -= tickLength;
-
-                stats.cash = type.CashFlow * tickLength + scaleFactor * type.CashFlowScaling * tickLength;
-
-                if (type.CashFlow != 0)
-                {
-                    floatingText.SpawnText("$" + stats.cash, tickLength / 2);
-                }
-            }
-
-            //UpdateProgressBar();
+            CalculateStats(deltaTime);
         }
 
         lastUpdateTime = updateTime;
@@ -195,14 +187,34 @@ public class Equipment : MonoBehaviour, Clickable
         return stats;
     }
 
+    private void CalculateStats(float deltaTime)
+    {
+        int scaleFactor = Mathf.Max(powerStage - 1, 0);
+        stats.power = type.Power + scaleFactor * type.PowerScaling;
+        stats.heat = type.Heat * deltaTime + scaleFactor * type.HeatScaling * deltaTime;
+
+        tickTimer += deltaTime;
+        if (tickTimer > tickLength)
+        {
+            tickTimer -= tickLength;
+
+            stats.cash = type.CashFlow * tickLength + scaleFactor * type.CashFlowScaling * tickLength;
+
+            if (type.CashFlow != 0)
+            {
+                floatingText.SpawnText("$" + stats.cash, tickLength / 2);
+            }
+        }
+    }
+
+    public void UpdateSolarPower(float temperature)
+    {
+        powerStage = (int)temperature / (int)type.HeatScaling + 1;
+    }
+
     public Stats GetStats()
     {
         return stats;
-    }
-
-    private void UpdateProgressBar()
-    {
-        progressBar.fillAmount = tickTimer / tickLength;
     }
 
     public void SetMouseUI(MouseUI mouseUIIn)
@@ -213,6 +225,7 @@ public class Equipment : MonoBehaviour, Clickable
     public void OnMouseEnter()
     {
         mouseUI.MouseEnter(type);
+        mouseUI.MouseEnter(this);
     }
 
     public void OnMouseExit()

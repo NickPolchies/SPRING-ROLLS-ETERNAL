@@ -409,6 +409,11 @@ PrefabInstance:
       propertyPath: statusUI
       value: 
       objectReference: {fileID: 6855785831396960999}
+    - target: {fileID: 5193618235089048637, guid: 736d2b17d58f8ea4489dac3bb0b24e9b,
+        type: 3}
+      propertyPath: gameOverReasons
+      value: 
+      objectReference: {fileID: 3732425134745029980}
     - target: {fileID: 8580945767423339100, guid: 736d2b17d58f8ea4489dac3bb0b24e9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -569,6 +574,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a9b029d1599c874aa2496f1aecf15f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3732425134745029980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 910604797360360500, guid: 736d2b17d58f8ea4489dac3bb0b24e9b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4570910490499858792}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &6546631236307073321

@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class BatteryIconManager : MonoBehaviour
 {
@@ -47,6 +46,11 @@ public class BatteryIconManager : MonoBehaviour
     }
 
     public void OnDestroy()
+    {
+        RemoveAll();
+    }
+
+    public void RemoveAll()
     {
         while (RemoveBattery()) ;
     }

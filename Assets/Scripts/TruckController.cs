@@ -163,13 +163,30 @@ public class TruckController : MonoBehaviour
     {
         Equipment.Stats stats = e.UpdateStats(power, time);
 
+        if (!ValidateCashFlow(e, stats))
+        {
+            stats.power = 0;
+            stats.cash = 0;
+            stats.heat = 0;
+        }
+
         if (!e.type.Roof)
         {
             temperature += stats.heat * Equipment.tickLength;
         }
 
-        cash += stats.cash * Equipment.tickLength;
+        cash += stats.cash;// * Equipment.tickLength;
         lifetimeCash += stats.cash > 0 ? stats.cash : 0;
+    }
+
+    private bool ValidateCashFlow(Equipment equipment, Equipment.Stats stats)
+    {
+        if(cash + stats.cash < 0)
+        {
+            equipment.ShutDown();
+            return false;
+        }
+        return true;
     }
 
     public float GetExternalHeatGeneration()

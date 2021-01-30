@@ -71,6 +71,10 @@ public class Graph : MonoBehaviour
 
         yMax *= 1.1f;
 
+        //Might work?
+        float scale = Mathf.Pow(10, Mathf.Floor(Mathf.Log10(yMax)) + 1) * 0.01f;
+        yMax = scale * Mathf.Ceil((yMax / scale));
+
         GameObject lastPoint = null;
         for (int i = 0; i < valueList.Count; i++)
         {

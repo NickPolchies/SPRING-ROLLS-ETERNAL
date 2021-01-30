@@ -14,12 +14,14 @@ public class Equipment : MonoBehaviour, Clickable
     public EquipmentType type;
     
     public int powerStage;
-    private enum PowerCycling{
+    private bool turnedOn;
+
+    public enum PowerCycling{
         none =  0,
         up   =  1,
         down = -1
     };
-    private PowerCycling powerCycling;
+    public PowerCycling powerCycling;
 
     public static readonly float tickLength = 1; //This is implemented poorly
     private float tickTimer;
@@ -39,7 +41,6 @@ public class Equipment : MonoBehaviour, Clickable
     public TMP_FontAsset floatingTextFont;
     [SerializeField] BatteryIconManager batteryIconManager;
 
-    //TODO clean this up. Fewer complex calls. Caching?
     private void Start()
     {
         GameObject graphics = Instantiate(type.Graphics, transform.position, Quaternion.identity);
@@ -49,6 +50,7 @@ public class Equipment : MonoBehaviour, Clickable
         BoxCollider2D collider = GetComponentInChildren<BoxCollider2D>();
         collider.offset = type.Size.ColliderOffset;
         collider.size = type.Size.ColliderSize;
+        floatingText = new FloatingText(new Vector3(collider.offset.x, collider.offset.y, transform.position.z), transform, floatingTextFont);
 
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -61,17 +63,13 @@ public class Equipment : MonoBehaviour, Clickable
         stats.cash = 0;
         stats.heat = 0;
         stats.power = 0;
-
-        BoxCollider2D rect = gameObject.GetComponent<BoxCollider2D>();
-        floatingText = new FloatingText(new Vector3(rect.offset.x, rect.offset.y, transform.position.z), transform, floatingTextFont);
-
-        Transform progressBarContainer = progressBar.transform.parent;
-        progressBarContainer.GetComponent<RectTransform>().localPosition += new Vector3(type.Size.ColliderOffset.x, 0, 0);
+        turnedOn = true;
     }
 
     public void CyclePower(int powerIn)
     {
-        if (type.Power == 0 || (type.PowerScaling == 0 && powerStage >= 1 && powerCycling == PowerCycling.up))
+        //If equipment doesn't use power or isn't cycling or is on with no power scaling and cycling up
+        if (type.Power == 0 || powerCycling == PowerCycling.none || (type.PowerScaling == 0 && powerStage >= 1 && powerCycling == PowerCycling.up))
         {
             return;
         }
@@ -105,7 +103,7 @@ public class Equipment : MonoBehaviour, Clickable
             }
         }
 
-        if(powerIn + deltaPower >= 0)
+        if(powerIn + deltaPower >= 0 || deltaPower > 0)
         {
             powerStage += (int)powerCycling;
 
@@ -122,24 +120,11 @@ public class Equipment : MonoBehaviour, Clickable
 
             if (powerStage > 0)
             {
-                sprite.color = Color.white;
-                animator.SetBool("Powered", true);
-
-                if (particles)
-                {
-                    particles.Play();
-                }
+                Awaken();
             }
             else
             {
-                sprite.color = Color.grey;
-                animator.SetBool("Powered", false);
-                tickTimer = 0;
-
-                if (particles)
-                {
-                    particles.Stop();
-                }
+                Suspend();
             }
         }
     }
@@ -163,10 +148,6 @@ public class Equipment : MonoBehaviour, Clickable
 
     public Stats UpdateStats(int powerIn, float updateTime)
     {
-        stats.heat = 0;
-        stats.cash = 0;
-        stats.power = 0;
-
         float deltaTime = updateTime - lastUpdateTime;
 
         if (deltaTime <= 0)
@@ -177,15 +158,19 @@ public class Equipment : MonoBehaviour, Clickable
         //Move the floating text
         floatingText.UpdateText(deltaTime);
 
-        if (powerCycling != PowerCycling.none)
-        {
-            CyclePower(powerIn);
-            powerCycling = PowerCycling.none;
-        }
+        CyclePower(powerIn);
+        powerCycling = PowerCycling.none;
 
         if (powerStage > 0)
         {
-            CalculateStats(deltaTime);
+            CheckPower(powerIn);
+            CalculateStats(powerIn, deltaTime);
+        }
+        else
+        {
+            stats.power = 0;
+            stats.heat = 0;
+            stats.cash = 0;
         }
 
         lastUpdateTime = updateTime;
@@ -193,11 +178,36 @@ public class Equipment : MonoBehaviour, Clickable
         return stats;
     }
 
-    private void CalculateStats(float deltaTime)
+    private void CheckPower(int powerIn)
     {
         int scaleFactor = Mathf.Max(powerStage - 1, 0);
         stats.power = type.Power + scaleFactor * type.PowerScaling;
+
+        if (stats.power < 0)
+        {
+            if (powerIn < 0 && turnedOn)
+            {
+                Suspend();
+            }
+            if (powerIn >= 0 && !turnedOn)
+            {
+                Awaken();
+            }
+        }
+    }
+
+    private void CalculateStats(int powerIn, float deltaTime)
+    {
+        if (!turnedOn && stats.power < 0)
+        {
+            stats.heat = 0;
+            stats.cash = 0;
+            return;
+        }
+
+        int scaleFactor = Mathf.Max(powerStage - 1, 0);
         stats.heat = type.Heat * deltaTime + scaleFactor * type.HeatScaling * deltaTime;
+        stats.cash = 0;
 
         tickTimer += deltaTime;
         if (tickTimer > tickLength)
@@ -243,5 +253,37 @@ public class Equipment : MonoBehaviour, Clickable
     {
         floatingText.DespawnText();
         this.enabled = false;
+    }
+
+    private void Awaken()
+    {
+        turnedOn = true;
+        sprite.color = Color.white;
+        animator.SetBool("Powered", true);
+
+        if (particles)
+        {
+            particles.Play();
+        }
+    }
+
+    private void Suspend()
+    {
+        turnedOn = false;
+        sprite.color = Color.grey;
+        animator.SetBool("Powered", false);
+
+        if (particles)
+        {
+            particles.Stop();
+        }
+    }
+
+    public void ShutDown()
+    {
+        powerStage = 1;
+        powerCycling = Equipment.PowerCycling.down;
+        CyclePower(int.MaxValue);
+        batteryIconManager.RemoveAll();
     }
 }

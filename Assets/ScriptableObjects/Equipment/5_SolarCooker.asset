@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Roof Cooker
   cost: 600
-  cashFlow: 8
+  cashFlow: 6
   heat: 0
   power: 0
   roof: 1
   solar: 1
-  cashFlowScaling: 2
+  cashFlowScaling: 1
   heatScaling: 60
   powerScaling: 0
   size: {fileID: 11400000, guid: cccca3874d1944740befbc1758e4c418, type: 2}

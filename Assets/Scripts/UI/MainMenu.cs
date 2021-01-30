@@ -7,30 +7,37 @@ public class MainMenu : MonoBehaviour
     public Button startGame;
     public Button credits;
     public Button quitGame;
+    public Button tutorialButton;
     public string mainSceneName;
     public string creditsSceneName;
     public string tutorialSceneName;
-    public bool tutorialSeen;
 
     void Start()
     {
+        PlayerPrefs.DeleteAll();
         startGame.onClick.AddListener(StartGame);
+        tutorialButton.onClick.AddListener(ViewTutorial);
         credits.onClick.AddListener(Credits);
         quitGame.onClick.AddListener(QuitGame);
     }
 
     void StartGame()
     {
-        if (tutorialSeen == true)
+        if (PlayerPrefs.GetInt("TutorialViewed", 0) > 0)
         {
-             SceneManager.LoadScene(mainSceneName);
+            SceneManager.LoadScene(mainSceneName);
         }
         else
         {
-            tutorialSeen = true;
+            PlayerPrefs.SetInt("TutorialViewed", 1);
             SceneManager.LoadScene(tutorialSceneName);
         }
 
+    }
+
+    void ViewTutorial()
+    {
+        SceneManager.LoadScene(tutorialSceneName);
     }
 
     void QuitGame()

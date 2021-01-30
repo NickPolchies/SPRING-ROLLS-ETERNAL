@@ -19,7 +19,7 @@ public class StatusUI : MonoBehaviour
     public TruckController truck;
     public Sun sun;
 
-    public TextMeshProUGUI dayText, tempText, powerText, cashText;
+    public TextMeshProUGUI dayText, tempText, intempText, powerText, cashText;
     public Image insideThermometer;
     public ParticleSystem rain;
 
@@ -99,7 +99,8 @@ public class StatusUI : MonoBehaviour
     private void UpdateText()
     {
         dayText.text = "Day " + day;
-        tempText.text = "Temp: " + truck.temperature.ToString("F1");
+        tempText.text = outsideThermometer.temperature.ToString("F1") + "°";
+        intempText.text = truck.temperature.ToString("F1") + "°";
         powerText.text = "Power: " + truck.power.ToString("F0");
 
         cashText.text = "Cash: $" + truck.cash.ToString("F2");
@@ -118,15 +119,15 @@ public class StatusUI : MonoBehaviour
         }
         if (truck.temperature < truck.lowTemperature)
         {
-            tempText.color = Color.blue;
+            intempText.color = Color.cyan;
         }
         else if (truck.temperature > truck.highTemperature)
         {
-            tempText.color = Color.red;
+            intempText.color = Color.red;
         }
         else
         {
-            tempText.color = Color.white;
+            intempText.color = Color.white;
         }
     }
 

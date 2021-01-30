@@ -19,7 +19,7 @@ MonoBehaviour:
   power: -3
   roof: 0
   solar: 0
-  cashFlowScaling: 2
+  cashFlowScaling: 2.5
   heatScaling: 0.1
   powerScaling: -1
   size: {fileID: 11400000, guid: c0892b6641c3ca94e8a378bdc7d4db17, type: 2}

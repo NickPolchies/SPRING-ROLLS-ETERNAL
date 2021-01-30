@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   typeName: Industrial Oven
   cost: 520
-  cashFlow: 12
+  cashFlow: 13
   heat: 2
   power: -1
   roof: 0
   solar: 0
-  cashFlowScaling: 2.5
+  cashFlowScaling: 3
   heatScaling: 0.2
   powerScaling: -1
   size: {fileID: 11400000, guid: 5734b750cd1ebb2489ec88cba1d669bf, type: 2}

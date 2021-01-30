@@ -6,14 +6,14 @@ using TMPro;
 
 public class Graph : MonoBehaviour
 {
-    [SerializeField] private Sprite point;
-    [SerializeField] private RectTransform graphContainer;
-    [SerializeField] private RectTransform labelTemplateX;
-    [SerializeField] private RectTransform labelTemplateY;
-    [SerializeField] private RectTransform lineTemplateX;
-    [SerializeField] private RectTransform lineTemplateY;
+    [SerializeField] private Sprite point = null;
+    [SerializeField] private RectTransform graphContainer = null;
+    [SerializeField] private RectTransform labelTemplateX = null;
+    [SerializeField] private RectTransform labelTemplateY = null;
+    [SerializeField] private RectTransform lineTemplateX = null;
+    [SerializeField] private RectTransform lineTemplateY = null;
     private int separatorCount = 10;
-    [SerializeField] private GameOverUI gameOverUI;
+    [SerializeField] private GameOverUI gameOverUI = null;
 
     private List<GameObject> points;
     private List<GameObject> lineConnectors;

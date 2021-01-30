@@ -39,7 +39,7 @@ public class Equipment : MonoBehaviour, Clickable
 
     private FloatingText floatingText;
     public TMP_FontAsset floatingTextFont;
-    [SerializeField] BatteryIconManager batteryIconManager;
+    [SerializeField] private BatteryIconManager batteryIconManager = null;
 
     private void Start()
     {

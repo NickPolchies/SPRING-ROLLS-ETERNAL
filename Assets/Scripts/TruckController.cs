@@ -24,7 +24,6 @@ public class TruckController : MonoBehaviour
     private Grid grid;
     public EquipmentType[] startingEquipment = new EquipmentType[5];
     public Equipment equipmentTemplate;
-    private float externalHeat;
     private MouseUI mouseUI; //TODO really hate how this works, maybe redo this
     //private bool powerCheck;
 
@@ -43,7 +42,6 @@ public class TruckController : MonoBehaviour
 
         power = 0;
         cash = 999999;
-        externalHeat = 0;
 
         power += truckGeneratorPower;
 
@@ -200,19 +198,6 @@ public class TruckController : MonoBehaviour
             return false;
         }
         return true;
-    }
-
-    public float GetExternalHeatGeneration()
-    {
-        float t = 0;
-        List<Equipment> equipmentList = GetEquipmentAtGrid(0, 2, grid.width, 1);
-
-        foreach (Equipment e in equipmentList)
-        {
-            t += e.type.Heat;
-        }
-
-        return t;
     }
 
     public Equipment GetEquipmentAtMouse()

@@ -4,26 +4,26 @@
 public class EquipmentType : ScriptableObject
 {
     //Properties
-    [SerializeField] private string typeName;
-    [SerializeField] private int cost;
-    [SerializeField] private float cashFlow;
-    [SerializeField] private float heat;
-    [SerializeField] private int power;
-    [SerializeField] private bool roof;
-    [SerializeField] private bool solar;
+    [SerializeField] private string typeName = "";
+    [SerializeField] private int cost = 0;
+    [SerializeField] private float cashFlow = 0;
+    [SerializeField] private float heat = 0;
+    [SerializeField] private int power = 0;
+    [SerializeField] private bool roof = false;
+    [SerializeField] private bool solar = false;
 
     [Space(10)]
 
     //Scaling Properties
-    [SerializeField] private float cashFlowScaling;
-    [SerializeField] private float heatScaling;
-    [SerializeField] private int powerScaling;
+    [SerializeField] private float cashFlowScaling = 0;
+    [SerializeField] private float heatScaling = 0;
+    [SerializeField] private int powerScaling = 0;
 
     [Space(10)]
 
     //Objects
-    [SerializeField] private EquipmentSize size;
-    [SerializeField] private GameObject graphics;
+    [SerializeField] private EquipmentSize size = null;
+    [SerializeField] private GameObject graphics = null;
 
     #region Properties
     public string TypeName

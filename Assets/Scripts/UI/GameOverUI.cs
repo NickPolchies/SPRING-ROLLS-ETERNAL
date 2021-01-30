@@ -33,14 +33,14 @@ public class GameOverUI : MonoBehaviour
     void DisplayCashGraph()
     {
         graph.transform.parent.gameObject.SetActive(true);
-        graph.ShowGraph(statusUI.DailyTotalCash, "c0");
+        graph.ShowGraph(statusUI.dailyTotalCash, "c0");
         gameObject.SetActive(false);
     }
 
     void DisplayHeatGraph()
     {
         graph.transform.parent.gameObject.SetActive(true);
-        graph.ShowGraph(statusUI.DailyOutsideTemperature, "F1");
+        graph.ShowGraph(statusUI.dailyOutsideTemperature, "F1");
         gameObject.SetActive(false);
     }
 }

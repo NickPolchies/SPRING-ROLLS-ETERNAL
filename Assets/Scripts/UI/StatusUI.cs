@@ -23,8 +23,8 @@ public class StatusUI : MonoBehaviour
     public Image insideThermometer;
     public ParticleSystem rain;
 
-    private List<float> dailyOutsideTemperature;
-    private List<float> dailyTotalCash;
+    public List<float> dailyOutsideTemperature { get; private set; }
+    public List<float> dailyTotalCash { get; private set; }
 
     private void Awake()
     {
@@ -71,29 +71,7 @@ public class StatusUI : MonoBehaviour
 
         sun.setProgress(timeOfDay / dayLength);
 
-        UpdateGlobalWarming();
-        //UpdateRain();
         UpdateText();
-        }
-
-
-    private void UpdateGlobalWarming()
-    {
-        float warming = truck.GetExternalHeatGeneration();
-        outsideThermometer.temperature += warming * warmingFactor;
-    }
-
-    private void UpdateRain()
-    {
-        return; //TODO rain
-        if (outsideThermometer.temperature < 25 && !rain.gameObject.activeInHierarchy)
-        {
-            rain.gameObject.SetActive(true);
-        }
-        else if (outsideThermometer.temperature > 25 && rain.gameObject.activeInHierarchy)
-        {
-            rain.gameObject.SetActive(false);
-        }
     }
 
     private void UpdateText()
@@ -129,15 +107,5 @@ public class StatusUI : MonoBehaviour
         {
             intempText.color = Color.white;
         }
-    }
-
-    public List<float> DailyOutsideTemperature
-    {
-        get { return dailyOutsideTemperature; }
-    }
-
-    public List<float> DailyTotalCash
-    {
-        get { return dailyTotalCash; }
     }
 }

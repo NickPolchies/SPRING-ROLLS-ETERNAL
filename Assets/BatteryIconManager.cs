@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class BatteryIconManager : MonoBehaviour
 {
-    [SerializeField] private float spacing;
-    [SerializeField] Transform anchor;
+    [SerializeField] private float spacing = 0;
+    [SerializeField] Transform anchor = null;
     [SerializeField] int sortingLayer = 3;
     [SerializeField] float scale = 2;
     public Sprite batterySprite;

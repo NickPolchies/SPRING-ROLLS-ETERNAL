@@ -195,11 +195,13 @@ MonoBehaviour:
   cash: 0
   temperature: 0
   power: 0
-  highTemperature: 35
+  highTemperature: 32.5
   maxTemperature: 40
-  lowTemperature: 5
+  lowTemperature: 7.5
   minTemperature: 0
   lifetimeCash: 0
+  cashText: {fileID: 0}
+  powerText: {fileID: 0}
   insulationRating: 10
   startingEquipment:
   - {fileID: 11400000, guid: dd03476152f66ad4ca44aba51cd04242, type: 2}

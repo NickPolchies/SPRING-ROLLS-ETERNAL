@@ -6,11 +6,13 @@ using TMPro;
 public class GameOverUI : MonoBehaviour
 {
     public TruckController truck;
+    public bool gameOverType;
     public string mainMenuSceneName;
     public Button mainMenuButton;
     public Button cashGraphButton;
     public Button heatGraphButton;
     public TextMeshProUGUI stats;
+    public TextMeshProUGUI gameOverReasons;
     public Graph graph;
     public StatusUI statusUI;
     public GameObject Song;
@@ -22,6 +24,14 @@ public class GameOverUI : MonoBehaviour
         cashGraphButton.onClick.AddListener(DisplayCashGraph);
         heatGraphButton.onClick.AddListener(DisplayHeatGraph);
         stats.text = "YOU EARNED A TOTAL OF " + truck.lifetimeCash + " DOLLARS";
+        if (gameOverType == true)
+        {
+            gameOverReasons.text = "Oh no, your truck melted!";
+        }
+        else
+        {
+            gameOverReasons.text = "Oh no, your truck froze!";
+        }    
         //Song.gameObject.SetActive(true);
     }
 

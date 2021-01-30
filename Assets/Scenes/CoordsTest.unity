@@ -673,6 +673,11 @@ PrefabInstance:
       propertyPath: truck
       value: 
       objectReference: {fileID: 1127800786}
+    - target: {fileID: 5030061312057020800, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+        type: 3}
+      propertyPath: gameOverUI
+      value: 
+      objectReference: {fileID: 6855785830183073495}
     - target: {fileID: 5536223995177987110, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
         type: 3}
       propertyPath: truck
@@ -770,3 +775,15 @@ PrefabInstance:
       objectReference: {fileID: 1127800786}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fdbb5eb5b18b1374c9dc591e60e601b3, type: 3}
+--- !u!114 &6855785830183073495 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8609847413418530133, guid: fdbb5eb5b18b1374c9dc591e60e601b3,
+    type: 3}
+  m_PrefabInstance: {fileID: 6855785830183073494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9b029d1599c874aa2496f1aecf15f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

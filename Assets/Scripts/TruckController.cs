@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+
 
 //TODO break some of this out maybe?
 public class TruckController : MonoBehaviour
@@ -13,6 +16,8 @@ public class TruckController : MonoBehaviour
     public float highTemperature, maxTemperature, lowTemperature, minTemperature;
     public float lifetimeCash;
     private float soundSwitch = 0;
+    public TextMeshProUGUI cashText;
+    public GameObject powerText;
 
     public float insulationRating = 10;
 
@@ -25,7 +30,7 @@ public class TruckController : MonoBehaviour
 
     private void OnValidate()
     {
-        if(startingEquipment.Length > 4)
+        if (startingEquipment.Length > 4)
         {
             Debug.LogError("ERR: Setting starting equipment to more than 5 will cause runtime errors");
         }
@@ -118,6 +123,14 @@ public class TruckController : MonoBehaviour
 
             cash -= equipType.Cost;
         }
+        else if (cash - equipType.Cost < 0)
+        {
+           StartCoroutine(FlashCashText());
+        }
+        else if (power + powerBack + equipType.Power < 0)
+        {
+            StartCoroutine(FlashPowerText());
+        }
         return;
     }
 
@@ -150,7 +163,7 @@ public class TruckController : MonoBehaviour
         temperature += (outsideTemp - temperature) / insulationRating * Time.deltaTime;
         List<Equipment> equipment = grid.GetAllEquipment();
 
-        foreach(Equipment e in equipment)
+        foreach (Equipment e in equipment)
         {
             if (e.type.Solar)
             {
@@ -177,7 +190,7 @@ public class TruckController : MonoBehaviour
         float t = 0;
         List<Equipment> equipmentList = GetEquipmentAtGrid(0, 2, grid.width, 1);
 
-        foreach(Equipment e in equipmentList)
+        foreach (Equipment e in equipmentList)
         {
             t += e.type.Heat;
         }
@@ -189,7 +202,7 @@ public class TruckController : MonoBehaviour
     {
         Vector2Int mouseGridCoords = GetMouseGridPosition();
 
-        if(mouseGridCoords.x > -1)
+        if (mouseGridCoords.x > -1)
         {
             return grid.GetEquipmentAt(GetMouseGridPosition());
         }
@@ -209,6 +222,39 @@ public class TruckController : MonoBehaviour
         }
 
         power += truckGeneratorPower;
+    }
+
+    IEnumerator FlashCashText()
+    {
+        cashText.color = new Color32(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.1f);
+        cashText.color = new Color32(255, 255, 255, 255);
+        yield return new WaitForSeconds(0.1f);
+        cashText.color = new Color32(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.1f);
+        cashText.color = new Color32(255, 255, 255, 255);
+        yield return new WaitForSeconds(0.1f);
+        cashText.color = new Color32(255, 0, 0, 255);
+        yield return new WaitForSeconds(0.1f);
+        cashText.color = new Color32(255, 255, 255, 255);
+    }
+    IEnumerator FlashPowerText()
+    {
+        powerText.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        powerText.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        powerText.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        powerText.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+        powerText.SetActive(false);
+        yield return new WaitForSeconds(0.1f);
+        powerText.SetActive(true);
+        yield return new WaitForSeconds(0.1f);
+
+
+
     }
 
     public void EndGame()

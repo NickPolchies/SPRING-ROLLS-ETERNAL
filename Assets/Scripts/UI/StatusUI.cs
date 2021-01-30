@@ -119,15 +119,15 @@ public class StatusUI : MonoBehaviour
         }
         if (truck.temperature < truck.lowTemperature)
         {
-            tempText.color = Color.blue;
+            intempText.color = Color.cyan;
         }
         else if (truck.temperature > truck.highTemperature)
         {
-            tempText.color = Color.red;
+            intempText.color = Color.red;
         }
         else
         {
-            tempText.color = Color.white;
+            intempText.color = Color.white;
         }
     }
 

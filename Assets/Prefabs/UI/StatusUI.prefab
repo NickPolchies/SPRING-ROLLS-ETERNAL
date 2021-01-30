@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.9337243, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.96822894, b: 0.25943398, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -86,12 +86,12 @@ GameObject:
   - component: {fileID: 5050375470298648406}
   - component: {fileID: 2977288908981007971}
   m_Layer: 5
-  m_Name: IndoorTemp
+  m_Name: OutdoorTemp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4299947290141009739
 RectTransform:
   m_ObjectHideFlags: 0
@@ -108,7 +108,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 422, y: -198}
+  m_AnchoredPosition: {x: -534, y: 112}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5050375470298648406
@@ -167,14 +167,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -205,7 +205,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 96.5087, w: 0}
   m_textInfo:
     textComponent: {fileID: 2977288908981007971}
     characterCount: 5
@@ -324,8 +324,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -362,7 +362,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -40.79059, y: 0, z: -169.43756, w: 0}
+  m_margin: {x: -5.6242676, y: 0, z: 1.2733154, w: -3.7774048}
   m_textInfo:
     textComponent: {fileID: 1416360221600093243}
     characterCount: 7
@@ -481,14 +481,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 52
+  m_fontSizeBase: 52
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -519,7 +519,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 55.470505, y: 0, z: -27.630638, w: -33.95697}
   m_textInfo:
     textComponent: {fileID: 1416360222295931895}
     characterCount: 5
@@ -557,12 +557,12 @@ GameObject:
   - component: {fileID: 1416360223049568032}
   - component: {fileID: 1416360223049568033}
   m_Layer: 5
-  m_Name: OutdoorTemp
+  m_Name: IndoorTemp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1416360223049568038
 RectTransform:
   m_ObjectHideFlags: 0
@@ -579,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 422, y: -198}
+  m_AnchoredPosition: {x: -430, y: 112}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1416360223049568032
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TEMP:'
+  m_text: 'Temp:'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a, type: 2}
   m_sharedMaterial: {fileID: 5260457146997047461, guid: ee4634fbcd3e0264c902b30d8c83548a,
@@ -638,14 +638,14 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 32
+  m_fontSizeBase: 32
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_textAlignment: 258
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 87.97609, w: 0}
   m_textInfo:
     textComponent: {fileID: 1416360223049568033}
     characterCount: 5
@@ -766,7 +766,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5b0ba1e1c1458ce4da9853c88e195647, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2966e7e4f6bd0f94492e68dc1149e6ae, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -834,7 +834,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 1, b: 0.20915246, a: 1}
+  m_Color: {r: 1, g: 0.6812409, b: 0.1273585, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: POWER 99
+  m_text: Power 99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a, type: 2}
   m_sharedMaterial: {fileID: 5260457146997047461, guid: ee4634fbcd3e0264c902b30d8c83548a,
@@ -950,7 +950,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 258
+  m_textAlignment: 257
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -1180,7 +1180,7 @@ RectTransform:
   m_GameObject: {fileID: 3853396200846318146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 10, z: 1}
   m_Children:
   - {fileID: 3853396200594175967}
   - {fileID: 3853396200191010710}
@@ -1189,7 +1189,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 274.5, y: -141}
+  m_AnchoredPosition: {x: -480, y: -45}
   m_SizeDelta: {x: 7, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &3853396201227447516
@@ -1313,7 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   warmingFactor: 1
   day: 1
-  dayLength: 30
+  dayLength: 20
   weeklyTemperatureFlow:
     serializedVersion: 2
     m_Curve:
@@ -1369,12 +1369,13 @@ MonoBehaviour:
   maxRandomTemp: 3
   powerWarning: 2
   RainAudio: {fileID: 0}
-  tempDayFactor: 0
+  tempDayFactor: 0.05
   outsideThermometer: {fileID: 8185886635756510238}
   truck: {fileID: 0}
   sun: {fileID: 0}
   dayText: {fileID: 1416360222295931895}
-  tempText: {fileID: 1416360223049568033}
+  tempText: {fileID: 2977288908981007971}
+  intempText: {fileID: 1416360223049568033}
   powerText: {fileID: 1907528147591123711}
   cashText: {fileID: 1416360221600093243}
   insideThermometer: {fileID: 3853396200191010709}
@@ -1413,7 +1414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 423, y: -163}
+  m_AnchoredPosition: {x: 419, y: -172}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7236187331677233317
@@ -1443,9 +1444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'TRUCK
-
-'
+  m_text: Truck
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a, type: 2}
   m_sharedMaterial: {fileID: 5260457146997047461, guid: ee4634fbcd3e0264c902b30d8c83548a,
@@ -1515,13 +1514,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4407927286143900721}
-    characterCount: 6
+    characterCount: 0
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 1
+    spaceCount: 0
+    wordCount: 0
     linkCount: 0
-    lineCount: 1
-    pageCount: 1
+    lineCount: 0
+    pageCount: 0
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1564,7 +1563,7 @@ RectTransform:
   m_GameObject: {fileID: 7060553415705961166}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 4, y: 10, z: 1}
   m_Children:
   - {fileID: 2772234357977628292}
   - {fileID: 7773814640065941908}
@@ -1576,7 +1575,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -579.5, y: -158}
+  m_AnchoredPosition: {x: -588, y: -45}
   m_SizeDelta: {x: 7, y: 28}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8185886635756510238
@@ -1736,7 +1735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.48295593, b: 1, a: 1}
+  m_Color: {r: 1, g: 0, b: 0.26666668, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

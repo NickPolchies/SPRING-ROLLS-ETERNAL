@@ -14,7 +14,6 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.DeleteAll();
         startGame.onClick.AddListener(StartGame);
         tutorialButton.onClick.AddListener(ViewTutorial);
         credits.onClick.AddListener(Credits);

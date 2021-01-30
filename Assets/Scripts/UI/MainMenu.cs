@@ -9,6 +9,8 @@ public class MainMenu : MonoBehaviour
     public Button quitGame;
     public string mainSceneName;
     public string creditsSceneName;
+    public string tutorialSceneName;
+    public bool tutorialSeen;
 
     void Start()
     {
@@ -19,7 +21,16 @@ public class MainMenu : MonoBehaviour
 
     void StartGame()
     {
-        SceneManager.LoadScene(mainSceneName);
+        if (tutorialSeen == true)
+        {
+             SceneManager.LoadScene(mainSceneName);
+        }
+        else
+        {
+            tutorialSeen = true;
+            SceneManager.LoadScene(tutorialSceneName);
+        }
+
     }
 
     void QuitGame()

@@ -1962,7 +1962,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Earn as much cash as you can before heat melts or freezes your truck!
+  m_text: 'Goal: Earn as much as you
+
+    can before
+
+    your truck melts or freezes!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ee4634fbcd3e0264c902b30d8c83548a, type: 2}
   m_sharedMaterial: {fileID: 5260457146997047461, guid: ee4634fbcd3e0264c902b30d8c83548a,
@@ -2008,7 +2012,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 50
+  m_firstOverflowCharacterIndex: 48
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2032,10 +2036,10 @@ MonoBehaviour:
   m_margin: {x: 308.68652, y: 0, z: 416.13727, w: -99.336}
   m_textInfo:
     textComponent: {fileID: 1573447846}
-    characterCount: 69
+    characterCount: 65
     spriteCount: 0
-    spaceCount: 13
-    wordCount: 14
+    spaceCount: 12
+    wordCount: 13
     linkCount: 0
     lineCount: 6
     pageCount: 1

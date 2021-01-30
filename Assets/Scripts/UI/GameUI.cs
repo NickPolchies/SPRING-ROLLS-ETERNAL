@@ -9,7 +9,6 @@ public class GameUI : MonoBehaviour
     public Canvas gameOverUI;
     public Canvas mouseUI;
     private bool gameEnded;
-    public bool gameOverType;
 
     void Start()
     {
@@ -29,11 +28,11 @@ public class GameUI : MonoBehaviour
             gameEnded = true;
             if ((truck.temperature > truck.maxTemperature))
             {
-                gameOverType = true;
+                gameOverUI.GetComponent<GameOverUI>().gameOverHot = true;
             }
             else
             {
-                gameOverType = false;
+                gameOverUI.GetComponent<GameOverUI>().gameOverHot = false;
             }
             truck.EndGame();
 

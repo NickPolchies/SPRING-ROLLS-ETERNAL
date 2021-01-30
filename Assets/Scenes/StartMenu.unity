@@ -1245,6 +1245,7 @@ MonoBehaviour:
   quitGame: {fileID: 29189150}
   mainSceneName: CoordsTest
   creditsSceneName: Credits
+  tutorialSceneName: Tutorial
 --- !u!1 &1770406566
 GameObject:
   m_ObjectHideFlags: 0

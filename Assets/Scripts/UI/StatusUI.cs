@@ -22,6 +22,7 @@ public class StatusUI : MonoBehaviour
     public TextMeshProUGUI dayText, tempText, intempText, powerText, cashText;
     public Image insideThermometer;
     public ParticleSystem rain;
+    private Animator animator;
 
     public List<float> dailyOutsideTemperature { get; private set; }
     public List<float> dailyTotalCash { get; private set; }
@@ -35,6 +36,8 @@ public class StatusUI : MonoBehaviour
 
         dailyOutsideTemperature.Add(outsideThermometer.temperature);
         dailyTotalCash.Add(truck.startingCash);
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update()
@@ -68,6 +71,7 @@ public class StatusUI : MonoBehaviour
         truck.HeatTransfer(outsideThermometer.temperature);
 
         insideThermometer.fillAmount = (truck.temperature - truck.minTemperature) / (truck.maxTemperature - truck.minTemperature);
+        animator.SetFloat("RedBarFill", insideThermometer.fillAmount);
 
         sun.setProgress(timeOfDay / dayLength);
 

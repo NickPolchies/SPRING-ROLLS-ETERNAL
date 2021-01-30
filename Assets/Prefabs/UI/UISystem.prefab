@@ -850,6 +850,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: StatusUI
       objectReference: {fileID: 0}
+    - target: {fileID: 6366287700741454494, guid: 47b3a00460fb8964a8c6e26a2cf35cb6,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.32572958
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 47b3a00460fb8964a8c6e26a2cf35cb6, type: 3}
 --- !u!224 &6855785831396960998 stripped

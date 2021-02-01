@@ -14,16 +14,22 @@ public class MouseUI : MonoBehaviour
     private bool dragging;
     public Image equipmentImage;
     public float imageScale;
-    public RectTransform BuildHighlight;
     private bool displayInfoPane;
     public string overpowerIncreaseTextColor, overpowerDecreaseTextColor;
+
+    //Grid size numbers
+    private Vector2 buildHighlightOffset = new Vector2(160, 192);
+    private Vector2 buildHighlightSize = new Vector2(167.5f, 152.5f);
+    private Vector2 buildTileSize = new Vector2(162.5f, 191.5f);
+    public RectTransform buildHighlight;
+
 
     private void Start()
     {
         currentEquipType = null;
         currentEquipment = null;
         dragging = false;
-        BuildHighlight.gameObject.SetActive(false);
+        buildHighlight.gameObject.SetActive(false);
     }
 
     void Update()
@@ -107,13 +113,13 @@ public class MouseUI : MonoBehaviour
     {
         if (dragging)
         {
-            BuildHighlight.gameObject.SetActive(true);
+            buildHighlight.gameObject.SetActive(true);
             Vector2Int gridPos = truck.GetMouseGridPosition();
 
             //Mouse is draging over a grid square
             if(gridPos.x >= 0)
             {
-                BuildHighlight.gameObject.SetActive(true);
+                buildHighlight.gameObject.SetActive(true);
 
                 int sizeX = currentEquipType.Size.GridSize.x;
                 int sizeY = currentEquipType.Size.GridSize.y;
@@ -122,18 +128,17 @@ public class MouseUI : MonoBehaviour
                 {
                     gridPos.x--;
                 }
-                if(sizeY + gridPos.y > 3)
+                if(sizeY > 1)
                 {
-                    gridPos.y--;
+                    gridPos.y = Mathf.Max(gridPos.y - 1, 0);
                 }
 
-                //Woo! Magic grid size numbers! Don't use other image sizes or change anything or this breaks instantly!
-                BuildHighlight.localPosition = new Vector3(gridPos.x * 160, gridPos.y * 192, 0);
-                BuildHighlight.sizeDelta = new Vector3(167.5f + (sizeX - 1) * 162.5f, 152.5f + (sizeY - 1) * 191.5f, 0);
+                buildHighlight.localPosition = new Vector3(gridPos.x * buildHighlightOffset.x, gridPos.y * buildHighlightOffset.y, 0);
+                buildHighlight.sizeDelta = new Vector3(buildHighlightSize.x + (sizeX - 1) * buildTileSize.x, buildHighlightSize.y + (sizeY - 1) * buildTileSize.y, 0);
             }
             else
             {
-                BuildHighlight.gameObject.SetActive(false);
+                buildHighlight.gameObject.SetActive(false);
             }
         }
     }
@@ -188,7 +193,7 @@ public class MouseUI : MonoBehaviour
         dragging = false;
         displayInfoPane = false;
         equipmentImage.enabled = false;
-        BuildHighlight.gameObject.SetActive(false);
+        buildHighlight.gameObject.SetActive(false);
 
         truck.BuyEquipment(truck.GetMouseGridPosition(), currentEquipType);
     }

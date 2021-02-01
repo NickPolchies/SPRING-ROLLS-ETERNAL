@@ -134,9 +134,9 @@ MonoBehaviour:
   mouseoverInfoPane: {fileID: 1589436455214897856}
   equipmentImage: {fileID: 1589436453832890963}
   imageScale: 5
-  BuildHighlight: {fileID: 773172403128738498}
   overpowerIncreaseTextColor: '#00FF00'
   overpowerDecreaseTextColor: '#FF0000'
+  buildHighlight: {fileID: 773172403128738498}
 --- !u!223 &1209337331564637261
 Canvas:
   m_ObjectHideFlags: 0
@@ -633,13 +633,14 @@ GameObject:
   - component: {fileID: 773172403128738498}
   - component: {fileID: 2142482134864135328}
   - component: {fileID: 2753296613165732632}
+  - component: {fileID: 2441866073582207048}
   m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &773172403128738498
 RectTransform:
   m_ObjectHideFlags: 0
@@ -696,6 +697,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2441866073582207048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6111918794188593512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 607668470b88492489a1094392c036f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blinkSpeed: 1.5
 --- !u!1 &6133765239735733237
 GameObject:
   m_ObjectHideFlags: 0

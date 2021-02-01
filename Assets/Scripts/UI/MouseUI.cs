@@ -127,7 +127,7 @@ public class MouseUI : MonoBehaviour
                     gridPos.y--;
                 }
 
-                //Woo! Magic grid size numbers!
+                //Woo! Magic grid size numbers! Don't use other image sizes or change anything or this breaks instantly!
                 BuildHighlight.localPosition = new Vector3(gridPos.x * 160, gridPos.y * 192, 0);
                 BuildHighlight.sizeDelta = new Vector3(167.5f + (sizeX - 1) * 162.5f, 152.5f + (sizeY - 1) * 191.5f, 0);
             }

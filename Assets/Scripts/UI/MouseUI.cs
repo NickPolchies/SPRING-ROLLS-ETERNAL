@@ -14,6 +14,7 @@ public class MouseUI : MonoBehaviour
     private bool dragging;
     public Image equipmentImage;
     public float imageScale;
+    public RectTransform BuildHighlight;
     private bool displayInfoPane;
     public string overpowerIncreaseTextColor, overpowerDecreaseTextColor;
 
@@ -22,12 +23,14 @@ public class MouseUI : MonoBehaviour
         currentEquipType = null;
         currentEquipment = null;
         dragging = false;
+        BuildHighlight.gameObject.SetActive(false);
     }
 
     void Update()
     {
         SetPosition();
         DisplayMouseoverInfo();
+        HighlightBuildLocation();
     }
 
     private void SetPosition()
@@ -100,6 +103,41 @@ public class MouseUI : MonoBehaviour
         return "";
     }
 
+    public void HighlightBuildLocation()
+    {
+        if (dragging)
+        {
+            BuildHighlight.gameObject.SetActive(true);
+            Vector2Int gridPos = truck.GetMouseGridPosition();
+
+            //Mouse is draging over a grid square
+            if(gridPos.x >= 0)
+            {
+                BuildHighlight.gameObject.SetActive(true);
+
+                int sizeX = currentEquipType.Size.GridSize.x;
+                int sizeY = currentEquipType.Size.GridSize.y;
+
+                if(sizeX + gridPos.x > 4)
+                {
+                    gridPos.x--;
+                }
+                if(sizeY + gridPos.y > 3)
+                {
+                    gridPos.y--;
+                }
+
+                //Woo! Magic grid size numbers!
+                BuildHighlight.localPosition = new Vector3(gridPos.x * 160, gridPos.y * 192, 0);
+                BuildHighlight.sizeDelta = new Vector3(167.5f + (sizeX - 1) * 162.5f, 152.5f + (sizeY - 1) * 191.5f, 0);
+            }
+            else
+            {
+                BuildHighlight.gameObject.SetActive(false);
+            }
+        }
+    }
+
     public void MouseEnter(EquipmentType e)
     {
         if (!dragging)
@@ -150,6 +188,7 @@ public class MouseUI : MonoBehaviour
         dragging = false;
         displayInfoPane = false;
         equipmentImage.enabled = false;
+        BuildHighlight.gameObject.SetActive(false);
 
         truck.BuyEquipment(truck.GetMouseGridPosition(), currentEquipType);
     }

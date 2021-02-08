@@ -48,8 +48,9 @@ public class StatusUI : MonoBehaviour
         {
             day++;
 
-            outsideThermometer.temperature += (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
-
+            float tempInc = (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
+            Debug.Log(tempInc);
+            outsideThermometer.IncreaseTemperature(tempInc);
             if (day % 5 == 0)
             {
                 rain.gameObject.SetActive(true);

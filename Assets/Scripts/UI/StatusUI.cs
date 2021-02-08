@@ -48,8 +48,8 @@ public class StatusUI : MonoBehaviour
         {
             day++;
 
-            float tempInc = (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
-            Debug.Log(tempInc);
+            float temperatureChange = (weeklyTemperatureFlow.Evaluate(day % 5) + Random.Range(minRandomTemp, maxRandomTemp)) * (1f + tempDayFactor * day);
+            Debug.Log(temperatureChange);
             outsideThermometer.IncreaseTemperature(tempInc);
             if (day % 5 == 0)
             {
@@ -63,7 +63,7 @@ public class StatusUI : MonoBehaviour
 
             }
 
-            dailyOutsideTemperature.Add(outsideThermometer.temperature);
+            dailyOutsideTemperature.Add(outsideThermometer.temperature + temperatureChange);
             dailyTotalCash.Add(truck.lifetimeCash);
 
             timeOfDay -= dayLength;

@@ -31,12 +31,19 @@ public class GameOverUI : MonoBehaviour
         else
         {
             gameOverReasons.text = "OH NO, YOUR TRUCK FROZE!";
-        }    
+        }
+
+        float highScore = PlayerPrefs.GetFloat("HighScoreCash", -1);
+        if (highScore > 0)
+        {
+            stats.text += "\nPREVIOUS HIGH SCORE: " + highScore;
+        }
         //Song.gameObject.SetActive(true);
     }
 
     void ReturnToMenu()
     {
+        PlayerPrefs.SetFloat("HighScoreCash", truck.lifetimeCash);
         SceneManager.LoadScene(mainMenuSceneName);
     }
 

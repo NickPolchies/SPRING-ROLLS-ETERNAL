@@ -8,9 +8,11 @@ public class MainMenu : MonoBehaviour
     public Button credits;
     public Button quitGame;
     public Button tutorialButton;
+    public Button highScoreButton;
     public string mainSceneName;
     public string creditsSceneName;
     public string tutorialSceneName;
+
 
     void Start()
     {

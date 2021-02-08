@@ -45,7 +45,6 @@ public class OutsideThermometer : MonoBehaviour
 
     public void IncreaseTemperature(float temperatureIncrease)
     {
-        Debug.Log(temperatureIncrease);
         nextTemperature = temperature + temperatureIncrease;
         previousTemperature = temperature;
         remainingTransitionTime = transitionTime;

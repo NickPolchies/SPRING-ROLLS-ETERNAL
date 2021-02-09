@@ -1597,9 +1597,9 @@ MonoBehaviour:
   coolMinTemperature: 40
   coolMaxTemperature: 80
   warmMinTemperature: 80
-  warmMaxTemperature: 120
-  hotMinTemperature: 120
-  hotMaxTemperature: 160
+  warmMaxTemperature: 140
+  hotMinTemperature: 140
+  hotMaxTemperature: 200
   transitionTime: 1
   coldThermometerImage: {fileID: 160186389513070926}
   coolThermometerImage: {fileID: 1687577009749855454}

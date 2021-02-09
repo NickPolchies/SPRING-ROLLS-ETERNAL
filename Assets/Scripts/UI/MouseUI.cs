@@ -45,17 +45,21 @@ public class MouseUI : MonoBehaviour
         float height = rectTransform.rect.height;
 
         Vector2 mousePos = Input.mousePosition;
+        mousePos = new Vector2(mousePos.x / Screen.width * 1280, mousePos.y / Screen.height * 720);
 
         rectTransform.pivot = new Vector2(0, 0);
 
-        if (mousePos.x + width > Screen.width)
+        if (mousePos.x + width > 1280)
         {
             rectTransform.pivot += new Vector2(1, 0);
         }
-        if (mousePos.y + height > Screen.height)
+        if (mousePos.y + height > 720)
         {
             rectTransform.pivot += new Vector2(0, 1);
         }
+
+        Debug.Log("Screen: " + Screen.width + ", " + Screen.height);
+        Debug.Log("Mouse: " + mousePos);
 
         rectTransform.anchoredPosition = mousePos;
     }

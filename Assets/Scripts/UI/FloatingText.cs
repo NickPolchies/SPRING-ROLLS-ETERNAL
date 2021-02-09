@@ -9,12 +9,12 @@ public class FloatingText
     private Vector3 velocity;
 
     //TODO second pass
-    public FloatingText(Vector3 anchorPoint, Transform parent, TMP_FontAsset font)
+    public FloatingText(Vector3 anchorPoint, Transform parent, TMP_FontAsset font, int fontSize, TextAlignmentOptions alignment)
     {
         velocity = new Vector3(0f, 0.01f, 0f);
         spawnPoint = anchorPoint;
 
-        GameObject cashObject = new GameObject("CashText", typeof(TextMeshProUGUI), typeof(Canvas));
+        GameObject cashObject = new GameObject("FloatingText", typeof(TextMeshProUGUI), typeof(Canvas));
 
         cashObject.GetComponent<Canvas>().sortingOrder = 10;
 
@@ -22,10 +22,13 @@ public class FloatingText
 
         cashText = cashObject.GetComponent<TextMeshProUGUI>();
         cashText.rectTransform.localScale = new Vector3(0.02f, 0.02f, 0.02f);
-        cashText.alignment = TextAlignmentOptions.Center;
+        cashText.alignment = alignment;
         cashText.enabled = true;
         cashText.transform.localPosition = spawnPoint;
         cashText.font = font;
+        cashText.fontSize = fontSize;
+
+        AdjustPositionToAlignment(alignment);
     }
 
     public void SpawnText(string text, float duration)
@@ -56,5 +59,34 @@ public class FloatingText
         t = t > 1 ? 1 : t*t;
 
         cashText.alpha = 1 - t;
+    }
+
+    private void AdjustPositionToAlignment(TextAlignmentOptions alignment)
+    {
+        Vector3 adjustment = Vector3.zero;
+
+        switch (alignment)
+        {
+            case TextAlignmentOptions.Left:
+                adjustment = new Vector3(cashText.rectTransform.rect.width, 0);
+                break;
+            case TextAlignmentOptions.BottomLeft:
+                adjustment = new Vector3(cashText.rectTransform.rect.width, cashText.rectTransform.rect.height);
+                break;
+            case TextAlignmentOptions.TopLeft:
+                adjustment = new Vector3(cashText.rectTransform.rect.width, -cashText.rectTransform.rect.height);
+                break;
+            case TextAlignmentOptions.Right:
+                adjustment = new Vector3(-cashText.rectTransform.rect.width, 0);
+                break;
+            case TextAlignmentOptions.BottomRight:
+                adjustment = new Vector3(-cashText.rectTransform.rect.width, cashText.rectTransform.rect.height);
+                break;
+            case TextAlignmentOptions.TopRight:
+                adjustment = new Vector3(-cashText.rectTransform.rect.width, -cashText.rectTransform.rect.height);
+                break;
+        }
+
+        cashText.rectTransform.localPosition += adjustment;
     }
 }

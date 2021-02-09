@@ -39,7 +39,8 @@ public class Equipment : MonoBehaviour, Clickable
 
     private FloatingText floatingText;
     public TMP_FontAsset floatingTextFont;
-    [SerializeField] private BatteryIconManager batteryIconManager = null;
+    public int floatingTextFontSize = 36;
+    [SerializeField] private PowerIconManager batteryIconManager = null;
 
     private void Start()
     {
@@ -50,7 +51,7 @@ public class Equipment : MonoBehaviour, Clickable
         BoxCollider2D collider = GetComponentInChildren<BoxCollider2D>();
         collider.offset = type.Size.ColliderOffset;
         collider.size = type.Size.ColliderSize;
-        floatingText = new FloatingText(new Vector3(collider.offset.x, collider.offset.y, transform.position.z), transform, floatingTextFont);
+        floatingText = new FloatingText(new Vector3(collider.offset.x, collider.offset.y, transform.position.z), transform, floatingTextFont, floatingTextFontSize, TextAlignmentOptions.Center);
 
         animator = GetComponentInChildren<Animator>();
         sprite = GetComponentInChildren<SpriteRenderer>();
@@ -109,12 +110,12 @@ public class Equipment : MonoBehaviour, Clickable
 
             if (powerCycling == PowerCycling.up)
             {
-                batteryIconManager.AddBattery();
+                batteryIconManager.AddPower();
                 PowerUp.Play();
             }
             else
             {
-                batteryIconManager.RemoveBattery();
+                batteryIconManager.RemovePower();
                 PowerDown.Play();
             }
 
@@ -284,6 +285,6 @@ public class Equipment : MonoBehaviour, Clickable
         powerStage = 1;
         powerCycling = Equipment.PowerCycling.down;
         CyclePower(int.MaxValue);
-        batteryIconManager.RemoveAll();
+        batteryIconManager.PowerDown();
     }
 }

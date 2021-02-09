@@ -175,7 +175,7 @@ public class MouseUI : MonoBehaviour
         if (!dragging)
         {
             displayInfoPane = false;
-            //currentItem = null;
+            currentEquipment = null;
         }
     }
 

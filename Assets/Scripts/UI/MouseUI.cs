@@ -58,9 +58,6 @@ public class MouseUI : MonoBehaviour
             rectTransform.pivot += new Vector2(0, 1);
         }
 
-        Debug.Log("Screen: " + Screen.width + ", " + Screen.height);
-        Debug.Log("Mouse: " + mousePos);
-
         rectTransform.anchoredPosition = mousePos;
     }
 

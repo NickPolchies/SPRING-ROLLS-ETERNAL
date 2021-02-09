@@ -99,6 +99,7 @@ public class TruckController : MonoBehaviour
         foreach (Equipment e in previousEquipment)
         {
             powerBack -= e.type.Power;
+            powerBack -= e.type.PowerScaling * Mathf.Max(e.powerStage - 1, 0);
         }
 
         if (cash - equipType.Cost >= 0 && power + powerBack + equipType.Power >= 0)

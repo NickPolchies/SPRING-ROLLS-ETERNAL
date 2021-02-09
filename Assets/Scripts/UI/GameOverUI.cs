@@ -43,7 +43,12 @@ public class GameOverUI : MonoBehaviour
 
     void ReturnToMenu()
     {
-        PlayerPrefs.SetFloat("HighScoreCash", truck.lifetimeCash);
+        float highScore = PlayerPrefs.GetFloat("HighScoreCash", -1);
+        if (truck.lifetimeCash > highScore)
+        {
+            PlayerPrefs.SetFloat("HighScoreCash", truck.lifetimeCash);
+        }
+
         SceneManager.LoadScene(mainMenuSceneName);
     }
 

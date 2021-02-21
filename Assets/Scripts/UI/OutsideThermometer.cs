@@ -16,11 +16,13 @@ public class OutsideThermometer : MonoBehaviour
     public Image coolThermometerImage;
     public Image warmThermometerImage;
     public Image hotThermometerImage;
+    [SerializeField] private Animator glow;
 
     private void Start()
     {
         remainingTransitionTime = 0;
         previousTemperature = nextTemperature = temperature;
+//        glow.keepAnimatorControllerStateOnDisable = false;
     }
 
     void Update()
@@ -35,6 +37,22 @@ public class OutsideThermometer : MonoBehaviour
         {
             previousTemperature = temperature = nextTemperature;
             remainingTransitionTime = 0;
+        }
+
+        if(nextTemperature > temperature)
+        {
+//            glow.enabled = true;
+            glow.SetFloat("RedBarFill", 1);
+        }
+        else if(nextTemperature < temperature)
+        {
+//            glow.enabled = true;
+            glow.SetFloat("RedBarFill", 0);
+        }
+        else
+        {
+//            glow.enabled = false;
+            glow.SetFloat("RedBarFill", 0.5f);
         }
 
         coldThermometerImage.fillAmount = (temperature - coldMinTemperature) / (coldMaxTemperature - coldMinTemperature);
